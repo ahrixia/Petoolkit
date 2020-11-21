@@ -1,0 +1,1105 @@
+#!/usr/bin/env python3
+
+import os
+import subprocess
+import sys
+import socket
+import datetime
+import webbrowser
+from termcolor import colored
+
+def pentest():
+    Sclear()
+    global startbanner,banner1,banner2,banner3,banner4,banner5,banner6,banner7,bannernet,bannerweb,quitbanner,cmd 
+    startbanner = '''    
+PPPPPPPPPPPPPPPPP  EEEEEEEEEEEEEEEEEEEEETTTTTTTTTTTTTTTTTTTTTTT                            lllllllkkkkkkkk            iiii         tttt          
+P::::::::::::::::P E::::::::::::::::::::T:::::::::::::::::::::T                            l:::::lk::::::k           i::::i     ttt:::t          
+P::::::PPPPPP:::::PE::::::::::::::::::::T:::::::::::::::::::::T                            l:::::lk::::::k            iiii      t:::::t          
+PP:::::P     P:::::EE::::::EEEEEEEEE::::T:::::TT:::::::TT:::::T                            l:::::lk::::::k                      t:::::t          
+  P::::P     P:::::P E:::::E       EEEEETTTTTT  T:::::T  TTTTTooooooooooo     ooooooooooo   l::::l k:::::k    kkkkkkiiiiiittttttt:::::ttttttt    
+  P::::P     P:::::P E:::::E                    T:::::T     oo:::::::::::oo oo:::::::::::oo l::::l k:::::k   k:::::ki:::::t:::::::::::::::::t    
+  P::::PPPPPP:::::P  E::::::EEEEEEEEEE          T:::::T    o:::::::::::::::o:::::::::::::::ol::::l k:::::k  k:::::k  i::::t:::::::::::::::::t    
+  P:::::::::::::PP   E:::::::::::::::E          T:::::T    o:::::ooooo:::::o:::::ooooo:::::ol::::l k:::::k k:::::k   i::::tttttt:::::::tttttt    
+  P::::PPPPPPPPP     E:::::::::::::::E          T:::::T    o::::o     o::::o::::o     o::::ol::::l k::::::k:::::k    i::::i     t:::::t          
+  P::::P             E::::::EEEEEEEEEE          T:::::T    o::::o     o::::o::::o     o::::ol::::l k:::::::::::k     i::::i     t:::::t          
+  P::::P             E:::::E                    T:::::T    o::::o     o::::o::::o     o::::ol::::l k:::::::::::k     i::::i     t:::::t          
+  P::::P             E:::::E       EEEEEE       T:::::T    o::::o     o::::o::::o     o::::ol::::l k::::::k:::::k    i::::i     t:::::t    tttttt
+PP::::::PP         EE::::::EEEEEEEE:::::E     TT:::::::TT  o:::::ooooo:::::o:::::ooooo:::::l::::::k::::::k k:::::k  i::::::i    t::::::tttt:::::t
+P::::::::P         E::::::::::::::::::::E     T:::::::::T  o:::::::::::::::o:::::::::::::::l::::::k::::::k  k:::::k i::::::i    tt::::::::::::::t
+P::::::::P         E::::::::::::::::::::E     T:::::::::T   oo:::::::::::oo oo:::::::::::ool::::::k::::::k   k:::::ki::::::i      tt:::::::::::tt
+PPPPPPPPPP         EEEEEEEEEEEEEEEEEEEEEE     TTTTTTTTTTT     ooooooooooo     ooooooooooo  lllllllkkkkkkkk    kkkkkkiiiiiiii        ttttttttttt  '''
+    banner1 = '''
+dP          .8888b                                         dP   oo                       .88888.             dP   dP                         oo                   
+88          88   "                                         88                           d8'   `88            88   88                                              
+88 88d888b. 88aaa  .d8888b. 88d888b. 88d8b.d8b. .d8888b. d8888P dP .d8888b. 88d888b.    88        .d8888b. d8888P 88d888b. .d8888b. 88d888b. dP 88d888b. .d8888b. 
+88 88'  `88 88     88'  `88 88'  `88 88'`88'`88 88'  `88   88   88 88'  `88 88'  `88    88   YP88 88'  `88   88   88'  `88 88ooood8 88'  `88 88 88'  `88 88'  `88 
+88 88    88 88     88.  .88 88       88  88  88 88.  .88   88   88 88.  .88 88    88    Y8.   .88 88.  .88   88   88    88 88.  ... 88       88 88    88 88.  .88 
+dP dP    dP dP     `88888P' dP       dP  dP  dP `88888P8   dP   dP `88888P' dP    dP     `88888'  `88888P8   dP   dP    dP `88888P' dP       dP dP    dP `8888P88 
+                                                                                                                                                              .88 
+                                                                                                                                                          d8888P  '''
+    banner2 = '''
+.d88888b                                      oo                   
+88.    "'                                                          
+`Y88888b. .d8888b. .d8888b. 88d888b. 88d888b. dP 88d888b. .d8888b. 
+      `8b 88'  `"" 88'  `88 88'  `88 88'  `88 88 88'  `88 88'  `88 
+d8'   .8P 88.  ... 88.  .88 88    88 88    88 88 88    88 88.  .88 
+ Y88888P  `88888P' `88888P8 dP    dP dP    dP dP dP    dP `8888P88 
+                                                               .88 
+                                                           d8888P   '''
+    banner3 = '''
+ 88888888b                   dP          oo   dP              dP   oo                   
+ 88                          88               88              88                        
+a88aaaa    dP.  .dP 88d888b. 88 .d8888b. dP d8888P .d8888b. d8888P dP .d8888b. 88d888b. 
+ 88         `8bd8'  88'  `88 88 88'  `88 88   88   88'  `88   88   88 88'  `88 88'  `88 
+ 88         .d88b.  88.  .88 88 88.  .88 88   88   88.  .88   88   88 88.  .88 88    88 
+ 88888888P dP'  `dP 88Y888P' dP `88888P' dP   dP   `88888P8   dP   dP `88888P' dP    dP 
+                    88                                                                  
+                    dP                                                                   '''
+    banner4 = '''
+ 888888ba                      dP       88888888b                   dP          oo   dP              dP   oo                   
+ 88    `8b                     88       88                          88               88              88                        
+a88aaaa8P' .d8888b. .d8888b. d8888P    a88aaaa    dP.  .dP 88d888b. 88 .d8888b. dP d8888P .d8888b. d8888P dP .d8888b. 88d888b. 
+ 88        88'  `88 Y8ooooo.   88       88         `8bd8'  88'  `88 88 88'  `88 88   88   88'  `88   88   88 88'  `88 88'  `88 
+ 88        88.  .88       88   88       88         .d88b.  88.  .88 88 88.  .88 88   88   88.  .88   88   88 88.  .88 88    88 
+ dP        `88888P' `88888P'   dP       88888888P dP'  `dP 88Y888P' dP `88888P' dP   dP   `88888P8   dP   dP `88888P' dP    dP 
+                                                           88                                                                  
+                                                           dP                                                                      '''
+    banner5 = '''
+ 888888ba                                                                dP     a88888b.                            dP       oo                   
+ 88    `8b                                                               88    d8'   `88                            88                            
+a88aaaa8P' .d8888b. .d8888b. .d8888b. dP  dP  dP .d8888b. 88d888b. .d888b88    88        88d888b. .d8888b. .d8888b. 88  .dP  dP 88d888b. .d8888b. 
+ 88        88'  `88 Y8ooooo. Y8ooooo. 88  88  88 88'  `88 88'  `88 88'  `88    88        88'  `88 88'  `88 88'  `"" 88888"   88 88'  `88 88'  `88 
+ 88        88.  .88       88       88 88.88b.88' 88.  .88 88       88.  .88    Y8.   .88 88       88.  .88 88.  ... 88  `8b. 88 88    88 88.  .88 
+ dP        `88888P8 `88888P' `88888P' 8888P Y8P  `88888P' dP       `88888P8     Y88888P' dP       `88888P8 `88888P' dP   `YP dP dP    dP `8888P88 
+                                                                                                                                              .88 
+                                                                                                                                          d8888P      '''
+    banner6 = '''
+.d88888b           oo .8888b .8888b oo                         d88b       .d88888b                             .8888b oo                   
+88.    "'             88   " 88   "                            8`'8       88.    "'                            88   "                      
+`Y88888b. 88d888b. dP 88aaa  88aaa  dP 88d888b. .d8888b.       d8b        `Y88888b. 88d888b. .d8888b. .d8888b. 88aaa  dP 88d888b. .d8888b. 
+      `8b 88'  `88 88 88     88     88 88'  `88 88'  `88     d8P`8b             `8b 88'  `88 88'  `88 88'  `88 88     88 88'  `88 88'  `88 
+d8'   .8P 88    88 88 88     88     88 88    88 88.  .88     d8' `8bP     d8'   .8P 88.  .88 88.  .88 88.  .88 88     88 88    88 88.  .88 
+ Y88888P  dP    dP dP dP     dP     dP dP    dP `8888P88     `888P'`YP     Y88888P  88Y888P' `88888P' `88888P' dP     dP dP    dP `8888P88 
+                                                     .88                            88                                                 .88 
+                                                 d8888P                             dP                                             d8888P      '''
+    banner7 = '''
+ 888888ba                                        dP   oo                   
+ 88    `8b                                       88                        
+a88aaaa8P' .d8888b. 88d888b. .d8888b. 88d888b. d8888P dP 88d888b. .d8888b. 
+ 88   `8b. 88ooood8 88'  `88 88'  `88 88'  `88   88   88 88'  `88 88'  `88 
+ 88     88 88.  ... 88.  .88 88.  .88 88         88   88 88    88 88.  .88 
+ dP     dP `88888P' 88Y888P' `88888P' dP         dP   dP dP    dP `8888P88 
+                    88                                                 .88 
+                    dP                                             d8888P      '''
+    bannernet = '''
+888888ba             dP                                dP             d88b        888888ba                      dP      .d88888b                                      oo                   
+88    `8b            88                                88             8`'8        88    `8b                     88      88.    "'                                                          
+88     88 .d8888b. d8888P dP  dP  dP .d8888b. 88d888b. 88  .dP        d8b        a88aaaa8P' .d8888b. 88d888b. d8888P    `Y88888b. .d8888b. .d8888b. 88d888b. 88d888b. dP 88d888b. .d8888b. 
+88     88 88ooood8   88   88  88  88 88'  `88 88'  `88 88888"       d8P`8b        88        88'  `88 88'  `88   88            `8b 88'  `"" 88'  `88 88'  `88 88'  `88 88 88'  `88 88'  `88 
+88     88 88.  ...   88   88.88b.88' 88.  .88 88       88  `8b.     d8' `8bP      88        88.  .88 88         88      d8'   .8P 88.  ... 88.  .88 88    88 88    88 88 88    88 88.  .88 
+dP     dP `88888P'   dP   8888P Y8P  `88888P' dP       dP   `YP     `888P'`YP     dP        `88888P' dP         dP       Y88888P  `88888P' `88888P8 dP    dP dP    dP dP dP    dP `8888P88 
+                                                                                                                                                                                       .88 
+                                                                                                                                                                                   d8888P      '''
+    bannerweb = '''
+dP   dP   dP          dP          .d88888b                                      oo                   
+88   88   88          88          88.    "'                                                          
+88  .8P  .8P .d8888b. 88d888b.    `Y88888b. .d8888b. .d8888b. 88d888b. 88d888b. dP 88d888b. .d8888b. 
+88  d8'  d8' 88ooood8 88'  `88          `8b 88'  `"" 88'  `88 88'  `88 88'  `88 88 88'  `88 88'  `88 
+88.d8P8.d8P  88.  ... 88.  .88    d8'   .8P 88.  ... 88.  .88 88    88 88    88 88 88    88 88.  .88 
+8888' Y88'   `88888P' 88Y8888'     Y88888P  `88888P' `88888P8 dP    dP dP    dP dP dP    dP `8888P88 
+                                                                                                 .88 
+                                                                                             d8888P      '''
+    quitbanner = '''
+ ___       ___ 
+|__  \_/ |  |  
+|___ / \ |  |  
+                   '''
+    cmd = colored("    PET ~# ", 'red')
+
+    Sclear()
+    print('''\n\n    A Penetration Test, also known as a pen test, is a simulated cyber attack against your computer system to check for exploitable vulnerabilities.
+    Pen testing can involve the attempted breaching of any number of application systems, (e.g., application protocol interfaces (APIs),
+    frontend/backend servers) to uncover vulnerabilities, such as unsanitized inputs that are susceptible to code injection attacks.\n
+    The Main phases of Penetration Testing are :
+    
+    1. Information Gathering  
+
+    2. Scaning 
+
+    3. Exploitation 
+
+    4. Post-Exploitation 
+
+    5. Report 
+
+    ''')
+    input("    Press Enter key to continue")
+    Sclear()
+    
+    while(True):
+        print('''\n\nDisclaimer:All the information on this Toolkit is published in good faith and for general information purpose only.
+           This platform does not make any warranties about the completeness, reliability and accuracy of this information.
+           Any action you take upon the information you find on this Toolkit, is strictly at your own risk.
+        ''')
+        ans = input("Do you agree to use it for Right purpose? (y/n): ")
+        if (ans.lower() == 'y'):
+            pet()
+        elif (ans.lower() == 'n'):
+            print(quitbanner)
+            print('\nThanks.')
+            sys.exit(0) 
+
+class pet:
+    def __init__(self):
+        Sclear()
+        now = datetime.datetime.now()
+        nowstamp = now.strftime('%H:%M:%S %A, %d %B , %Y')
+        print( startbanner + '\n\n    ' + nowstamp + '\n' )
+        print( "    1. Information Gathering" )
+        print( "    2. Scanning" )
+        print( "    3. Exploitation" )
+        print( "    4. Post Exploitation" ) 
+        print( "    5. Password Cracking" )
+        print( "    6. Sniffing & Spoofing" )
+        print( "    7. Reporting" )
+        print( "    0. Exit" )
+        choice = input(cmd) 
+        if choice == '1':
+            infogath()
+        elif choice == '2':
+            scann()
+        elif choice == '3':
+            exploit()
+        elif choice == '4':
+            postexploit()
+        elif choice == '5':
+            pwdcrack()
+        elif choice == '6':
+            sniffsnoof()
+        elif choice == '7':
+            report()
+        elif choice == '0':
+            Sclear()
+            print(quitbanner)
+            print('\nThanks For Choosing Our PEToolkit Platform! Have a Great Day :)\n')
+            sys.exit(0)
+        else:
+            self.__init__()
+
+class infogath():
+     def __init__(self):
+        Sclear()
+        print(banner1)
+        print('    1  -  Host to IP ')
+        print('    2  -  NslookUp ')
+        print('    3  -  Recong-ng ')
+        print('    4  -  theHarvester ')
+        print('    5  -  Discover ')
+        print('    6  -  Shodan on Internet Browser ')
+        print('    7  -  Censys on Internet Browser ')
+        print('    0  -  Back to Main Menu')
+        choice = input(cmd)
+        if choice == '1':
+            host2ip()
+        elif choice == '2':
+            nslookup()
+        elif choice == '3':
+            recon()
+        elif choice == '4':
+            theharv()
+        elif choice == '5':
+            discover()
+        elif choice == '6':
+            Sclear()
+            webbrowser.open('https://www.shodan.io/', new = 2)
+            input("Press any key to continue")
+            infogath()
+        elif choice == '7':
+            Sclear()
+            webbrowser.open('https://censys.io/', new = 2)
+            input("Press any key to continue")
+            infogath()
+        elif choice == '0':
+            pet()
+        else:
+            self.__init__()
+
+
+class scann():
+    def __init__(self):
+        Sclear()
+        print(banner2)
+        print('    1 - Network and Port Scanning')
+        print('    2 - Web Scanning')
+        print('    3 - Full Recon and Scan ')
+        print('    0 - Back to Main Menu')
+        choice = input(cmd)
+        if choice == '1':
+            netport()
+        elif choice == '2':
+            webscan()
+        elif choice == '3':
+            fulrecon()
+        elif choice == '0':
+            pet()
+        else:
+            self.__init__()
+
+class netport():
+    def __init__(self):
+        Sclear()
+        print(bannernet)
+        print('    1 - Nmap')
+        print('    2 - Hping3')
+        print('    3 - MassScan')
+        print('    0 - Back to Scanning Menu')
+        choice = input(cmd)
+        if choice == '1':
+            nmap()
+        elif choice == '2':
+            hping3()
+        elif choice == '3':
+            masscan()
+        elif choice == '0':
+            scann()
+        else:
+            self.__init__()
+
+class webscan():
+    def __init__(self):
+        Sclear()
+        print(bannerweb)
+        print('    1 - Nikto')
+        print('    2 - SQLMap')
+        print('    3 - WPScan')
+        print('    4 - Dirb')
+        print('    5 - SkipFish')
+        print('    0 - Back to Main Menu')
+        choice = input(cmd)
+        if choice == '1':
+            nikto()
+        elif choice == '2':
+            sqlmap()
+        elif choice == '3':
+            wpscan()
+        elif choice == '4':
+            dirb()
+        elif choice == '5':
+            skipfish()
+        elif choice == '0':
+            scann()
+        else:
+            self.__init__()
+
+class fulrecon():
+    def __init__(self):
+        target = input(" Enter the target IP or URL : ")
+        self.menu(target)
+
+    def menu(self, target):
+        Sclear()
+        print('    3klCon Project v1.0 by eslam3kl')
+        print('    1  -  Full Recon and Scanning')
+        print('    0  -  Back to Main Menu')
+        choice = input(cmd)
+        try:
+            if choice == '1': 
+                os.system("python 3klcon.py -t %s" % target)
+                input("\nPress Enter key to continue")
+                fulrecon()
+            elif choice == '0':
+                scann()
+            else:
+                self.menu(target)
+        except KeyboardInterrupt:
+            self.menu(target)
+        
+
+class exploit():
+    def __init__(self):
+        Sclear()
+        print(banner3)
+        print('    OWASP TOP 10 ')
+        print('    1  -  Injection')
+        print('    2  -  Broken Authentication')
+        print('    3  -  Sensitive Data Exposure')
+        print('    4  -  XML Enternal Entities XXE')
+        print('    5  -  Broken Access Control')
+        print('    6  -  Security Misconfiguration')
+        print('    7  -  Cross-Site Scripting XSS')
+        print('    8  -  Insecure Deserialization')
+        print('    9  -  Using Components with Known Vulnerabilities')
+        print('    10  - Insufficient Logging & Monitoring')
+        print('    99  - Searchsploit')
+        print('    0  -  Back to Main Menu')
+        choice = input(cmd)
+        if choice == '1':
+            inject()
+        elif choice == '2':
+            broauth()
+        elif choice == '3':
+            sensdata()
+        elif choice == '4':
+            xxe()
+        elif choice == '5':
+            broacc()
+        elif choice == '6':
+            secmisconf()
+        elif choice == '7':
+            xxs()
+        elif choice == '8':
+            insecdes()
+        elif choice == '9':
+            kwnvuln()
+        elif choice == '10':
+            lognmoni()
+        elif choice == '99':
+            Sclear()
+            service = input(' Enter the Service Name/Version:')
+            os.system("searchsploit %s" % service)
+            input("\nPress Enter key to continue")
+            exploit()
+        elif choice == '0':
+            pet()
+        else :
+            self.__init__()        
+
+class postexploit():
+    def __init__(self):
+        Sclear()
+        print(banner4)
+
+class pwdcrack():
+    def __init__(self):
+        Sclear()
+        print(banner5)
+        print('    1  -  BruteX')
+        print('    2  -  Hydra')
+        print('    3  -  JohnThRipper')
+        print('    4  -  Hashcat')
+        print('    5  -  Ncrack')
+        print('    0  -  Back to Main Menu')
+        choice = input(cmd)
+        if choice == '1':
+            brutex()
+        elif choice == '2':
+            hydra()
+        elif choice == '3':
+            jtr()
+        elif choice == '4':
+            hashcat()
+        elif choice == '5':
+            ncrack()
+        elif choice == '0':
+            pet()
+        else :
+            self.__init__()
+
+class sniffsnoof():
+    def __init__(self):
+        Sclear()
+        print(banner6)
+        print('    1  -  Setoolkit')
+        print('    2  -  Macchanger')
+        print('    0  -  Back to Main Menu')
+        choice = input(cmd)
+        if choice == '1':
+            setoolkit()
+        elif choice == '2':
+            macchanger()
+        elif choice == '0':
+            pet()
+        else :
+            self.__init__()
+
+class report():
+    def __init__(self):
+        Sclear()
+        print(banner7)
+        print('\n')
+        print( "    1. Information Gathering Report" )
+        print( "    2. Scanning Report" )
+        print( "    3. Exploitation" )
+        print( "    4. Metasploit")
+        print( "    5. Wireshark")
+        print( "    6. Burp Suite")
+        print( "    7. Maltego")
+        print( "    8. Metagoofil")
+        print( "    99. Read Report" )
+        print( "    0. Back" )
+        choice = input(cmd) 
+        if choice == '1':
+            inforeport()
+        elif choice == '2':
+            scanreport()
+        elif choice == '3':
+            exploitreport()
+        elif choice == '4':
+            Sclear()
+            os.system("msfconsole")
+            input("\nPress Enter key to continue")
+            report() 
+        elif choice == '5':
+            Sclear()
+            os.system("wireshark")
+            input("\nPress Enter key to continue")
+            report()
+        elif choice == '6':
+            Sclear()
+            os.system("burpsuite")
+            input("\nPress Enter key to continue")
+            report()
+        elif choice == '7':
+            Sclear()
+            os.system("maltego")
+            input("\nPress Enter key to continue")
+            report()
+        elif choice == '8':
+            Sclear()
+            host = input(' Enter the Domain: ')
+            ftype = input(' File type to download ((pdf,doc,xls,ppt,odp,ods,docx,xlsx,pptx): ')
+            results = input(' Enter Limit of Results (>1): ')
+            download = input(' Enter the download limit: ')
+            dire = input(' Enter directory to save: ')
+            f = input(' Enter the File name to be saved: ')
+            os.system("metagoofil -d %s -t %s -l %s -n %s -o %s -f %s" % (host,ftype,results,download,dire,f))
+            input("\nPress Enter key to continue")
+            report()
+        elif choice == '99':
+            Sclear()
+            filename = input('Enter the report Name with location: ')
+            # a = open(filename, "r")
+            temp = open(filename,'r').read().split('\n')
+            print (temp)
+            input(" \n\n Press Enter to continue...")
+            report()
+        elif choice == '0':
+            pet()
+        else :
+            self.__init__()
+
+class host2ip():
+    def __init__(self):
+        Sclear()
+        host = input("HOST:")
+        ip = socket.gethostbyname(host)
+        print(" %s has the IP of %s" % (host,ip))
+        input("\nPress Enter key to continue")
+        infogath()
+
+class nslookup():
+    def __init__(self):
+        Sclear()
+        host = input("HOST: ")
+        os.system("nslookup %s" % host)
+        input("\nPress Enter key to continue")
+        infogath()
+
+
+
+class recon():
+    def __init__(self):
+        Sclear()
+        os.system("recon-ng")
+        input("\n\nPress Enter key to continue")
+        infogath()
+
+class theharv():
+    def __init__(self):
+        Sclear()
+        domain = input("HOST: ")
+        lists = input("List Results (>1): ")
+        source = input(" Data Source(baidu, bing, google, google-profiles, linkedin, pgp, twitter, virustotal, netcraft, yahoo) : ")
+        shodan = input(" If Showan Queries (type '-h') : ")
+        os.system("theHarvester -d %s -l %s -b %s %s" % (domain,lists,source,shodan))
+        input("\n\nPress Enter key to continue")
+        infogath()
+
+class discover(): #download
+    def __init__(self):
+        Sclear()
+        os.system("./discover.sh")
+        infogath()
+
+class nmap():
+    def __init__(self):
+        Sclear()
+        # WPS SCAN 
+        # install and git
+
+        # check if installed and clear scr
+        target = input(" Enter the target IP or URL : ")
+        self.menu(target)
+
+        # def Installed then install
+
+    def menu(self, target):
+        print(" NMAP : %s\n" % target)
+        print(" 1 . Simple Scan ")
+        print(" 2 . Port Scan ")
+        print(" 3 . Operating System Scan ")
+        print(" 4 . All port Scan ")
+        print(" 5 . Manual Scan")
+        print(" 0 . Back on Network and Port Scanning ")
+        choice = input(cmd)
+        try:
+            if choice == '1': 
+            # NMAP 
+                os.system("nmap -sV -F %s" % target)
+                input("\nPress Enter key to continue")
+                netport()
+            elif choice == '2':
+                os.system("nmap -Pn %s" % target)
+                input("\nPress Enter key to continue")
+                netport()
+            elif choice == '3':
+                os.system("nmap -A %s" % target)
+                input("\nPress Enter key to continue")
+                netport()
+            elif choice == '4':
+                os.system("nmap -p- %s" % target)
+                input("\nPress Enter key to continue")
+                netport()
+            elif choice == '5':
+                os.system("nmap --help")
+                port = input(" Enter only Flag : ")
+                os.system("nmap %s %s " % (port,target))
+                input("\nPress Enter key to continue")
+                netport()
+            elif choice == '0':
+                netport()
+            else:
+                self.menu(target)
+        except KeyboardInterrupt:
+            self.menu(target)
+
+class hping3():
+    def __init__(self):
+        Sclear()
+        target = input(" Enter the target IP or URL : ")
+        self.menu(target)
+
+    def menu(self, target):
+        print(" HPING3 : %s\n" % target)
+        print(" 1 . Scan Mode")
+        print(" 2 . TraceRoute Mode ")
+        print(" 3 . Verbose Scan ")
+        print(" 4 . SYN FLood ")
+        print(" 0 . Back on Network and Port Scanning ")
+        choice = input(cmd)
+        try:
+            if choice == '1': 
+            # NMAP 
+                os.system("sudo hping3 --scan 1-100 -S %s" % target)
+                input("\nPress Enter key to continue")
+                netport()
+            elif choice == '2':
+                os.system("sudo hping3 --traceroute -S %s" % target)
+                input("\nPress Enter key to continue")
+                netport()
+            elif choice == '3':
+                os.system("sudo hping3 -V -S %s" % target)
+                input("\nPress Enter key to continue")
+                netport()
+            elif choice == '4':
+                os.system("sudo hping3 -S --flood -V %s" % target)
+                input("\nPress Enter key to continue")
+                netport()
+            elif choice == '0':
+                netport()
+            else:
+                self.menu(target)
+        except KeyboardInterrupt:
+            self.menu(target)
+
+class masscan():
+    def __init__(self):
+        Sclear()
+        target = input(" Enter the target IP or URL : ")
+        self.menu(target)
+
+    def menu(self, target):
+        Sclear()
+        print(" MASSCAN : %s\n" % target)
+        print(" 1 . Port Range ")
+        print(" 2 . Selected Ports")
+        print(" 3 . Exlude List Scan ")
+        print(" 4 . Packet Rate Scan ")
+        print(" 0 . Back ")
+        choice = input(cmd)
+        try:
+            if choice == '1':
+                start = input('Start Range: ')
+                end = input('End Range: ') 
+                os.system("sudo masscan %s ‐p%s-%s" % (target,start,end))
+                input("\nPress Enter key to continue")
+                netport()
+            elif choice == '2':
+                port = input('''Enter Ports(No space just ',' in between): ''')
+                os.system("sudo masscan %s -p%s" % (target,port))
+                input("\nPress Enter key to continue")
+                netport()
+            elif choice == '3':
+                port = input('''Enter Ports(No space just ',' in between): ''')
+                efile = input(' Exclude IP file location: ')
+                os.system("masscan %s -p%s --exludefile %s" % (target,port,efile))
+                input("\nPress Enter key to continue")
+                netport()
+            if choice == '4':
+                port = input('''Enter Ports(No space just ',' in between): ''')
+                rate = input('Packet rate(Default 10000): ')
+                os.system("sudo masscan %s -p%s --rate %s" % (target,port,rate))
+                input("\nPress Enter key to continue")
+                netport()
+            elif choice == '0':
+                netport()
+            else:
+                self.menu(target)
+        except KeyboardInterrupt:
+            self.menu(target)
+
+class nikto():
+    def __init__(self):
+        Sclear()
+        target = input(" Enter the target IP or URL : ")
+        self.menu(target)
+
+    def menu(self, target):
+        Sclear()
+        print(" NIKTO : %s\n" % target)
+        print(" 1 . Basic Scan ")
+        print(" 2 . Port Scan ")
+        print(" 3 . SSL Scan ")
+        print(" 4 . No SSL Scan ")
+        print(" 5 . Tuning Scan ")
+        print(" 6 . Mutate Scan ")
+        print(" 0 . Back ")
+        choice = input(cmd)
+        try:
+            if choice == '1': 
+                os.system("nikto -h %s" % target)
+                input("\nPress Enter key to continue")
+                webscan()
+            elif choice == '2':
+                port = input('''Enter Ports(No space just ',' in between): ''')
+                os.system("nikto -h %s -port %s" % (target,port))
+                input("\nPress Enter key to continue")
+                webscan()
+            if choice == '3':
+                os.system("nikto -h %s -ssl %s" % (target,port))
+                input("\nPress Enter key to continue")
+                webscan()
+            if choice == '4':
+                os.system("nikto -h %s -nossl %s" % (target,port))
+                input("\nPress Enter key to continue")
+                webscan()
+            if choice == '5': 
+                print('''\n1   Interesting file\n2   Misconfiguration\n3   Information Disclosure\n4   Injection (XSS/Script/HTML)\n5   Remote File Retrieval – Inside Web Root\n6   Denial of Service\n7   Remote File Retrieval – Server Wide\n8   Command Execution – Remote Shell\n9   SQL Injection\n0   File Upload\na   Authentication Bypass\nb      Software Identification\nc   Remote Source Inclusion\nx   Reverse Tuning Option ''')
+                tuning = input("\nTuning Option: ")
+                os.system("nikto -h %s -Tuning %s" % (target,tuning))
+                input("\nPress Enter key to continue")
+                webscan()
+            if choice == '6': 
+                print('''\n1   Test all files in root directory\n2   Guess for password file names\n3   Enumerate user names via apache\n4   Enumerate user names via cgiwrap\n5   Attempt to brute force sub-domain names\n6   Attempt to guess directory names from a file''')
+                mutate = input('\nMutate Option: ')
+                os.system("nikto -h %s -mutate %s" % (target,mutate))
+                input("\nPress Enter key to continue")
+                webscan()
+            elif choice == '0':
+                webscan()
+            else:
+                self.menu(target)
+        except KeyboardInterrupt:
+            self.menu(target)
+
+
+class sqlmap():
+    def __init__(self):
+        Sclear()
+        target = input(" Enter the target IP or URL : ")
+        self.menu(target)
+
+    def menu(self, target):
+        Sclear()
+        print(" SQLMap : %s\n" % target)
+        print(" 1 . Scan ")
+        print(" 2 . Database")
+        print(" 3 . Tables ")
+        print(" 4 . Column ")
+        print(" 5 . Dumps ")
+        print(" 6 . OS Shells ")
+        print(" 7 . Manual Scan")
+        print(" 0 . Back ")
+        choice = input(cmd)
+        try:
+            if choice == '1': 
+                os.system("sqlmap -u %s" % target)
+                input("\nPress Enter key to continue")
+                webscan()
+            elif choice == '2':
+                os.system("sqlmap -u %s ‐‐dbs" % target)
+                input("\nPress Enter key to continue")
+                webscan()
+            elif choice == '3':
+                dbs = input( " Database :")
+                os.system("sqlmap -u %s -D %s --table " % (target,dbs))
+                input("\nPress Enter key to continue")
+                webscan()
+            elif choice == '4':
+                dbs = input( " Database :")
+                table = input( " Table :")
+                os.system("sqlmap -u %s ‐D %s -T %s --columns" % (target,dbs,table))
+                input("\nPress Enter key to continue")
+                webscan()
+            elif choice == '5':
+                dbs = input( " Database :")
+                table = input( " Table :")
+                os.system("sqlmap -u %s -D %s -T %s --dump" % (target,dbs,table))
+                input("\nPress Enter key to continue")
+                webscan()
+            elif choice == '6':
+                db = input(" Input Database Type (Eg. mysql): ")
+                os.system("sqlmap --dbms=%s -u %s --os-shell" % (db,target))
+                input("\nPress Enter key to continue")
+                webscan()
+            elif choice == '7':
+                flag = input(" All flags : ")
+                os.system("sqlmap -u %s %s" % (target,flag))
+                input("\nPress Enter key to continue")
+                webscan()
+            elif choice == '0':
+                webscan()
+            else:
+                self.menu(target)
+        except KeyboardInterrupt:
+            self.menu(target)
+
+
+class wpscan():
+    def __init__(self):
+        Sclear()
+        target = input(" Enter the target IP or URL : ")
+        self.menu(target)
+
+    def menu(self, target):
+        Sclear()
+        print(" WPScan : %s\n" % target)
+        print(" 1 . Enumerate Users ")
+        print(" 2 . Database")
+        print(" 3 . Help ")
+        print(" 0 . Back ")
+        choice = input(cmd)
+        try:
+            if choice == '1': 
+                os.system("wpscan --url %s --enumerate" % target)
+                input("\nPress Enter key to continue")
+                webscan()
+            elif choice == '2':
+                username = input(" Enter Username List Location: ")
+                password = input(" Enter Password List Location: ")
+                os.system("wpscan --url %s --usernames %s --passwords %s" % (target,username,password))
+                input("\nPress Enter key to continue")
+                webscan()
+            elif choice == '3':
+                os.system("wpscan --help")
+                input("\nPress Enter key to continue")
+                webscan()
+            elif choice == '0':
+                webscan()
+            else:
+                self.menu(target)
+        except KeyboardInterrupt:
+            self.menu(target)
+
+class dirb():
+    def __init__(self):
+        Sclear()
+        host = input("HOST: ")
+        filetype = input("Specific FileType by -X(Eg. -X .xml for XML type): ")
+        wordlist = input("Enter Wordlist Location(Default- common.txt)")
+        os.system("dirb http://%s %s %s" % (host,wordlist,filetype))
+        input("\nPress Enter key to continue")
+        webscan()
+    
+class skipfish():
+    def __init__(self):
+        Sclear()
+        host = input("HOST: ")
+        output = input("OutPut Folder Name:")
+        os.system("skipfish -m 5 -LY -S /usr/share/skipfish/dictionaries/complete.wl -o ./%s -u http://%s" % (output,host))
+        input("\nPress Enter key to continue")
+        webscan()
+
+class inject():
+    def __init__(self):
+        target = input(" Enter the target IP or URL : ")
+        self.menu(target)
+
+    def menu(self, target):
+        Sclear() 
+        print(" SQLiv : %s\n" % target)
+        print('  1  -  Multiple Domain Scanning with SQLi Dork')
+        print('  2  -  Target Scanning')
+        print('  3  -  Reverse Domain and Scanning')
+        print('  0  -  Back to Main Menu')
+        choice = input(cmd)
+        try:
+            if choice == '1': 
+                dork = input(''' Enter the Dork (Eg. "inurl:index.php?id="): ''')
+                engine = input(" Enter Seach Engine(google/bing/yahoo): ")
+                os.system("python sqliv.py -d %s -e  %s" % (dork,engine))
+                input("\nPress Enter key to continue")
+                exploit()
+            elif choice == '2':
+                os.system("python sqliv.py -t %s " % target)
+                input("\nPress Enter key to continue")
+                exploit()
+            elif choice == '3':
+                os.system("python sqliv.py -t %s -r" % target)
+                input("\nPress Enter key to continue")
+                exploit()
+            elif choice == '0':
+                exploit()
+            else:
+                self.menu(target)
+        except KeyboardInterrupt:
+            self.menu(target)
+
+
+class broauth():
+    def __init__(self):
+        Sclear()
+        print(" HACKBAR : It's a sidebar that assists you with Web Application Security Testing.\n")
+        print('  1  -  Firefox Add-On')
+        print('  0  -  Back')
+        choice = input(cmd)
+        try:
+            if choice == '1': 
+                os.system("firefox https://addons.mozilla.org/fr/firefox/addon/hackbar-free/")
+                input("\nPress Enter key to continue")
+                exploit()
+            elif choice == '0':
+                exploit()
+            else:
+                self.menu(target)
+        except KeyboardInterrupt:
+            self.menu(target)
+
+
+# # class sensdata():
+# # class xxe():
+# # class broacc():
+class secmisconf():
+    def __init__(self):
+        Sclear()
+# apt-get install watobo
+
+        os.system("watobo")
+        input("\nPress Enter key to continue")
+        exploit()
+    
+class xxs():
+    def __init__(self):
+        Sclear()
+
+        os.system("zaproxy")
+        input("\nPress Enter key to continue")
+        exploit()
+    
+# class insecdes():
+class kwnvuln():
+    def __init__(self):
+        target = input(" Enter the library/framework/software module (Use '+' instead of Spaceing) : ")
+        self.menu(target)
+
+    def menu(self, target):
+        Sclear() 
+        print("  Using Components with Known Vulnerabilities : %s\n" % target)
+        print('  1  -  Seach from Known Vulnerabilities - CVE,NVD,Exploit-DB ')
+        print('  0  -  Back to Main Menu')
+        choice = input(cmd)
+        try:
+            if choice == '1':
+                webbrowser.open('https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=%s' % target, new = 2)
+                webbrowser.open('https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&query=%s&search_type=all' % target, new = 3)
+                webbrowser.open('https://www.exploit-db.com/search?q=%s' % target, new = 4)
+                input("\nPress Enter key to continue")
+                exploit()
+            elif choice == '0':
+                exploit()
+            else:
+                self.menu(target)
+        except KeyboardInterrupt:
+            self.menu(target)
+
+# class lognmoni():
+
+#Report - inject -Dumping Scanned Result - python sqliv.py -d <SQLI DORK> -e <SEARCH ENGINE> -o result.json
+
+
+class brutex():
+       def __init__(self):
+        Sclear()
+        host = input("HOST: ")
+        port = input("If any specific port (Default)")
+        os.system("brutex %s %s" % (host,port))
+        input("\nPress Enter key to continue")
+        pwdcrack()
+    
+class hydra():
+    def __init__(self):
+        target = input(" Enter the target IP or URL : ")
+        self.menu(target)
+
+    def menu(self, target):
+        Sclear()
+        print(" HYDRA : %s\n" % target)
+        usr = input(" Enter Username List Location: ")
+        pwd = input(" Enter Password List Location: ")
+        protocol = input ("Protocol (ssh/ftp/smb/mysql/telnet/smtp/postgres) : ")
+        os.system("hydra -L %s -P %s %s %s -V -f " % (usr,pwd,target,protocol))
+        input("\nPress Enter key to continue")
+        pwdcrack()
+    
+
+class jtr():
+    def __init__(self):
+        Sclear()
+        fileloc = input("File Location : ")
+        wordlist = input(" Wordlist Location: ")
+        os.system("john --wordlist=%s %s" % (wordlist,fileloc))
+        input("\nPress Enter key to continue")
+        pwdcrack()
+
+class hashcat():
+    def __init__(self):
+        Sclear()
+        fileloc = input("File Location : \n")
+        os.system("hash-identifier %s" % fileloc)
+        input("\nPress Enter key to continue")
+        print(" HASHCAT MODE : ")
+        os.system("hashcat --help")
+        print(" Find the Hash Mode")
+        input("\nPress Enter key to continue")
+        print(" HASHCAT : ")
+        wordlist = input(" Wordlist : ")
+        hashtype = input(" Hashtype : ")
+        os.system("hashcat -m %s %s %s" % (hashtype,fileloc,wordlist))
+        input("\nPress Enter key to continue")
+        pwdcrack()
+
+class ncrack():
+    def __init__(self):
+        self.run()
+    def run(self):
+        ip = input(" IP Address List Location: ")
+        user = input(" User List Location: ")
+        password = input(" Password List Location: ")
+        protocol = input('Protocal (Eg. rdp): ')
+        os.system("ncrack -v -iL %s --user %s -P %s -p %s CL=1" % (ip,user,password,protocol))
+        input("\nPress Enter key to continue")
+        pwdcrack()
+
+class setoolkit:
+    def __init__(self):
+        self.run()
+    def run(self):
+        Sclear()
+        os.system("sudo setoolkit")
+        input("\nPress Enter key to continue")
+        sniffsnoof()
+
+class macchanger:
+    def __init__(self):
+        self.run()
+    def run(self):
+        print("  Macchanger: \n")
+        print('  1  -  Create your own mac ')
+        print('  2  -  Random')
+        print('  0  -  Back to Main Menu')
+        choice = input(cmd)
+        try:
+            if choice == '1':
+                device = input(' Enter network device: ')
+                mac = input(' Enter MAC Address(XX:XX:XX:XX:XX:XX): ')
+                os.system("sudo macchanger --mac=%s %s" % (mac,device))
+                input("\nPress Enter key to continue")
+                sniffsnoof()
+            elif choice == '2':
+                device = input(' Enter network device: ')
+                os.system("sudo macchanger --random %s " % device)
+                input("\nPress Enter key to continue")
+                sniffsnoof()
+            else:
+                self.menu(target)
+        except KeyboardInterrupt:
+            self.menu(target)
+
+class inforeport():
+    def __init__(self):
+        Sclear()
+        host = input(" Enter the target IP or URL : ")
+        ftype = input('File Type Eg. txt, xml): .')
+        ftype = "." + ftype
+        reportname = input("Report Name for Information Gather:")
+        filename = reportname + ftype
+        rep = open(filename,"w+")
+        rep.write(" Information Gathering Report of Host: %s\n" % host)
+        rep.close()
+        print('Enter Following for theHarvester:')
+        lists = input("List Results (>1): ")
+        source = input("Data Source(baidu, bing, google, google-profiles, linkedin, pgp, twitter, virustotal, netcraft, yahoo) : ")
+        shodan = input("If Showan Queries (type '-h') : ")
+        Sclear()
+        # 1
+        print('Host2IP is saving...')
+        ip = socket.gethostbyname(host)
+        # 2
+        print('NSLookup is saving...')
+        nslookup = subprocess.check_output("nslookup %s" % host, shell=True)
+        # 3
+        print('TheHarvester is saving...')
+        theharv = subprocess.check_output("theHarvester -d %s -l %s -b %s %s " % (host,lists,source,shodan), shell=True)
+        # Saving File
+        print('The File is saving...')
+        rep = open(filename, "a")
+        rep.write("Host to IP:\n\n") 
+        rep.write(str(ip))
+        rep.write("\n\n\nNSlookUp:\n\n")
+        rep.write(str(nslookup))
+        rep.write("\n\n\ntheHarverster:\n\n")
+        rep.write(str(theharv))
+        rep.close()
+        print('The File is Saved.')
+        print("Open the Saved report using this Platform in the Reporting Menu")
+        input("\nPress Enter key to continue")
+        report()
+
+class scanreport():
+    def __init__(self):
+        Sclear()
+        host = input(" Enter the target IP or URL : ")
+        ftype = input('File Type Eg. txt, xml): .')
+        ftype ="." + ftype
+        reportname = input("Report Name for Information Gather:")
+        filename = reportname + ftype
+        Sclear()
+        rep = open(filename,"w+")
+        rep.write(" Scanning Report of Host: %s\n" % host)
+        rep.close()
+        print('The File is saving...')
+        netmap = subprocess.check_output("sudo nmap -T4 -A -p- %s" % host, shell=True)
+        rep = open(filename, "a")
+        rep.write("Nmap Report:\n\n") 
+        rep.write(str(netmap))
+        rep.close()
+        print('The File is Saved.')
+        print("Open the Saved report using this Platform in the Reporting Menu")
+        input("\nPress Enter key to continue")
+        report()
+
+def Sclear():
+    os.system('clear')
+
+if __name__ == "__main__":
+    pentest()
