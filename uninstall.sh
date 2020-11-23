@@ -30,5 +30,6 @@ if [ -d "$Other_directory/ahrixia" ]; then
         sudo rm -rf "$Other_directory/ahrixia"
     fi
 fi
+rm /usr/local/bin/petoolkit
 clear
 echo "Uninstallation Successful!"
