@@ -419,12 +419,11 @@ class report():
         print('\n')
         print( "    1. Information Gathering Report" )
         print( "    2. Scanning Report" )
-        print( "    3. Exploitation" )
-        print( "    4. Metasploit")
-        print( "    5. Wireshark")
-        print( "    6. Burp Suite")
-        print( "    7. Maltego")
-        print( "    8. Metagoofil")
+        print( "    3. Metasploit")
+        print( "    4. Wireshark")
+        print( "    5. Burp Suite")
+        print( "    6. Maltego")
+        print( "    7. Metagoofil")
         print( "    99. Read Report" )
         print( "    0. Back" )
         choice = input(cmd) 
@@ -433,29 +432,56 @@ class report():
         elif choice == '2':
             scanreport()
         elif choice == '3':
-            exploitreport()
-        elif choice == '4':
             Sclear()
+            print('''
+            Metasploit is a penetration testing platform that enables you to find, exploit, and validate vulnerabilities. 
+            It provides the infrastructure, content, and tools to perform penetration tests and extensive security auditing 
+            and thanks to the open source community and Rapid7’s own hard working content team, new modules are added on a 
+            regular basis, which means that the latest exploit is available to you as soon as it’s published.
+            ''')
+            input("\nPress Enter key to continue")
             os.system("msfconsole")
             input("\nPress Enter key to continue")
             report() 
+        elif choice == '4':
+            Sclear()
+            print('''
+            Wireshark is the world’s foremost network protocol analyzer. It lets you see what’s happening on your network 
+            at a microscopic level. It is the de facto (and often de jure) standard across many industries and educational 
+            institutions. Wireshark development thrives thanks to the contributions of networking experts across the globe. 
+            ''')
+            input("\nPress Enter key to continue")
+            os.system("wireshark")
+            input("\nPress Enter key to continue")
+            report()
         elif choice == '5':
             Sclear()
-            os.system("wireshark")
+            print('''
+            Burp Suite is an integrated platform for performing security testing of web applications. Its various tools 
+            work seamlessly together to support the entire testing process, from initial mapping and analysis of an 
+            application’s attack surface, through to finding and exploiting security vulnerabilities.
+            ''')
+            input("\nPress Enter key to continue")
+            os.system("burpsuite")
             input("\nPress Enter key to continue")
             report()
         elif choice == '6':
             Sclear()
-            os.system("burpsuite")
+            print('''
+            Maltego is a unique platform developed to deliver a clear threat picture to the environment that 
+            an organization owns and operates. Maltego’s unique advantage is to demonstrate the complexity and 
+            severity of single points of failure as well as trust relationships that exist currently within the 
+            scope of your infrastructure. 
+            ''')
+            input("\nPress Enter key to continue")
+            os.system("maltego")
             input("\nPress Enter key to continue")
             report()
         elif choice == '7':
             Sclear()
-            os.system("maltego")
-            input("\nPress Enter key to continue")
-            report()
-        elif choice == '8':
-            Sclear()
+            print('''
+            Metagoofil is an information gathering tool designed for extracting metadata of public documents (pdf,doc,xls,ppt,docx,pptx,xlsx) belonging to a target company.
+            ''')
             host = input(' Enter the Domain: ')
             ftype = input(' File type to download ((pdf,doc,xls,ppt,odp,ods,docx,xlsx,pptx): ')
             results = input(' Enter Limit of Results (>1): ')
@@ -481,6 +507,7 @@ class report():
 class host2ip():
     def __init__(self):
         Sclear()
+        print(''' Host2ip- Host2IP helps to convert hostname to IP Address.\n''')
         host = input("HOST:")
         ip = socket.gethostbyname(host)
         print(" %s has the IP of %s" % (host,ip))
@@ -490,16 +517,17 @@ class host2ip():
 class nslookup():
     def __init__(self):
         Sclear()
+        print('''Nslookup- The NsLookup tool allows you to query DNS servers for resource records.\n''')
         host = input("HOST: ")
         os.system("nslookup %s" % host)
         input("\nPress Enter key to continue")
         infogath()
 
-
-
 class recon():
     def __init__(self):
         Sclear()
+        print('''Recon-Ng - Recon-ng is a full-featured Web Reconnaissance framework written in Python. Complete with independent modules, database interaction, \nbuilt in convenience functions, interactive help, and command completion, Recon-ng provides a powerful environment in which \nopen source web-based reconnaissance can be conducted quickly and thoroughly.''')
+        input("\n\nPress Enter key to continue")
         os.system("recon-ng")
         input("\n\nPress Enter key to continue")
         infogath()
@@ -507,6 +535,7 @@ class recon():
 class theharv():
     def __init__(self):
         Sclear()
+        print('''The objective of this program is to gather emails, subdomains, hosts, employee names, open ports and \nbanners from different public sources like search engines, PGP key servers and SHODAN computer database.''')
         domain = input("HOST: ")
         lists = input("List Results (>1): ")
         source = input(" Data Source(baidu, bing, google, google-profiles, linkedin, pgp, twitter, virustotal, netcraft, yahoo) : ")
@@ -518,6 +547,7 @@ class theharv():
 class discover(): #download
     def __init__(self):
         Sclear()
+        print('''Discover- Custom bash scripts used to automate various penetration testing tasks including recon, \nscanning, parsing, and creating malicious payloads and listeners with Metasploit.''')
         os.system("./discover.sh")
         infogath()
 
@@ -528,6 +558,11 @@ class nmap():
         # install and git
 
         # check if installed and clear scr
+        print('''
+        Nmap - Nmap is used to discover hosts and services on a computer network by sending packets and analyzing the responses.
+        Nmap provides a number of features for probing computer networks, including host discovery and service and operating 
+        system detection. These features are extensible by scripts that provide more advanced service detection, vulnerability 
+        detection, and other features.\n''')
         target = input(" Enter the target IP or URL : ")
         self.menu(target)
 
@@ -576,6 +611,10 @@ class nmap():
 class hping3():
     def __init__(self):
         Sclear()
+        print('''
+        hping is a command-line oriented TCP/IP packet assembler/analyzer. The interface is inspired to the ping(8) unix command, but 
+        hping isn’t only able to send ICMP echo requests. It supports TCP, UDP, ICMP and RAW-IP protocols, has a traceroute mode, the 
+        ability to send files between a covered channel, and many other features.\n''')
         target = input(" Enter the target IP or URL : ")
         self.menu(target)
 
@@ -615,6 +654,13 @@ class hping3():
 class masscan():
     def __init__(self):
         Sclear()
+        print('''
+        This is the fastest Internet port scanner. It can scan the entire Internet in under 6 minutes, transmitting 10 million packets per second.
+        It produces results similar to nmap, the most famous port scanner. Internally, it operates more like scanrand, unicornscan, and ZMap, using 
+        asynchronous transmission. The major difference is that it’s faster than these other scanners. In addition, it’s more flexible, allowing 
+        arbitrary address ranges and port ranges.\n
+        NOTE: masscan uses a custom TCP/IP stack. Anything other than simple port scans will cause conflict with the local TCP/IP stack. 
+        ''')
         target = input(" Enter the target IP or URL : ")
         self.menu(target)
 
@@ -661,6 +707,11 @@ class masscan():
 class nikto():
     def __init__(self):
         Sclear()
+        print('''
+        Nikto is an Open Source (GPL) web server scanner which performs comprehensive tests against web servers for multiple items, 
+        including over 6700 potentially dangerous files/programs, checks for outdated versions of over 1250 servers, and version 
+        specific problems on over 270 servers. 
+        ''')
         target = input(" Enter the target IP or URL : ")
         self.menu(target)
 
@@ -716,6 +767,12 @@ class nikto():
 class sqlmap():
     def __init__(self):
         Sclear()
+        print('''
+        sqlmap is an open source penetration testing tool that automates the process of detecting and exploiting SQL injection flaws 
+        and taking over of database servers. It comes with a powerful detection engine, many niche features for the ultimate penetration 
+        tester and a broad range of switches lasting from database fingerprinting, over data fetching from the database, to accessing 
+        the underlying file system and executing commands on the operating system via out-of-band connections.
+        ''')
         target = input(" Enter the target IP or URL : ")
         self.menu(target)
 
@@ -778,6 +835,9 @@ class sqlmap():
 class wpscan():
     def __init__(self):
         Sclear()
+        print('''
+        WPScan is a black box WordPress vulnerability scanner that can be used to scan remote WordPress installations to find security issues.
+        ''')
         target = input(" Enter the target IP or URL : ")
         self.menu(target)
 
@@ -814,6 +874,10 @@ class wpscan():
 class dirb():
     def __init__(self):
         Sclear()
+        print('''
+        DIRB is a Web Content Scanner. It looks for existing (and/or hidden) Web Objects. It basically works by launching 
+        a dictionary based attack against a web server and analyzing the response.
+        ''')
         host = input("HOST: ")
         filetype = input("Specific FileType by -X(Eg. -X .xml for XML type): ")
         wordlist = input("Enter Wordlist Location(Default- common.txt)")
@@ -824,6 +888,12 @@ class dirb():
 class skipfish():
     def __init__(self):
         Sclear()
+        print('''
+        Skipfish is an active web application security reconnaissance tool. It prepares an interactive sitemap for the targeted 
+        site by carrying out a recursive crawl and dictionary-based probes. The resulting map is then annotated with the output 
+        from a number of active (but hopefully non-disruptive) security checks. The final report generated by the tool is meant 
+        to serve as a foundation for professional web application security assessments.
+        ''')
         host = input("HOST: ")
         output = input("OutPut Folder Name:")
         os.system("skipfish -m 5 -LY -S /usr/share/skipfish/dictionaries/complete.wl -o ./%s -u http://%s" % (output,host))
@@ -940,6 +1010,12 @@ class kwnvuln():
 class brutex():
        def __init__(self):
         Sclear()
+        print('''
+        Automatically brute force all services running on a target:
+        * Open ports
+        * Usernames
+        * Passwords
+        ''')
         host = input("HOST: ")
         port = input("If any specific port (Default)")
         os.system("brutex %s %s" % (host,port))
@@ -948,6 +1024,11 @@ class brutex():
     
 class hydra():
     def __init__(self):
+        print('''
+        Hydra is a parallelized login cracker which supports numerous protocols to attack. It is very fast and flexible, 
+        and new modules are easy to add. This tool makes it possible for researchers and security consultants to show 
+        how easy it would be to gain unauthorized access to a system remotely.
+        ''')
         target = input(" Enter the target IP or URL : ")
         self.menu(target)
 
@@ -965,6 +1046,11 @@ class hydra():
 class jtr():
     def __init__(self):
         Sclear()
+        print('''
+        John the Ripper is designed to be both feature-rich and fast. It combines several cracking modes in one program and 
+        is fully configurable for your particular needs (you can even define a custom cracking mode using the built-in 
+        compiler supporting a subset of C).
+        ''')
         fileloc = input("File Location : ")
         wordlist = input(" Wordlist Location: ")
         os.system("john --wordlist=%s %s" % (wordlist,fileloc))
@@ -974,8 +1060,14 @@ class jtr():
 class hashcat():
     def __init__(self):
         Sclear()
+        print('''
+        Hash-Identifier - Software to identify the different types of hashes used to encrypt data and especially passwords.
+        Hashcat - hashcat is the world's fastest and most advanced password recovery utility, supporting five unique modes 
+                  of attack for over 300 highly-optimized hashing algorithms.
+        ''')
+        input("Press Enter key to continue...")
         fileloc = input("File Location : \n")
-        os.system("hash-identifier %s" % fileloc)
+        os.system("hash-identifier-%s" % fileloc)
         input("\nPress Enter key to continue")
         print(" HASHCAT MODE : ")
         os.system("hashcat --help")
@@ -990,6 +1082,12 @@ class hashcat():
 
 class ncrack():
     def __init__(self):
+        print('''
+        Ncrack is a high-speed network authentication cracking tool. It was built to help companies secure their networks 
+        by proactively testing all their hosts and networking devices for poor passwords. Security professionals also 
+        rely on Ncrack when auditing their clients.
+        ''')
+        input("Press Enter key to continue...")
         self.run()
     def run(self):
         ip = input(" IP Address List Location: ")
@@ -1002,6 +1100,11 @@ class ncrack():
 
 class setoolkit:
     def __init__(self):
+        print('''
+        The Social-Engineer Toolkit is an open-source penetration testing framework designed for social engineering. 
+        SET has a number of custom attack vectors that allow you to make a believable attack quickly.
+        ''')
+        input("Press Enter key to continue...")
         self.run()
     def run(self):
         Sclear()
@@ -1013,7 +1116,7 @@ class macchanger:
     def __init__(self):
         self.run()
     def run(self):
-        print("  Macchanger: \n")
+        print("  Macchanger: It changes MAC Address of the network interface.\n")
         print('  1  -  Create your own mac ')
         print('  2  -  Random')
         print('  0  -  Back to Main Menu')
