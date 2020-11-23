@@ -34,12 +34,12 @@ if [ -d "$Install_directory" ]; then
     fi
 fi
 echo "Cleaning up old directories...";
-if [ -d "$other_directory/ahrixia" ]; then
+if [ -d "$Other_directory/ahrixia" ]; then
     echo "$Direcotory_found"
     if [ "$TERMUX" = true ]; then
-        rm -rf "$other_directory/ahrixia"
+        rm -rf "$Other_directory/ahrixia"
     else
-        sudo rm -rf "$other_directory/ahrixia"
+        sudo rm -rf "$Other_directory/ahrixia"
     fi
 fi
 
