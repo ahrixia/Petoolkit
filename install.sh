@@ -43,7 +43,7 @@ if [ -d "$other_directory/ahrixia" ]; then
     fi
 fi
 
-echo " Installing ...";
+echo "Installing ...";
 echo "";
 git clone --depth=1 https://github.com/ahrixia/Petoolkit "$Install_directory";
 echo "#!$Bash_directory
