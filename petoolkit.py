@@ -535,14 +535,40 @@ class recon():
         infogath()
 
 class theharv():
+#     def __init__(self):
+#         Sclear()
+#         print('''The objective of this program is to gather emails, subdomains, hosts, employee names, open ports and \nbanners from different public sources like search engines, PGP key servers and SHODAN computer database.''')
+#         domain = input("HOST: ")
+#         lists = input("List Results (>1): ")
+#         source = input(" Data Source(baidu, bing, google, google-profiles, linkedin, pgp, twitter, virustotal, netcraft, yahoo) : ")
+#         shodan = input(" If Showan Queries (type '-h') : ")
+#         os.system("theHarvester -d %s -l %s -b %s %s" % (domain,lists,source,shodan))
+#         input("\n\nPress Enter key to continue")
+#         infogath()
     def __init__(self):
-        Sclear()
+        self.Install_directory = Tool_directory + "theHarveaster"
+        self.gitRepo = "https://github.com/laramies/theHarvester.git"
+
+        if not self.installed():
+            self.install()
+        Sclear()     
         print('''The objective of this program is to gather emails, subdomains, hosts, employee names, open ports and \nbanners from different public sources like search engines, PGP key servers and SHODAN computer database.''')
         domain = input("HOST: ")
+        self.run(host)
+
+    def installed(self):
+        return (os.path.isfile("/usr/bin/theHarvester") or os.path.isfile("/usr/local/bin/theHarvester"))
+        return (os.path.isdir(self.Install_directory))
+        
+    def install(self):
+        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+
+    def run(self,host):
         lists = input("List Results (>1): ")
         source = input(" Data Source(baidu, bing, google, google-profiles, linkedin, pgp, twitter, virustotal, netcraft, yahoo) : ")
         shodan = input(" If Showan Queries (type '-h') : ")
-        os.system("theHarvester -d %s -l %s -b %s %s" % (domain,lists,source,shodan))
+        os.system("theHarvester -d %s -l %s -b %s %s" % (domain,lists,source,shodan)
+                  or "python3 %s/theHarvester.py -d %s -l %s -b %s %s" % (self.Install_directory,domain,lists,source,shodan))
         input("\n\nPress Enter key to continue")
         infogath()
 
