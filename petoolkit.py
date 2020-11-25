@@ -570,7 +570,7 @@ class discover(): #download
         os.system("%s./update.sh" % self.Install_directory)
         
     def run(self):
-        os.system("%s./discover.sh" % self.Install_directory)
+        os.system("bash %s/discover.sh" % self.Install_directory)
         input("\n\nPress Enter key to continue")
         infogath()
         
