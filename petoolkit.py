@@ -8,6 +8,8 @@ import datetime
 import webbrowser
 from termcolor import colored
 
+toolDir = os.path.dirname(os.path.abspath(__file__)) + '/'
+
 def pentest():
     Sclear()
     global startbanner,banner1,banner2,banner3,banner4,banner5,banner6,banner7,bannernet,bannerweb,quitbanner,cmd 
