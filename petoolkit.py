@@ -8,7 +8,7 @@ import datetime
 import webbrowser
 from termcolor import colored
 
-toolDir = os.path.dirname(os.path.abspath(__file__)) + '/'
+Tool_directory = os.path.dirname(os.path.abspath(__file__)) + '/'
 
 def pentest():
     Sclear()
@@ -554,7 +554,7 @@ class theharv():
         Sclear()     
         print('''The objective of this program is to gather emails, subdomains, hosts, employee names, open ports and \nbanners from different public sources like search engines, PGP key servers and SHODAN computer database.''')
         domain = input("HOST: ")
-        self.run(host)
+        self.run(domain)
 
     def installed(self):
         return (os.path.isfile("/usr/bin/theHarvester") or os.path.isfile("/usr/local/bin/theHarvester"))
