@@ -13,6 +13,7 @@ else
     Bash_directory="/bin/bash"
     TERMUX=false
     sudo apt install -y git python3.9
+    pip install termcolor
 fi
 
 #Checking if Petlookit is installed already
