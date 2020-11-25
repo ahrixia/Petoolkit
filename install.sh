@@ -7,16 +7,16 @@ if [ "$PREFIX" = "/data/data/com.termux/files/usr" ]; then
     Bash_directory="$PREFIX/bin/bash"
     TERMUX=true
     pkg install -y git python3
-    apt install python3-pip
-    pip install termcolor
+#     apt install python3-pip
+#     pip install termcolor
 else
     Install_directory="$HOME/.petoolkit"
     Bin_directory="/usr/local/bin/"
     Bash_directory="/bin/bash"
     TERMUX=false
     sudo apt install -y git python3.9
-    apt install python3-pip
-    pip install termcolor
+#     apt install python3-pip
+#     pip install termcolor
 fi
 
 #Checking if Petlookit is installed already
