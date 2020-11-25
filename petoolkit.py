@@ -545,11 +545,29 @@ class theharv():
         infogath()
 
 class discover(): #download
+#     def __init__(self):
+#         Sclear()
+#         print('''Discover- Custom bash scripts used to automate various penetration testing tasks including recon, \nscanning, parsing, and creating malicious payloads and listeners with Metasploit.''')
+#         os.system("./discover.sh")
+#         infogath()
     def __init__(self):
+        self.Install_directory = toolDir + "discover"
+        self.gitRepo = "https://github.com/leebaird/discover.git"
+        if not self.installed():
+            self.install()
         Sclear()
         print('''Discover- Custom bash scripts used to automate various penetration testing tasks including recon, \nscanning, parsing, and creating malicious payloads and listeners with Metasploit.''')
         os.system("./discover.sh")
         infogath()
+    
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+        os.system("./update.sh")
+
+
 
 class nmap():
     def __init__(self):
