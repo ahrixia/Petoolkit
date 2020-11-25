@@ -7,6 +7,7 @@ if [ "$PREFIX" = "/data/data/com.termux/files/usr" ]; then
     Bash_directory="$PREFIX/bin/bash"
     TERMUX=true
     pkg install -y git python3
+    pip install termcolor
 else
     Install_directory="$HOME/.petoolkit"
     Bin_directory="/usr/local/bin/"
