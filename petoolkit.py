@@ -560,19 +560,21 @@ class discover(): #download
         Sclear()
         print('''Discover- Custom bash scripts used to automate various penetration testing tasks including recon, \nscanning, parsing, and creating malicious payloads and listeners with Metasploit.''')
         input("\n\nPress Enter key to continue")
-        os.system("./discover.sh")
-        input("\n\nPress Enter key to continue")
-        infogath()
+        self.run()
     
     def installed(self):
         return (os.path.isdir(self.Install_directory))
 
     def install(self):
         os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
-        os.system("./update.sh")
-
-
-
+        os.system("%s./update.sh" % self.Install_directory)
+        
+    def run(self):
+        os.system("%s./discover.sh" % self.Install_directory)
+        input("\n\nPress Enter key to continue")
+        infogath()
+        
+        
 class nmap():
     def __init__(self):
         Sclear()
