@@ -559,7 +559,9 @@ class discover(): #download
             self.install()
         Sclear()
         print('''Discover- Custom bash scripts used to automate various penetration testing tasks including recon, \nscanning, parsing, and creating malicious payloads and listeners with Metasploit.''')
+        input("\n\nPress Enter key to continue")
         os.system("./discover.sh")
+        input("\n\nPress Enter key to continue")
         infogath()
     
     def installed(self):
