@@ -564,8 +564,7 @@ class theharv():
 
     def install(self):
         os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
-        os.system("cd %s" % self.Install_directory)
-        os.system("python3 -m pip install -r requirements/base.txt")
+        os.system("cd %s && python3 -m pip install -r requirements/base.txt" % self.Install_directory)
 
     def run(self,host):
         lists = input("List Results (>1): ")
@@ -591,7 +590,7 @@ class discover():
 
     def install(self):
         os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
-        os.system("sudo %s./update.sh" % self.Install_directory)
+        os.system("%s./update.sh" % self.Install_directory)
         
     def run(self):
         os.system("bash %s/discover.sh" % self.Install_directory)
