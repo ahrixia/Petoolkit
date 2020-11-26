@@ -12,10 +12,11 @@ else
     Bin_directory="/usr/local/bin/"
     Bash_directory="/bin/bash"
     TERMUX=false
-    sudo apt install -y git python3.9
+    sudo apt-get install -y git python3.9
 fi
-sudo apt install python3-pip
-sudo pip install termcolor
+sudo apt-get install python3-pip
+sudo apt-get install python3-termcolor
+sudo pip3 install termcolor
 
 #Checking if Petlookit is installed already
 if [ -d "$Install_directory" ]; then
