@@ -591,7 +591,7 @@ class discover():
 
     def install(self):
         os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
-        os.system("%s./update.sh" % self.Install_directory)
+        os.system("sudo %s./update.sh" % self.Install_directory)
         
     def run(self):
         os.system("bash %s/discover.sh" % self.Install_directory)
