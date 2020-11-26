@@ -565,8 +565,8 @@ class theharv():
     def installed(self):
         return ((os.path.isfile("/usr/bin/theHarvester") or os.path.isfile("/usr/local/bin/theHarvester")) or os.path.isdir(self.Install_directory))
 
-    def install(se):
-        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+    def install(self):
+        os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
 
     def run(self,host):
         lists = input("List Results (>1): ")
