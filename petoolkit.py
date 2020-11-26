@@ -509,7 +509,7 @@ class report():
 class host2ip():
     def __init__(self):
         Sclear()
-        print(''' Host2ip- Host2IP helps to convert hostname to IP Address.\n''')
+        print('''Host2ip- Host2IP helps to convert hostname to IP Address.\n''')
         host = input("HOST:")
         ip = socket.gethostbyname(host)
         print(" %s has the IP of %s" % (host,ip))
@@ -527,24 +527,29 @@ class nslookup():
 
 class recon():
     def __init__(self):
+        self.Install_directory = Tool_directory + "recon-ng"
+        self.gitRepo = "https://github.com/lanmaster53/recon-ng.git"
+        if not self.installed():
+            self.install()
+        Sclear()      
         Sclear()
         print('''Recon-Ng - Recon-ng is a full-featured Web Reconnaissance framework written in Python. Complete with independent modules, database interaction, \nbuilt in convenience functions, interactive help, and command completion, Recon-ng provides a powerful environment in which \nopen source web-based reconnaissance can be conducted quickly and thoroughly.''')
         input("\n\nPress Enter key to continue")
-        os.system("recon-ng")
+        self.run()
+
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+        os.system("cd %s && pip install -r REQUIREMENTS" %s self.Install_directory)
+
+    def run(self):   
+        os.system("bash %s/recon-ng" %s self.Install_directory)
         input("\n\nPress Enter key to continue")
         infogath()
 
 class theharv():
-#     def __init__(self):
-#         Sclear()
-#         print('''The objective of this program is to gather emails, subdomains, hosts, employee names, open ports and \nbanners from different public sources like search engines, PGP key servers and SHODAN computer database.''')
-#         domain = input("HOST: ")
-#         lists = input("List Results (>1): ")
-#         source = input(" Data Source(baidu, bing, google, google-profiles, linkedin, pgp, twitter, virustotal, netcraft, yahoo) : ")
-#         shodan = input(" If Showan Queries (type '-h') : ")
-#         os.system("theHarvester -d %s -l %s -b %s %s" % (domain,lists,source,shodan))
-#         input("\n\nPress Enter key to continue")
-#         infogath()
     def __init__(self):
         self.Install_directory = Tool_directory + "theHarveaster"
         self.gitRepo = "https://github.com/laramies/theHarvester.git"
@@ -557,27 +562,20 @@ class theharv():
         self.run(domain)
 
     def installed(self):
-        return (os.path.isfile("/usr/bin/theHarvester") or os.path.isfile("/usr/local/bin/theHarvester"))
-        return (os.path.isdir(self.Install_directory))
+        return (os.path.isfile("/usr/bin/theHarvester") or os.path.isfile("/usr/local/bin/theHarvester") or return (os.path.isdir(self.Install_directory))
         
     def install(self):
         os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
 
-    def run(self,host):
+    def run(self,domain):
         lists = input("List Results (>1): ")
         source = input(" Data Source(baidu, bing, google, google-profiles, linkedin, pgp, twitter, virustotal, netcraft, yahoo) : ")
         shodan = input(" If Showan Queries (type '-h') : ")
-        os.system("theHarvester -d %s -l %s -b %s %s" % (domain,lists,source,shodan)
-                  or "python3 %s/theHarvester.py -d %s -l %s -b %s %s" % (self.Install_directory,domain,lists,source,shodan))
+        os.system("python3 %s/theHarvester.py -d %s -l %s -b %s %s" % (self.Install_directory,domain,lists,source,shodan) or "theHarvester -d %s -l %s -b %s %s" % (domain,lists,source,shodan))
         input("\n\nPress Enter key to continue")
         infogath()
 
 class discover(): #download
-#     def __init__(self):
-#         Sclear()
-#         print('''Discover- Custom bash scripts used to automate various penetration testing tasks including recon, \nscanning, parsing, and creating malicious payloads and listeners with Metasploit.''')
-#         os.system("./discover.sh")
-#         infogath()
     def __init__(self):
         self.Install_directory = toolDir + "discover"
         self.gitRepo = "https://github.com/leebaird/discover.git"
@@ -599,15 +597,14 @@ class discover(): #download
         os.system("bash %s/discover.sh" % self.Install_directory)
         input("\n\nPress Enter key to continue")
         infogath()
-        
-        
+
 class nmap():
     def __init__(self):
+        self.Install_directory = toolDir + "nmap"
+        self.gitRepo = "https://github.com/nmap/nmap.git"
+        if not self.installed():
+            self.install()
         Sclear()
-        # WPS SCAN 
-        # install and git
-
-        # check if installed and clear scr
         print('''
         Nmap - Nmap is used to discover hosts and services on a computer network by sending packets and analyzing the responses.
         Nmap provides a number of features for probing computer networks, including host discovery and service and operating 
@@ -616,7 +613,12 @@ class nmap():
         target = input(" Enter the target IP or URL : ")
         self.menu(target)
 
-        # def Installed then install
+    def installed(self):
+        return (os.path.isfile("/usr/bin/nmap") or os.path.isfile("/usr/local/bin/nmap"))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
+        os.system("cd %s && ./configure && make && make install" %self.Install_directory)
 
     def menu(self, target):
         print(" NMAP : %s\n" % target)
