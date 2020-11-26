@@ -731,8 +731,8 @@ class masscan():
     def install(self):
         os.system("sudo apt-get install git gcc make libpcap-dev")
         os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
-        os.system("cd %s && make" % self.Install_directory)
-        
+        os.system("cd %s && make && sudo make install" % self.Install_directory)
+
     def menu(self, host):
         Sclear()
         print(" MASSCAN : %s\n" % host)
