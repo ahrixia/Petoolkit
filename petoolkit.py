@@ -527,8 +527,6 @@ class nslookup():
 
 class recon():
     def __init__(self):
-        self.Install_directory = Tool_directory + "recon-ng"
-        self.gitRepo = "https://github.com/lanmaster53/recon-ng.git"
         if not self.installed():
             self.install()      
         Sclear()
@@ -537,20 +535,19 @@ class recon():
         self.run()
 
     def installed(self):
-        return (os.path.isdir(self.Install_directory))
+        return (os.path.isfile("/usr/bin/recon-ng") or os.path.isfile("/usr/local/bin/recon-ng"))
 
     def install(self):
-        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
-        os.system("cd %s && pip install -r REQUIREMENTS" % self.Install_directory)
-
+        os.system("sudo apt-get install recon-ng")
+        
     def run(self):   
-        os.system("bash %s/recon-ng" % self.Install_directory)
+        os.system("recon-ng")
         input("\n\nPress Enter key to continue")
         infogath()
 
 class theharv():
     def __init__(self):
-        self.Install_directory = Tool_directory + "theHarveaster"
+        self.Install_directory = Tool_directory + "theHarvester"
         self.gitRepo = "https://github.com/laramies/theHarvester.git"
 
         if not self.installed():
@@ -563,22 +560,24 @@ class theharv():
         self.run(host)
 
     def installed(self):
-        return ((os.path.isfile("/usr/bin/theHarvester") or os.path.isfile("/usr/local/bin/theHarvester")) or os.path.isdir(self.Install_directory))
+        return (os.path.isdir(self.Install_directory))
 
     def install(self):
         os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
+        os.system("cd %s" % self.Install_directory)
+        os.system("python3 -m pip install -r requirements/base.txt")
 
     def run(self,host):
         lists = input("List Results (>1): ")
         source = input("Data Source(baidu, bing, google, google-profiles, linkedin, pgp, twitter, virustotal, netcraft, yahoo) : ")
         shodan = input("If Shodan Queries (type '-h') : ")
-        os.system("python3 %s/theHarvester.py -d %s -l %s -b %s %s" % (self.Install_directory,host,lists,source,shodan) or "theHarvester -d %s -l %s -b %s %s" % (host,lists,source,shodan))
+        os.system("python3 %s/theHarvester.py -d %s -l %s -b %s %s" % (self.Install_directory,host,lists,source,shodan))
         input("\n\nPress Enter key to continue")
         infogath()
 
 class discover(): 
     def __init__(self):
-        self.Install_directory = toolDir + "discover"
+        self.Install_directory = Tool_directory + "discover"
         self.gitRepo = "https://github.com/leebaird/discover.git"
         if not self.installed():
             self.install()
@@ -601,7 +600,7 @@ class discover():
 
 class nmap():
     def __init__(self):
-        self.Install_directory = toolDir + "nmap"
+        self.Install_directory = Tool_directory + "nmap"
         self.gitRepo = "https://github.com/nmap/nmap.git"
         if not self.installed():
             self.install()
@@ -662,7 +661,7 @@ class nmap():
 
 class hping3():
     def __init__(self):
-        self.Install_directory = toolDir + "hping3"
+        self.Install_directory = Tool_directory + "hping3"
         self.gitRepo = "https://github.com/HiddenShot/Hping3.git"
         if not self.installed():
             self.install()
@@ -714,7 +713,7 @@ class hping3():
 
 class masscan():
     def __init__(self):
-        self.Install_directory = toolDir + "masscan"
+        self.Install_directory = Tool_directory + "masscan"
         self.gitRepo = "https://github.com/robertdavidgraham/masscan.git"
         if not self.installed():
             self.install()
@@ -778,7 +777,7 @@ class masscan():
 
 class nikto():
     def __init__(self):
-        self.Install_directory = toolDir + "nikto"
+        self.Install_directory = Tool_directory + "nikto"
         self.gitRepo = "https://github.com/sullo/nikto.git"
         if not self.installed():
             self.install()
@@ -847,7 +846,7 @@ class nikto():
 
 class sqlmap():
     def __init__(self):
-        self.Install_directory = toolDir + "sqlmap"
+        self.Install_directory = Tool_directory + "sqlmap"
         self.gitRepo = "https://github.com/sqlmapproject/sqlmap.git"
 
         if not self.installed():
@@ -925,7 +924,7 @@ class sqlmap():
 
 class wpscan():
     def __init__(self):
-        self.Install_directory = toolDir + "wpscan"
+        self.Install_directory = Tool_directory + "wpscan"
         self.gitRepo = "https://github.com/wpscanteam/wpscan.git"
         if not self.installed():
             self.install()
@@ -974,7 +973,7 @@ class wpscan():
 
 class dirb():
     def __init__(self):
-        self.Install_directory = toolDir + "dirb"
+        self.Install_directory = Tool_directory + "dirb"
         self.gitRepo = "https://github.com/v0re/dirb.git"
 
         if not self.installed():
@@ -1002,7 +1001,7 @@ class dirb():
     
 class skipfish():
     def __init__(self):
-        self.Install_directory = toolDir + "skipfish"
+        self.Install_directory = Tool_directory + "skipfish"
         self.gitRepo = "https://github.com/spinkham/skipfish.git"
 
         if not self.installed():
@@ -1031,7 +1030,7 @@ class skipfish():
 
 class inject():
     def __init__(self):
-        self.Install_directory = toolDir + "sqliv"
+        self.Install_directory = Tool_directory + "sqliv"
         self.gitRepo = "https://github.com/the-robot/sqliv.git"
 
         if not self.installed():
@@ -1098,7 +1097,7 @@ class broauth():
 # # class broacc():
 class secmisconf():
     def __init__(self):
-        self.Install_directory = toolDir + "watobo"
+        self.Install_directory = Tool_directory + "watobo"
         self.gitRepo = "https://github.com/siberas/watobo.git"
         if not self.installed():
             self.install()
@@ -1119,7 +1118,7 @@ class secmisconf():
     
 class xxs():
     def __init__(self):
-        self.Install_directory = toolDir + "zaproxy"
+        self.Install_directory = Tool_directory + "zaproxy"
         self.gitRepo = "https://github.com/ParrotSec/zaproxy.git"
 
         if not self.installed():
@@ -1172,7 +1171,7 @@ class kwnvuln():
 
 class brutex():
     def __init__(self):
-        self.Install_directory = toolDir + "brutex"
+        self.Install_directory = Tool_directory + "brutex"
         self.gitRepo = "https://github.com/1N3/BruteX.git"
         if not self.installed():
             self.install()
@@ -1203,7 +1202,7 @@ class brutex():
     
 class hydra():
     def __init__(self):
-        self.Install_directory = toolDir + "thc-hydra"
+        self.Install_directory = Tool_directory + "thc-hydra"
         self.gitRepo = "https://github.com/vanhauser-thc/thc-hydra.git"
 
         if not self.installed():
@@ -1235,7 +1234,7 @@ class hydra():
     
 class jtr():
     def __init__(self):
-        self.Install_directory = toolDir + "john_the_ripper"
+        self.Install_directory = Tool_directory + "john_the_ripper"
         self.gitRepo = "https://github.com/openwall/john.git"
 
         if not self.installed():
@@ -1264,9 +1263,9 @@ class jtr():
 
 class hashcat():
     def __init__(self):
-        self.Install_directory1 = toolDir + "hashcat"
+        self.Install_directory1 = Tool_directory + "hashcat"
         self.gitRepo1 = "https://github.com/hashcat/hashcat.git"
-        self.Install_directory2 = toolDir + "hash-identifier"
+        self.Install_directory2 = Tool_directory + "hash-identifier"
         self.gitRepo2 = "https://github.com/blackploit/hash-identifier.git"
         if not self.installed():
             self.install()
