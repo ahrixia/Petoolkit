@@ -6,13 +6,13 @@ if [ "$PREFIX" = "/data/data/com.termux/files/usr" ]; then
     Bin_directory="$PREFIX/bin/"
     Bash_directory="$PREFIX/bin/bash"
     TERMUX=true
-    sudo pkg install -y git python3
+    sudo apt-get install python3
 else
     Install_directory="$HOME/.petoolkit"
     Bin_directory="/usr/local/bin/"
     Bash_directory="/bin/bash"
     TERMUX=false
-    sudo apt-get install -y git python3.9
+    sudo sudo apt-get install python3.8
 fi
 sudo apt-get install python3-pip
 sudo apt-get install python3-termcolor
