@@ -295,10 +295,10 @@ class webscan():
 
 class fulrecon():
     def __init__(self):
-        target = input(" Enter the target IP or URL : ")
-        self.menu(target)
+        host = input(" Enter the target IP or URL : ")
+        self.menu(host)
 
-    def menu(self, target):
+    def menu(self, host):
         Sclear()
         print('    3klCon Project v1.0 by eslam3kl')
         print('    1  -  Full Recon and Scanning')
@@ -306,15 +306,15 @@ class fulrecon():
         choice = input(cmd)
         try:
             if choice == '1': 
-                os.system("python 3klcon.py -t %s" % target)
+                os.system("python 3klcon.py -t %s" % host)
                 input("\nPress Enter key to continue")
                 fulrecon()
             elif choice == '0':
                 scann()
             else:
-                self.menu(target)
+                self.menu(host)
         except KeyboardInterrupt:
-            self.menu(target)
+            self.menu(host)
         
 
 class exploit():
@@ -530,8 +530,7 @@ class recon():
         self.Install_directory = Tool_directory + "recon-ng"
         self.gitRepo = "https://github.com/lanmaster53/recon-ng.git"
         if not self.installed():
-            self.install()
-        Sclear()      
+            self.install()      
         Sclear()
         print('''Recon-Ng - Recon-ng is a full-featured Web Reconnaissance framework written in Python. Complete with independent modules, database interaction, \nbuilt in convenience functions, interactive help, and command completion, Recon-ng provides a powerful environment in which \nopen source web-based reconnaissance can be conducted quickly and thoroughly.''')
         input("\n\nPress Enter key to continue")
@@ -557,9 +556,11 @@ class theharv():
         if not self.installed():
             self.install()
         Sclear()     
-        print('''The objective of this program is to gather emails, subdomains, hosts, employee names, open ports and \nbanners from different public sources like search engines, PGP key servers and SHODAN computer database.''')
-        domain = input("HOST: ")
-        self.run(domain)
+        print('''
+        The objective of this program is to gather emails, subdomains, hosts, employee names, open ports and 
+        banners from different public sources like search engines, PGP key servers and SHODAN computer database.''')
+        host = input("HOST: ")
+        self.run(host)
 
     def installed(self):
         return (os.path.isfile("/usr/bin/theHarvester") or os.path.isfile("/usr/local/bin/theHarvester") or return (os.path.isdir(self.Install_directory))
@@ -567,15 +568,15 @@ class theharv():
     def install(self):
         os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
 
-    def run(self,domain):
+    def run(self,host):
         lists = input("List Results (>1): ")
-        source = input(" Data Source(baidu, bing, google, google-profiles, linkedin, pgp, twitter, virustotal, netcraft, yahoo) : ")
-        shodan = input(" If Showan Queries (type '-h') : ")
-        os.system("python3 %s/theHarvester.py -d %s -l %s -b %s %s" % (self.Install_directory,domain,lists,source,shodan) or "theHarvester -d %s -l %s -b %s %s" % (domain,lists,source,shodan))
+        source = input("Data Source(baidu, bing, google, google-profiles, linkedin, pgp, twitter, virustotal, netcraft, yahoo) : ")
+        shodan = input("If Shodan Queries (type '-h') : ")
+        os.system("python3 %s/theHarvester.py -d %s -l %s -b %s %s" % (self.Install_directory,host,lists,source,shodan) or "theHarvester -d %s -l %s -b %s %s" % (host,lists,source,shodan))
         input("\n\nPress Enter key to continue")
         infogath()
 
-class discover(): #download
+class discover(): 
     def __init__(self):
         self.Install_directory = toolDir + "discover"
         self.gitRepo = "https://github.com/leebaird/discover.git"
@@ -610,8 +611,8 @@ class nmap():
         Nmap provides a number of features for probing computer networks, including host discovery and service and operating 
         system detection. These features are extensible by scripts that provide more advanced service detection, vulnerability 
         detection, and other features.\n''')
-        target = input(" Enter the target IP or URL : ")
-        self.menu(target)
+        host = input(" Enter the target IP or URL : ")
+        self.menu(host)
 
     def installed(self):
         return (os.path.isfile("/usr/bin/nmap") or os.path.isfile("/usr/local/bin/nmap"))
@@ -620,8 +621,8 @@ class nmap():
         os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
         os.system("cd %s && ./configure && make && make install" %self.Install_directory)
 
-    def menu(self, target):
-        print(" NMAP : %s\n" % target)
+    def menu(self, host):
+        print(" NMAP : %s\n" % host)
         print(" 1 . Simple Scan ")
         print(" 2 . Port Scan ")
         print(" 3 . Operating System Scan ")
@@ -630,48 +631,57 @@ class nmap():
         print(" 0 . Back on Network and Port Scanning ")
         choice = input(cmd)
         try:
-            if choice == '1': 
-            # NMAP 
-                os.system("nmap -sV -F %s" % target)
+            if choice == '1':  
+                os.system("nmap -sV -F %s" % host)
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '2':
-                os.system("nmap -Pn %s" % target)
+                os.system("nmap -Pn %s" % host)
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '3':
-                os.system("nmap -A %s" % target)
+                os.system("nmap -A %s" % host)
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '4':
-                os.system("nmap -p- %s" % target)
+                os.system("nmap -p- %s" % host)
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '5':
                 os.system("nmap --help")
                 port = input(" Enter only Flag : ")
-                os.system("nmap %s %s " % (port,target))
+                os.system("nmap %s %s " % (port,host))
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '0':
                 netport()
             else:
-                self.menu(target)
+                self.menu(host)
         except KeyboardInterrupt:
-            self.menu(target)
+            self.menu(host)
 
 class hping3():
     def __init__(self):
+        self.Install_directory = toolDir + "hping3"
+        self.gitRepo = "https://github.com/HiddenShot/Hping3.git"
+        if not self.installed():
+            self.install()
         Sclear()
         print('''
         hping is a command-line oriented TCP/IP packet assembler/analyzer. The interface is inspired to the ping(8) unix command, but 
         hping isn’t only able to send ICMP echo requests. It supports TCP, UDP, ICMP and RAW-IP protocols, has a traceroute mode, the 
         ability to send files between a covered channel, and many other features.\n''')
-        target = input(" Enter the target IP or URL : ")
-        self.menu(target)
+        host = input(" Enter the target IP or URL : ")
+        self.menu(host)
 
-    def menu(self, target):
-        print(" HPING3 : %s\n" % target)
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+
+    def menu(self, host):
+        print(" HPING3 : %s\n" % host)
         print(" 1 . Scan Mode")
         print(" 2 . TraceRoute Mode ")
         print(" 3 . Verbose Scan ")
@@ -679,32 +689,35 @@ class hping3():
         print(" 0 . Back on Network and Port Scanning ")
         choice = input(cmd)
         try:
-            if choice == '1': 
-            # NMAP 
-                os.system("sudo hping3 --scan 1-100 -S %s" % target)
+            if choice == '1':  
+                os.system("sudo hping3 --scan 1-100 -S %s" % host)
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '2':
-                os.system("sudo hping3 --traceroute -S %s" % target)
+                os.system("sudo hping3 --traceroute -S %s" % host)
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '3':
-                os.system("sudo hping3 -V -S %s" % target)
+                os.system("sudo hping3 -V -S %s" % host)
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '4':
-                os.system("sudo hping3 -S --flood -V %s" % target)
+                os.system("sudo hping3 -S --flood -V %s" % host)
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '0':
                 netport()
             else:
-                self.menu(target)
+                self.menu(host)
         except KeyboardInterrupt:
-            self.menu(target)
+            self.menu(host)
 
 class masscan():
     def __init__(self):
+        self.Install_directory = toolDir + "masscan"
+        self.gitRepo = "https://github.com/robertdavidgraham/masscan.git"
+        if not self.installed():
+            self.install()
         Sclear()
         print('''
         This is the fastest Internet port scanner. It can scan the entire Internet in under 6 minutes, transmitting 10 million packets per second.
@@ -713,12 +726,19 @@ class masscan():
         arbitrary address ranges and port ranges.\n
         NOTE: masscan uses a custom TCP/IP stack. Anything other than simple port scans will cause conflict with the local TCP/IP stack. 
         ''')
-        target = input(" Enter the target IP or URL : ")
-        self.menu(target)
+        host = input(" Enter the target IP or URL : ")
+        self.menu(host)
 
-    def menu(self, target):
+    def installed(self):
+        return (os.path.isfile("/usr/bin/masscan") or os.path.isfile("/usr/local/bin/masscan"))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
+        os.system("cd %s && ./configure && make && make install" % self.Install_directory)
+    
+    def menu(self, host):
         Sclear()
-        print(" MASSCAN : %s\n" % target)
+        print(" MASSCAN : %s\n" % host)
         print(" 1 . Port Range ")
         print(" 2 . Selected Ports")
         print(" 3 . Exlude List Scan ")
@@ -729,47 +749,57 @@ class masscan():
             if choice == '1':
                 start = input('Start Range: ')
                 end = input('End Range: ') 
-                os.system("sudo masscan %s ‐p%s-%s" % (target,start,end))
+                os.system("sudo masscan %s ‐p%s-%s" % (host,start,end))
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '2':
                 port = input('''Enter Ports(No space just ',' in between): ''')
-                os.system("sudo masscan %s -p%s" % (target,port))
+                os.system("sudo masscan %s -p%s" % (host,port))
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '3':
                 port = input('''Enter Ports(No space just ',' in between): ''')
                 efile = input(' Exclude IP file location: ')
-                os.system("masscan %s -p%s --exludefile %s" % (target,port,efile))
+                os.system("masscan %s -p%s --exludefile %s" % (host,port,efile))
                 input("\nPress Enter key to continue")
                 netport()
             if choice == '4':
                 port = input('''Enter Ports(No space just ',' in between): ''')
                 rate = input('Packet rate(Default 10000): ')
-                os.system("sudo masscan %s -p%s --rate %s" % (target,port,rate))
+                os.system("sudo masscan %s -p%s --rate %s" % (host,port,rate))
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '0':
                 netport()
             else:
-                self.menu(target)
+                self.menu(host)
         except KeyboardInterrupt:
-            self.menu(target)
+            self.menu(host)
 
 class nikto():
     def __init__(self):
+        self.Install_directory = toolDir + "nikto"
+        self.gitRepo = "https://github.com/sullo/nikto.git"
+        if not self.installed():
+            self.install()
         Sclear()
         print('''
         Nikto is an Open Source (GPL) web server scanner which performs comprehensive tests against web servers for multiple items, 
         including over 6700 potentially dangerous files/programs, checks for outdated versions of over 1250 servers, and version 
         specific problems on over 270 servers. 
         ''')
-        target = input(" Enter the target IP or URL : ")
-        self.menu(target)
+        host = input(" Enter the target IP or URL : ")
+        self.menu(host)
 
-    def menu(self, target):
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+
+    def menu(self, host):
         Sclear()
-        print(" NIKTO : %s\n" % target)
+        print(" NIKTO : %s\n" % host)
         print(" 1 . Basic Scan ")
         print(" 2 . Port Scan ")
         print(" 3 . SSL Scan ")
@@ -780,44 +810,48 @@ class nikto():
         choice = input(cmd)
         try:
             if choice == '1': 
-                os.system("nikto -h %s" % target)
+                os.system("nikto -h %s" % host)
                 input("\nPress Enter key to continue")
                 webscan()
             elif choice == '2':
                 port = input('''Enter Ports(No space just ',' in between): ''')
-                os.system("nikto -h %s -port %s" % (target,port))
+                os.system("nikto -h %s -port %s" % (host,port))
                 input("\nPress Enter key to continue")
                 webscan()
             if choice == '3':
-                os.system("nikto -h %s -ssl %s" % (target,port))
+                os.system("nikto -h %s -ssl %s" % (host,port))
                 input("\nPress Enter key to continue")
                 webscan()
             if choice == '4':
-                os.system("nikto -h %s -nossl %s" % (target,port))
+                os.system("nikto -h %s -nossl %s" % (host,port))
                 input("\nPress Enter key to continue")
                 webscan()
             if choice == '5': 
                 print('''\n1   Interesting file\n2   Misconfiguration\n3   Information Disclosure\n4   Injection (XSS/Script/HTML)\n5   Remote File Retrieval – Inside Web Root\n6   Denial of Service\n7   Remote File Retrieval – Server Wide\n8   Command Execution – Remote Shell\n9   SQL Injection\n0   File Upload\na   Authentication Bypass\nb      Software Identification\nc   Remote Source Inclusion\nx   Reverse Tuning Option ''')
                 tuning = input("\nTuning Option: ")
-                os.system("nikto -h %s -Tuning %s" % (target,tuning))
+                os.system("nikto -h %s -Tuning %s" % (host,tuning))
                 input("\nPress Enter key to continue")
                 webscan()
             if choice == '6': 
                 print('''\n1   Test all files in root directory\n2   Guess for password file names\n3   Enumerate user names via apache\n4   Enumerate user names via cgiwrap\n5   Attempt to brute force sub-domain names\n6   Attempt to guess directory names from a file''')
                 mutate = input('\nMutate Option: ')
-                os.system("nikto -h %s -mutate %s" % (target,mutate))
+                os.system("nikto -h %s -mutate %s" % (host,mutate))
                 input("\nPress Enter key to continue")
                 webscan()
             elif choice == '0':
                 webscan()
             else:
-                self.menu(target)
+                self.menu(host)
         except KeyboardInterrupt:
-            self.menu(target)
-
+            self.menu(host)
 
 class sqlmap():
     def __init__(self):
+        self.Install_directory = toolDir + "sqlmap"
+        self.gitRepo = "https://github.com/sqlmapproject/sqlmap.git"
+
+        if not self.installed():
+            self.install()
         Sclear()
         print('''
         sqlmap is an open source penetration testing tool that automates the process of detecting and exploiting SQL injection flaws 
@@ -825,12 +859,18 @@ class sqlmap():
         tester and a broad range of switches lasting from database fingerprinting, over data fetching from the database, to accessing 
         the underlying file system and executing commands on the operating system via out-of-band connections.
         ''')
-        target = input(" Enter the target IP or URL : ")
-        self.menu(target)
+        host = input(" Enter the target IP or URL : ")
+        self.menu(host)
 
-    def menu(self, target):
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+
+    def menu(self, host):
         Sclear()
-        print(" SQLMap : %s\n" % target)
+        print(" SQLMap : %s\n" % host)
         print(" 1 . Scan ")
         print(" 2 . Database")
         print(" 3 . Tables ")
@@ -842,60 +882,69 @@ class sqlmap():
         choice = input(cmd)
         try:
             if choice == '1': 
-                os.system("sqlmap -u %s" % target)
+                os.system("sqlmap -u %s" % host)
                 input("\nPress Enter key to continue")
                 webscan()
             elif choice == '2':
-                os.system("sqlmap -u %s ‐‐dbs" % target)
+                os.system("sqlmap -u %s ‐‐dbs" % host)
                 input("\nPress Enter key to continue")
                 webscan()
             elif choice == '3':
                 dbs = input( " Database :")
-                os.system("sqlmap -u %s -D %s --table " % (target,dbs))
+                os.system("sqlmap -u %s -D %s --table " % (host,dbs))
                 input("\nPress Enter key to continue")
                 webscan()
             elif choice == '4':
                 dbs = input( " Database :")
                 table = input( " Table :")
-                os.system("sqlmap -u %s ‐D %s -T %s --columns" % (target,dbs,table))
+                os.system("sqlmap -u %s ‐D %s -T %s --columns" % (host,dbs,table))
                 input("\nPress Enter key to continue")
                 webscan()
             elif choice == '5':
                 dbs = input( " Database :")
                 table = input( " Table :")
-                os.system("sqlmap -u %s -D %s -T %s --dump" % (target,dbs,table))
+                os.system("sqlmap -u %s -D %s -T %s --dump" % (host,dbs,table))
                 input("\nPress Enter key to continue")
                 webscan()
             elif choice == '6':
                 db = input(" Input Database Type (Eg. mysql): ")
-                os.system("sqlmap --dbms=%s -u %s --os-shell" % (db,target))
+                os.system("sqlmap --dbms=%s -u %s --os-shell" % (db,host))
                 input("\nPress Enter key to continue")
                 webscan()
             elif choice == '7':
                 flag = input(" All flags : ")
-                os.system("sqlmap -u %s %s" % (target,flag))
+                os.system("sqlmap -u %s %s" % (host,flag))
                 input("\nPress Enter key to continue")
                 webscan()
             elif choice == '0':
                 webscan()
             else:
-                self.menu(target)
+                self.menu(host)
         except KeyboardInterrupt:
-            self.menu(target)
-
+            self.menu(host)
 
 class wpscan():
     def __init__(self):
+        self.Install_directory = toolDir + "wpscan"
+        self.gitRepo = "https://github.com/wpscanteam/wpscan.git"
+        if not self.installed():
+            self.install()
         Sclear()
         print('''
         WPScan is a black box WordPress vulnerability scanner that can be used to scan remote WordPress installations to find security issues.
         ''')
-        target = input(" Enter the target IP or URL : ")
-        self.menu(target)
+        host = input(" Enter the target IP or URL : ")
+        self.menu(host)
 
-    def menu(self, target):
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+
+    def menu(self, host):
         Sclear()
-        print(" WPScan : %s\n" % target)
+        print(" WPScan : %s\n" % host)
         print(" 1 . Enumerate Users ")
         print(" 2 . Database")
         print(" 3 . Help ")
@@ -903,13 +952,13 @@ class wpscan():
         choice = input(cmd)
         try:
             if choice == '1': 
-                os.system("wpscan --url %s --enumerate" % target)
+                os.system("wpscan --url %s --enumerate" % host)
                 input("\nPress Enter key to continue")
                 webscan()
             elif choice == '2':
                 username = input(" Enter Username List Location: ")
                 password = input(" Enter Password List Location: ")
-                os.system("wpscan --url %s --usernames %s --passwords %s" % (target,username,password))
+                os.system("wpscan --url %s --usernames %s --passwords %s" % (host,username,password))
                 input("\nPress Enter key to continue")
                 webscan()
             elif choice == '3':
@@ -919,18 +968,32 @@ class wpscan():
             elif choice == '0':
                 webscan()
             else:
-                self.menu(target)
+                self.menu(host)
         except KeyboardInterrupt:
-            self.menu(target)
+            self.menu(host)
 
 class dirb():
     def __init__(self):
+        self.Install_directory = toolDir + "dirb"
+        self.gitRepo = "https://github.com/v0re/dirb.git"
+
+        if not self.installed():
+            self.install()
         Sclear()
         print('''
         DIRB is a Web Content Scanner. It looks for existing (and/or hidden) Web Objects. It basically works by launching 
         a dictionary based attack against a web server and analyzing the response.
         ''')
         host = input("HOST: ")
+        self.run(host)
+
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+
+    def run(self,host):
         filetype = input("Specific FileType by -X(Eg. -X .xml for XML type): ")
         wordlist = input("Enter Wordlist Location(Default- common.txt)")
         os.system("dirb http://%s %s %s" % (host,wordlist,filetype))
@@ -939,6 +1002,11 @@ class dirb():
     
 class skipfish():
     def __init__(self):
+        self.Install_directory = toolDir + "skipfish"
+        self.gitRepo = "https://github.com/spinkham/skipfish.git"
+
+        if not self.installed():
+            self.install()
         Sclear()
         print('''
         Skipfish is an active web application security reconnaissance tool. It prepares an interactive sitemap for the targeted 
@@ -947,6 +1015,15 @@ class skipfish():
         to serve as a foundation for professional web application security assessments.
         ''')
         host = input("HOST: ")
+        self.run(host)
+
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+
+    def run(self,host):
         output = input("OutPut Folder Name:")
         os.system("skipfish -m 5 -LY -S /usr/share/skipfish/dictionaries/complete.wl -o ./%s -u http://%s" % (output,host))
         input("\nPress Enter key to continue")
@@ -954,12 +1031,25 @@ class skipfish():
 
 class inject():
     def __init__(self):
-        target = input(" Enter the target IP or URL : ")
-        self.menu(target)
+        self.Install_directory = toolDir + "sqliv"
+        self.gitRepo = "https://github.com/the-robot/sqliv.git"
 
-    def menu(self, target):
+        if not self.installed():
+            self.install()
+        Sclear()
+        #INTROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+        host = input(" Enter the target IP or URL : ")
+        self.menu(host)
+
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+
+    def menu(self, host):
         Sclear() 
-        print(" SQLiv : %s\n" % target)
+        print(" SQLiv : %s\n" % host)
         print('  1  -  Multiple Domain Scanning with SQLi Dork')
         print('  2  -  Target Scanning')
         print('  3  -  Reverse Domain and Scanning')
@@ -973,20 +1063,19 @@ class inject():
                 input("\nPress Enter key to continue")
                 exploit()
             elif choice == '2':
-                os.system("python sqliv.py -t %s " % target)
+                os.system("python sqliv.py -t %s " % host)
                 input("\nPress Enter key to continue")
                 exploit()
             elif choice == '3':
-                os.system("python sqliv.py -t %s -r" % target)
+                os.system("python sqliv.py -t %s -r" % host)
                 input("\nPress Enter key to continue")
                 exploit()
             elif choice == '0':
                 exploit()
             else:
-                self.menu(target)
+                self.menu(host)
         except KeyboardInterrupt:
-            self.menu(target)
-
+            self.menu(host)
 
 class broauth():
     def __init__(self):
@@ -1003,27 +1092,52 @@ class broauth():
             elif choice == '0':
                 exploit()
             else:
-                self.menu(target)
+            self.__init__()
         except KeyboardInterrupt:
-            self.menu(target)
+            self.__init__()
 
 
-# # class sensdata():
+# # class sensdata(): 
 # # class xxe():
 # # class broacc():
 class secmisconf():
     def __init__(self):
+        self.Install_directory = toolDir + "watobo"
+        self.gitRepo = "https://github.com/siberas/watobo.git"
+        if not self.installed():
+            self.install()
         Sclear()
+        self.run()
 # apt-get install watobo
+#INTROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
 
+    def install(self):
+        os.system("git clone --depth=1 %s %s"(self.gitRepo, self.Install_directory))
+    
+    def run(self):
         os.system("watobo")
         input("\nPress Enter key to continue")
         exploit()
     
 class xxs():
     def __init__(self):
-        Sclear()
+        self.Install_directory = toolDir + "zaproxy"
+        self.gitRepo = "https://github.com/ParrotSec/zaproxy.git"
 
+        if not self.installed():
+            self.install()
+        Sclear()
+        self.run()
+#INTROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+
+    def run(self):
         os.system("zaproxy")
         input("\nPress Enter key to continue")
         exploit()
@@ -1031,28 +1145,29 @@ class xxs():
 # class insecdes():
 class kwnvuln():
     def __init__(self):
-        target = input(" Enter the library/framework/software module (Use '+' instead of Spaceing) : ")
-        self.menu(target)
+        host = input(" Enter the library/framework/software module (Use '+' instead of Spaceing) : ")
+        input("\nPress Enter key to continue")
+        self.menu(host)
 
-    def menu(self, target):
+    def menu(self, host):
         Sclear() 
-        print("  Using Components with Known Vulnerabilities : %s\n" % target)
+        print("  Using Components with Known Vulnerabilities : %s\n" % host)
         print('  1  -  Seach from Known Vulnerabilities - CVE,NVD,Exploit-DB ')
         print('  0  -  Back to Main Menu')
         choice = input(cmd)
         try:
             if choice == '1':
-                webbrowser.open('https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=%s' % target, new = 2)
-                webbrowser.open('https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&query=%s&search_type=all' % target, new = 3)
-                webbrowser.open('https://www.exploit-db.com/search?q=%s' % target, new = 4)
+                webbrowser.open('https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=%s' % host, new = 2)
+                webbrowser.open('https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&query=%s&search_type=all' % host, new = 3)
+                webbrowser.open('https://www.exploit-db.com/search?q=%s' % host, new = 4)
                 input("\nPress Enter key to continue")
                 exploit()
             elif choice == '0':
                 exploit()
             else:
-                self.menu(target)
+                self.menu(host)
         except KeyboardInterrupt:
-            self.menu(target)
+            self.menu(host)
 
 # class lognmoni():
 
@@ -1061,6 +1176,10 @@ class kwnvuln():
 
 class brutex():
        def __init__(self):
+        self.Install_directory = toolDir + "brutex"
+        self.gitRepo = "https://github.com/1N3/BruteX.git"
+        if not self.installed():
+            self.install()
         Sclear()
         print('''
         Automatically brute force all services running on a target:
@@ -1069,6 +1188,18 @@ class brutex():
         * Passwords
         ''')
         host = input("HOST: ")
+        self.run()
+
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+        if not os.path.isdir("/usr/share/brutex"):
+            os.makedirs("/usr/share/brutex")
+        os.system("cd %s && chmod +x install.sh && ./install.sh" % self.Install_directory)
+
+    def run(self):
         port = input("If any specific port (Default)")
         os.system("brutex %s %s" % (host,port))
         input("\nPress Enter key to continue")
@@ -1076,33 +1207,59 @@ class brutex():
     
 class hydra():
     def __init__(self):
+        self.Install_directory = toolDir + "thc-hydra"
+        self.gitRepo = "https://github.com/vanhauser-thc/thc-hydra.git"
+
+        if not self.installed():
+            self.install()
+        Sclear()
         print('''
         Hydra is a parallelized login cracker which supports numerous protocols to attack. It is very fast and flexible, 
         and new modules are easy to add. This tool makes it possible for researchers and security consultants to show 
         how easy it would be to gain unauthorized access to a system remotely.
         ''')
-        target = input(" Enter the target IP or URL : ")
-        self.menu(target)
+        host = input(" Enter the target IP or URL : ")
+        self.menu(host)
 
-    def menu(self, target):
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
+
+    def menu(self, host):
         Sclear()
-        print(" HYDRA : %s\n" % target)
+        print(" HYDRA : %s\n" % host)
         usr = input(" Enter Username List Location: ")
         pwd = input(" Enter Password List Location: ")
         protocol = input ("Protocol (ssh/ftp/smb/mysql/telnet/smtp/postgres) : ")
-        os.system("hydra -L %s -P %s %s %s -V -f " % (usr,pwd,target,protocol))
+        os.system("hydra -L %s -P %s %s %s -V -f " % (usr,pwd,host,protocol))
         input("\nPress Enter key to continue")
         pwdcrack()
     
-
 class jtr():
     def __init__(self):
+        self.Install_directory = toolDir + "john_the_ripper"
+        self.gitRepo = "https://github.com/openwall/john.git"
+
+        if not self.installed():
+            self.install()
         Sclear()
         print('''
         John the Ripper is designed to be both feature-rich and fast. It combines several cracking modes in one program and 
         is fully configurable for your particular needs (you can even define a custom cracking mode using the built-in 
         compiler supporting a subset of C).
         ''')
+        input("\nPress Enter key to continue")
+        self.run()
+
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+
+    def run(self):
         fileloc = input("File Location : ")
         wordlist = input(" Wordlist Location: ")
         os.system("john --wordlist=%s %s" % (wordlist,fileloc))
@@ -1111,6 +1268,12 @@ class jtr():
 
 class hashcat():
     def __init__(self):
+        self.Install_directory1 = toolDir + "hashcat"
+        self.gitRepo1 = "https://github.com/hashcat/hashcat.git"
+        self.Install_directory2 = toolDir + "hash-identifier"
+        self.gitRepo2 = "https://github.com/blackploit/hash-identifier.git"
+        if not self.installed():
+            self.install()
         Sclear()
         print('''
         Hash-Identifier - Software to identify the different types of hashes used to encrypt data and especially passwords.
@@ -1118,6 +1281,16 @@ class hashcat():
                   of attack for over 300 highly-optimized hashing algorithms.
         ''')
         input("Press Enter key to continue...")
+        self.run()
+
+    def hcinstalled(self):
+        return (os.path.isdir(self.Install_directory1) and (os.path.isdir(self.Install_directory2))
+
+    def hcinstall(self):
+        os.system("git clone --depth=1 %s %s" %(self.gitRepo1, self.Install_directory1))
+        os.system("git clone --depth=1 %s %s" % (self.gitRepo2, self.Install_directory2))
+
+    def run(self):
         fileloc = input("File Location : \n")
         os.system("hash-identifier-%s" % fileloc)
         input("\nPress Enter key to continue")
@@ -1186,9 +1359,9 @@ class macchanger:
                 input("\nPress Enter key to continue")
                 sniffsnoof()
             else:
-                self.menu(target)
+                self.menu(host)
         except KeyboardInterrupt:
-            self.menu(target)
+            self.menu(host)
 
 class inforeport():
     def __init__(self):
