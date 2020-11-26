@@ -660,8 +660,6 @@ class nmap():
 
 class hping3():
     def __init__(self):
-        self.Install_directory = Tool_directory + "hping3"
-        self.gitRepo = "https://github.com/HiddenShot/Hping3.git"
         if not self.installed():
             self.install()
         Sclear()
@@ -676,7 +674,7 @@ class hping3():
         return (os.path.isdir(self.Install_directory))
 
     def install(self):
-        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+        os.system("sudo apt-get install hping3 -y")
 
     def menu(self, host):
         print(" HPING3 : %s\n" % host)
@@ -688,19 +686,19 @@ class hping3():
         choice = input(cmd)
         try:
             if choice == '1':  
-                os.system("sudo %s/hping.py --scan 1-100 -S %s" % (self.Install_directory,host))
+                os.system("sudo hping3 --scan 1-100 -S %s" % host)
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '2':
-                os.system("sudo %s/hping.py --traceroute -S %s" % (self.Install_directory,host))
+                os.system("sudo hping3 --traceroute -S %s" % host)
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '3':
-                os.system("sudo %s/hping.py -V -S %s" % (self.Install_directory,host))
+                os.system("sudo hping3 -V -S %s" % host)
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '4':
-                os.system("sudo %s/hping.py -S --flood -V %s" % (self.Install_directory,host))
+                os.system("sudo hping3 -S --flood -V %s" % host)
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '0':
