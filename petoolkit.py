@@ -688,19 +688,19 @@ class hping3():
         choice = input(cmd)
         try:
             if choice == '1':  
-                os.system("sudo hping3 --scan 1-100 -S %s" % host)
+                os.system("sudo %s/hping.py --scan 1-100 -S %s" % (self.Install_directory,host))
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '2':
-                os.system("sudo hping3 --traceroute -S %s" % host)
+                os.system("sudo %s/hping.py --traceroute -S %s" % (self.Install_directory,host))
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '3':
-                os.system("sudo hping3 -V -S %s" % host)
+                os.system("sudo %s/hping.py -V -S %s" % (self.Install_directory,host))
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '4':
-                os.system("sudo hping3 -S --flood -V %s" % host)
+                os.system("sudo %s/hping.py -S --flood -V %s" % (self.Install_directory,host))
                 input("\nPress Enter key to continue")
                 netport()
             elif choice == '0':
