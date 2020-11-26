@@ -671,7 +671,7 @@ class hping3():
         self.menu(host)
 
     def installed(self):
-        return (os.path.isdir(self.Install_directory))
+        return (os.path.isfile("/usr/bin/hping3") or os.path.isfile("/usr/local/bin/hping3"))
 
     def install(self):
         os.system("sudo apt-get install hping3 -y")
