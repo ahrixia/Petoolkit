@@ -541,7 +541,7 @@ class recon():
 
     def install(self):
         os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
-        os.system("cd %s && pip install -r REQUIREMENTS" %s self.Install_directory)
+        os.system("cd %s && pip install -r REQUIREMENTS" % self.Install_directory)
 
     def run(self):   
         os.system("bash %s/recon-ng" %s self.Install_directory)
