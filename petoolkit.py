@@ -544,7 +544,7 @@ class recon():
         os.system("cd %s && pip install -r REQUIREMENTS" % self.Install_directory)
 
     def run(self):   
-        os.system("bash %s/recon-ng" %s self.Install_directory)
+        os.system("bash %s/recon-ng" % self.Install_directory)
         input("\n\nPress Enter key to continue")
         infogath()
 
@@ -563,9 +563,9 @@ class theharv():
         self.run(host)
 
     def installed(self):
-        return (os.path.isfile("/usr/bin/theHarvester") or os.path.isfile("/usr/local/bin/theHarvester") or return (os.path.isdir(self.Install_directory))
-        
-    def install(self):
+        return ((os.path.isfile("/usr/bin/theHarvester") or os.path.isfile("/usr/local/bin/theHarvester")) or os.path.isdir(self.Install_directory))
+
+    def install(se):
         os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
 
     def run(self,host):
@@ -1084,18 +1084,14 @@ class broauth():
         print('  1  -  Firefox Add-On')
         print('  0  -  Back')
         choice = input(cmd)
-        try:
-            if choice == '1': 
-                os.system("firefox https://addons.mozilla.org/fr/firefox/addon/hackbar-free/")
-                input("\nPress Enter key to continue")
-                exploit()
-            elif choice == '0':
-                exploit()
-            else:
+        if choice == '1': 
+            os.system("firefox https://addons.mozilla.org/fr/firefox/addon/hackbar-free/")
+            input("\nPress Enter key to continue")
+            exploit()
+        elif choice == '0':
+            exploit()
+        else:
             self.__init__()
-        except KeyboardInterrupt:
-            self.__init__()
-
 
 # # class sensdata(): 
 # # class xxe():
@@ -1175,7 +1171,7 @@ class kwnvuln():
 
 
 class brutex():
-       def __init__(self):
+    def __init__(self):
         self.Install_directory = toolDir + "brutex"
         self.gitRepo = "https://github.com/1N3/BruteX.git"
         if not self.installed():
@@ -1284,7 +1280,7 @@ class hashcat():
         self.run()
 
     def hcinstalled(self):
-        return (os.path.isdir(self.Install_directory1) and (os.path.isdir(self.Install_directory2))
+        return (os.path.isdir(self.Install_directory1) and (os.path.isdir(self.Install_directory2)))
 
     def hcinstall(self):
         os.system("git clone --depth=1 %s %s" %(self.gitRepo1, self.Install_directory1))
