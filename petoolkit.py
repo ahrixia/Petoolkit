@@ -549,7 +549,6 @@ class theharv():
     def __init__(self):
         self.Install_directory = Tool_directory + "theHarvester"
         self.gitRepo = "https://github.com/laramies/theHarvester.git"
-
         if not self.installed():
             self.install()
         Sclear()     
@@ -590,10 +589,10 @@ class discover():
 
     def install(self):
         os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
-        os.system("%s./update.sh" % self.Install_directory)
+        os.system("%s/./update.sh" % self.Install_directory)
         
     def run(self):
-        os.system("bash %s/discover.sh" % self.Install_directory)
+        os.system("%s/./discover.sh" % self.Install_directory)
         input("\n\nPress Enter key to continue")
         infogath()
 
@@ -710,7 +709,7 @@ class hping3():
 
 class masscan():
     def __init__(self):
-        self.Install_directory = Tool_directory + "masscan"
+        self.Install_directory = toolDir + "masscan"
         self.gitRepo = "https://github.com/robertdavidgraham/masscan.git"
         if not self.installed():
             self.install()
@@ -775,8 +774,6 @@ class masscan():
 
 class nikto():
     def __init__(self):
-        self.Install_directory = Tool_directory + "nikto"
-        self.gitRepo = "https://github.com/sullo/nikto.git"
         if not self.installed():
             self.install()
         Sclear()
@@ -789,10 +786,10 @@ class nikto():
         self.menu(host)
 
     def installed(self):
-        return (os.path.isdir(self.Install_directory))
+        return (os.path.isfile("/usr/bin/nikto") or os.path.isfile("/usr/local/bin/nikto"))
 
     def install(self):
-        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+        os.system("sudo apt-get install nikto")
 
     def menu(self, host):
         Sclear()
@@ -801,8 +798,8 @@ class nikto():
         print(" 2 . Port Scan ")
         print(" 3 . SSL Scan ")
         print(" 4 . No SSL Scan ")
-        print(" 5 . Tuning Scan ")
-        print(" 6 . Mutate Scan ")
+        print(" 5 . Tuning Scan - Option List ")
+        print(" 6 . Mutate Scan - Option List ")
         print(" 0 . Back ")
         choice = input(cmd)
         try:
@@ -846,7 +843,6 @@ class sqlmap():
     def __init__(self):
         self.Install_directory = Tool_directory + "sqlmap"
         self.gitRepo = "https://github.com/sqlmapproject/sqlmap.git"
-
         if not self.installed():
             self.install()
         Sclear()
@@ -879,38 +875,38 @@ class sqlmap():
         choice = input(cmd)
         try:
             if choice == '1': 
-                os.system("sqlmap -u %s" % host)
+                os.system("python %s/sqlmap.py -u %s" % (self.Install_directory,host))
                 input("\nPress Enter key to continue")
                 webscan()
             elif choice == '2':
-                os.system("sqlmap -u %s ‐‐dbs" % host)
+                os.system("python %s/sqlmap.py -u %s ‐‐dbs" % (self.Install_directory,host))
                 input("\nPress Enter key to continue")
                 webscan()
             elif choice == '3':
                 dbs = input( " Database :")
-                os.system("sqlmap -u %s -D %s --table " % (host,dbs))
+                os.system("python %s/sqlmap.py -u %s -D %s --table " % (self.Install_directory,host,dbs))
                 input("\nPress Enter key to continue")
                 webscan()
             elif choice == '4':
                 dbs = input( " Database :")
                 table = input( " Table :")
-                os.system("sqlmap -u %s ‐D %s -T %s --columns" % (host,dbs,table))
+                os.system("python %s/sqlmap.py -u %s ‐D %s -T %s --columns" % (self.Install_directory,host,dbs,table))
                 input("\nPress Enter key to continue")
                 webscan()
             elif choice == '5':
                 dbs = input( " Database :")
                 table = input( " Table :")
-                os.system("sqlmap -u %s -D %s -T %s --dump" % (host,dbs,table))
+                os.system("python %s/sqlmap.py -u %s -D %s -T %s --dump" % (self.Install_directory,host,dbs,table))
                 input("\nPress Enter key to continue")
                 webscan()
             elif choice == '6':
                 db = input(" Input Database Type (Eg. mysql): ")
-                os.system("sqlmap --dbms=%s -u %s --os-shell" % (db,host))
+                os.system("python %s/sqlmap.py --dbms=%s -u %s --os-shell" % (self.Install_directory,db,host))
                 input("\nPress Enter key to continue")
                 webscan()
             elif choice == '7':
                 flag = input(" All flags : ")
-                os.system("sqlmap -u %s %s" % (host,flag))
+                os.system("python %s/sqlmap.py -u %s %s" % (self.Install_directory,host,flag))
                 input("\nPress Enter key to continue")
                 webscan()
             elif choice == '0':
@@ -934,10 +930,11 @@ class wpscan():
         self.menu(host)
 
     def installed(self):
-        return (os.path.isdir(self.Install_directory))
+        return (os.path.isfile("/usr/bin/wpscan") or os.path.isfile("/usr/local/bin/wpscan"))
 
     def install(self):
-        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+        os.system("sudo apt install curl git libcurl4-openssl-dev make zlib1g-dev gawk g++ gcc libreadline6-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 autoconf libgdbm-dev libncurses5-dev automake libtool bison pkg-config ruby ruby-bundler ruby-dev")
+        os.system("sudo gem install wpscan")
 
     def menu(self, host):
         Sclear()
@@ -971,9 +968,6 @@ class wpscan():
 
 class dirb():
     def __init__(self):
-        self.Install_directory = Tool_directory + "dirb"
-        self.gitRepo = "https://github.com/v0re/dirb.git"
-
         if not self.installed():
             self.install()
         Sclear()
@@ -985,10 +979,10 @@ class dirb():
         self.run(host)
 
     def installed(self):
-        return (os.path.isdir(self.Install_directory))
+        return (os.path.isfile("/usr/bin/dirb") or os.path.isfile("/usr/local/bin/dirb"))
 
     def install(self):
-        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+        os.system("sudo apt-get install -y dirb")
 
     def run(self,host):
         filetype = input("Specific FileType by -X(Eg. -X .xml for XML type): ")
@@ -1000,8 +994,6 @@ class dirb():
 class skipfish():
     def __init__(self):
         self.Install_directory = Tool_directory + "skipfish"
-        self.gitRepo = "https://github.com/spinkham/skipfish.git"
-
         if not self.installed():
             self.install()
         Sclear()
@@ -1018,11 +1010,13 @@ class skipfish():
         return (os.path.isdir(self.Install_directory))
 
     def install(self):
-        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+        os.system("wget http://skipfish.googlecode.com/files/skipfish-1.01b.tgz %s")
+        os.system("sudo apt-get install libidn11-dev")
+        os.system('tar zxvf %s/skipfish-1.01b.tgz && cd skipfish && make && cp dictionaries/default.wl skipfish.wl' %s self.Install_directory)
 
     def run(self,host):
         output = input("OutPut Folder Name:")
-        os.system("skipfish -m 5 -LY -S /usr/share/skipfish/dictionaries/complete.wl -o ./%s -u http://%s" % (output,host))
+        os.system("%s/./skipfish -m 5 -LY -S /usr/share/skipfish/dictionaries/complete.wl -o ./%s -u http://%s" % (output,host))
         input("\nPress Enter key to continue")
         webscan()
 
@@ -1030,7 +1024,6 @@ class inject():
     def __init__(self):
         self.Install_directory = Tool_directory + "sqliv"
         self.gitRepo = "https://github.com/the-robot/sqliv.git"
-
         if not self.installed():
             self.install()
         Sclear()
@@ -1043,6 +1036,7 @@ class inject():
 
     def install(self):
         os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+        os.system("sudo python2 %s/setup.py -i" %s self.Install_directory)
 
     def menu(self, host):
         Sclear() 
@@ -1056,15 +1050,15 @@ class inject():
             if choice == '1': 
                 dork = input(''' Enter the Dork (Eg. "inurl:index.php?id="): ''')
                 engine = input(" Enter Seach Engine(google/bing/yahoo): ")
-                os.system("python sqliv.py -d %s -e  %s" % (dork,engine))
+                os.system("python %s/sqliv.py -d %s -e  %s" % (self.Install_directory,dork,engine))
                 input("\nPress Enter key to continue")
                 exploit()
             elif choice == '2':
-                os.system("python sqliv.py -t %s " % host)
+                os.system("python %s/sqliv.py -t %s " % (self.Install_directory,host))
                 input("\nPress Enter key to continue")
                 exploit()
             elif choice == '3':
-                os.system("python sqliv.py -t %s -r" % host)
+                os.system("python %s/sqliv.py -t %s -r" % (self.Install_directory,host))
                 input("\nPress Enter key to continue")
                 exploit()
             elif choice == '0':
@@ -1096,18 +1090,16 @@ class broauth():
 class secmisconf():
     def __init__(self):
         self.Install_directory = Tool_directory + "watobo"
-        self.gitRepo = "https://github.com/siberas/watobo.git"
         if not self.installed():
             self.install()
         Sclear()
         self.run()
-# apt-get install watobo
 #INTROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
     def installed(self):
         return (os.path.isdir(self.Install_directory))
 
     def install(self):
-        os.system("git clone --depth=1 %s %s"(self.gitRepo, self.Install_directory))
+        os.system("%s/./watabo.sh" % Tool_directory)
     
     def run(self):
         os.system("watobo")
@@ -1116,22 +1108,19 @@ class secmisconf():
     
 class xxs():
     def __init__(self):
-        self.Install_directory = Tool_directory + "zaproxy"
-        self.gitRepo = "https://github.com/ParrotSec/zaproxy.git"
-
         if not self.installed():
             self.install()
         Sclear()
         self.run()
 #INTROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
     def installed(self):
-        return (os.path.isdir(self.Install_directory))
+        return (os.path.isfile("/usr/bin/haproxy") or os.path.isfile("/usr/local/bin/haproxy"))
 
     def install(self):
-        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+        os.system("apt install haproxy")
 
     def run(self):
-        os.system("zaproxy")
+        os.system("haproxy")
         input("\nPress Enter key to continue")
         exploit()
     
@@ -1200,9 +1189,6 @@ class brutex():
     
 class hydra():
     def __init__(self):
-        self.Install_directory = Tool_directory + "thc-hydra"
-        self.gitRepo = "https://github.com/vanhauser-thc/thc-hydra.git"
-
         if not self.installed():
             self.install()
         Sclear()
@@ -1215,10 +1201,10 @@ class hydra():
         self.menu(host)
 
     def installed(self):
-        return (os.path.isdir(self.Install_directory))
+        return (os.path.isfile("/usr/bin/hydra") or os.path.isfile("/usr/local/bin/hydra"))
 
     def install(self):
-        os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
+        os.system("sudo apt-get install -y hydra")
 
     def menu(self, host):
         Sclear()
@@ -1232,9 +1218,6 @@ class hydra():
     
 class jtr():
     def __init__(self):
-        self.Install_directory = Tool_directory + "john_the_ripper"
-        self.gitRepo = "https://github.com/openwall/john.git"
-
         if not self.installed():
             self.install()
         Sclear()
@@ -1247,10 +1230,10 @@ class jtr():
         self.run()
 
     def installed(self):
-        return (os.path.isdir(self.Install_directory))
+        return (os.path.isfile("/usr/bin/john") or os.path.isfile("/usr/local/bin/john"))
 
     def install(self):
-        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
+        os.system("sudo apt-get install john")
 
     def run(self):
         fileloc = input("File Location : ")
@@ -1261,10 +1244,6 @@ class jtr():
 
 class hashcat():
     def __init__(self):
-        self.Install_directory1 = Tool_directory + "hashcat"
-        self.gitRepo1 = "https://github.com/hashcat/hashcat.git"
-        self.Install_directory2 = Tool_directory + "hash-identifier"
-        self.gitRepo2 = "https://github.com/blackploit/hash-identifier.git"
         if not self.installed():
             self.install()
         Sclear()
@@ -1276,12 +1255,13 @@ class hashcat():
         input("Press Enter key to continue...")
         self.run()
 
-    def hcinstalled(self):
-        return (os.path.isdir(self.Install_directory1) and (os.path.isdir(self.Install_directory2)))
+    def installed(self):
+        return ((os.path.isfile("/usr/bin/hashcat") or os.path.isfile("/usr/local/bin/hashcat")) and 
+                (os.path.isfile("/usr/bin/hash-identifier") or os.path.isfile("/usr/local/bin/hash-identifier")))
 
-    def hcinstall(self):
-        os.system("git clone --depth=1 %s %s" %(self.gitRepo1, self.Install_directory1))
-        os.system("git clone --depth=1 %s %s" % (self.gitRepo2, self.Install_directory2))
+    def install(self):
+        os.system("sudo apt-get install -y hashcat")
+        os.system("sudo apt-get install -y hash-identifier")
 
     def run(self):
         fileloc = input("File Location : \n")
@@ -1300,6 +1280,8 @@ class hashcat():
 
 class ncrack():
     def __init__(self):
+        if not self.installed():
+            self.install()
         print('''
         Ncrack is a high-speed network authentication cracking tool. It was built to help companies secure their networks 
         by proactively testing all their hosts and networking devices for poor passwords. Security professionals also 
@@ -1307,6 +1289,13 @@ class ncrack():
         ''')
         input("Press Enter key to continue...")
         self.run()
+
+    def installed(self):
+        (os.path.isfile("/usr/bin/nrack") or os.path.isfile("/usr/local/bin/nrack")))
+
+    def install(self):
+        os.system("sudo apt-get install -y nrack")
+
     def run(self):
         ip = input(" IP Address List Location: ")
         user = input(" User List Location: ")
@@ -1318,12 +1307,25 @@ class ncrack():
 
 class setoolkit:
     def __init__(self):
+        self.Install_directory = Tool_directory + "setoolkit"
+        self.gitRepo = "https://github.com/trustedsec/social-engineer-toolkit.git"
+        if not self.installed():
+            self.install()
         print('''
         The Social-Engineer Toolkit is an open-source penetration testing framework designed for social engineering. 
         SET has a number of custom attack vectors that allow you to make a believable attack quickly.
         ''')
         input("Press Enter key to continue...")
         self.run()
+
+    def installed(self):
+        return (os.path.isfile("/usr/bin/setoolkit"))
+
+    def install(self):
+        os.system("apt-get --force-yes -y install git apache2 python-requests libapache2-mod-php python-pymssql build-essential python-pexpect python-pefile python-crypto python-openssl")
+        os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
+        os.system("cd %s && python setup.py install" % self.Install_directory)
+
     def run(self):
         Sclear()
         os.system("sudo setoolkit")
