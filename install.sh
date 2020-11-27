@@ -24,8 +24,8 @@ if [ -d "$Install_directory" ]; then
     read -r check
     if [ "$check" = "y" ]; then
         if [ "$TERMUX" = true ]; then
-            rm -rf "$Install_directory"
-            rm "$Bin_directory/petoolkit*"
+            sudo rm -rf "$Install_directory"
+            sudo rm "$Bin_directory/petoolkit*"
         else
             sudo rm -rf "$Install_directory"
             sudo rm "$Bin_directory/petoolkit*"
@@ -62,13 +62,7 @@ rm "$Install_directory/petoolkit";
 
 if [ -d "$Install_directory" ] ;
 then
-    echo "";
     echo "Congratulations! Tool is installed successfully!";
-    echo "";
-    echo "***************************************************************************";
-    echo "    Installation done!! You can run the tool by typing petoolkit !";
-    echo "***************************************************************************";
-    echo "";
 else
     echo "Sorry! Installation failed! ";
     exit
