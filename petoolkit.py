@@ -1012,7 +1012,7 @@ class skipfish():
     def install(self):
         os.system("wget http://skipfish.googlecode.com/files/skipfish-1.01b.tgz %s")
         os.system("sudo apt-get install libidn11-dev")
-        os.system('tar zxvf %s/skipfish-1.01b.tgz && cd skipfish && make && cp dictionaries/default.wl skipfish.wl' %s self.Install_directory)
+        os.system("tar zxvf %s/skipfish-1.01b.tgz && cd skipfish && make && cp dictionaries/default.wl skipfish.wl" % self.Install_directory)
 
     def run(self,host):
         output = input("OutPut Folder Name:")
@@ -1035,8 +1035,8 @@ class inject():
         return (os.path.isdir(self.Install_directory))
 
     def install(self):
-        os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
-        os.system("sudo python2 %s/setup.py -i" %s self.Install_directory)
+        os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
+        os.system("sudo python2 %s/setup.py -i" % self.Install_directory)
 
     def menu(self, host):
         Sclear() 
@@ -1291,7 +1291,7 @@ class ncrack():
         self.run()
 
     def installed(self):
-        (os.path.isfile("/usr/bin/nrack") or os.path.isfile("/usr/local/bin/nrack")))
+        (os.path.isfile("/usr/bin/nrack") or os.path.isfile("/usr/local/bin/nrack"))
 
     def install(self):
         os.system("sudo apt-get install -y nrack")
