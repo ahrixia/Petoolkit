@@ -138,11 +138,10 @@ dP   dP   dP          dP          .d88888b                                      
     4. Post-Exploitation     - The main aim of post exploitation is to figure out all the best exploits and vulnerabilities of target 
                                system with a motive to gain access and escalate privileges without getting detected. 
 
-    5. Report             - Reporting is the most important phase of the presentation listing, it is here in this phase where the 
-                            penetration tester explains to their clients about their systems weaknesses, vulnerabilities and 
-                            suggestions to resolve those weaknesses. A report must be very clear, all the findings must be documented
-                             and the client must understand what they're reading.
-    
+    5. Report                - Reporting is the most important phase of the presentation listing, it is here in this phase where the 
+                               penetration tester explains to their clients about their systems weaknesses, vulnerabilities and 
+                               suggestions to resolve those weaknesses. A report must be very clear, all the findings must be documented
+                               and the client must understand what they're reading.
 
     Few more Important Stages that need to be performed in able to qualify Pen testing as well as for CTFs Events are :
     
