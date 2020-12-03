@@ -1427,6 +1427,15 @@ class wireshark():
         Wireshark is the world’s foremost network protocol analyzer. It lets you see what’s happening on your network 
         at a microscopic level. It is the de facto (and often de jure) standard across many industries and educational 
         institutions. Wireshark development thrives thanks to the contributions of networking experts across the globe. 
+
+        Instructions:
+        STEP 1 : OPEN WIRESHARK                                                                                                                                                                                                                    
+        STEP 2 : CHOOSE NETWORK CAPTURE INTERFACE
+        •       Choose network Adapter and hit start button  
+        STEP 3 : CAPTURING NETWORK TRAFFIC
+        •       You will find three panes: Packet list, Packet details and Packet Bytes
+        STEP 4: STOP CAPTURING AND SAVE TO A .PCAP FILE
+        •       Once it is stopped, simply save to .pcap file format by hitting File > Save As > fileName.pcap.
         ''')
         input("\nPress Enter key to continue")
         self.run()
@@ -1452,6 +1461,14 @@ class burpsuite():
         Burp Suite is an integrated platform for performing security testing of web applications. Its various tools 
         work seamlessly together to support the entire testing process, from initial mapping and analysis of an 
         application’s attack surface, through to finding and exploiting security vulnerabilities.
+        
+        Instructions:
+        •       After opening Burp click on Start Burp it will load and Intall extensions we go to the BApp Store from the Extender menu. Install are as following: J2EEScan, Wsdler, Java Deserialization Scannerand HeartBleed
+        •       Now, we are prepare for scanning. We fire up a browser (Firefox) and go to its preferences. In the Network settings (last in the General Settings), we add our HTTP Proxy, IP and Port.
+        •       Click on the Intercept is on to start intercepting the requests.
+        •       Then we browse the website we need to scan. Whenever all request are captured, we can just go to Target and select our domain. To perform a scan, we can select individual requests and send them for an active scan.
+        •       After sending requests on Scanner, we go to the Scanner tab and choose the Options. Here we can basically tell the scanner what actually we want to scan in our target domain.
+        •       After scan started see progress in scan queue 
         ''')
         input("\nPress Enter key to continue")
         self.run()
@@ -1478,6 +1495,18 @@ class maltego():
         an organization owns and operates. Maltego’s unique advantage is to demonstrate the complexity and 
         severity of single points of failure as well as trust relationships that exist currently within the 
         scope of your infrastructure. 
+        
+        Instructions:
+        •       Open Maltego & Register
+        •       Choose a Machine & Parameters
+            1.      Company Stalker (this gathers email information)
+            2.      Footprint L1 (basic information gathering)
+            3.      Footprint L2 (moderate amount of information gathering)
+            4.      Footprint L3 (intense and the most complete information gathering)
+        •       Choose a target For example compia.org
+        •       Results : Maltego will now begin to gather info on our target domain, comptia.org, and display it on screen.
+        •       Finally, we can click on "Bubble View" when Maltego is done and see all of the relationships between our target and its subdomains and linked sites.
+
         ''')
         input("\nPress Enter key to continue")
         self.run()
