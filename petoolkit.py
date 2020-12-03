@@ -503,7 +503,7 @@ class recon():
         input("\n\nPress Enter key to continue")
         print('''Intructions to run Recon-ng:
 
-        •	Syntax to install is marketplace install hackertarget 
+        •	Syntax to install is 'marketplace install hackertarget' 
         •	Load module by tying modules load hackertarget
         •	Now set the source. 
         •	Syntax options set SOURCE tesla.com
@@ -516,6 +516,7 @@ class recon():
 
         Now we have begun to populate our hosts. Typing show hosts will give you a summary of the resources discovered.
         ''')
+        input("\nPress Enter key to continue")
         self.run()
 
     def installed(self):
