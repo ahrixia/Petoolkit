@@ -128,28 +128,31 @@ dP   dP   dP          dP          .d88888b                                      
                                Information gathering face is where you collect as much as information about a target auto client 
                                system which will lead to finding vulnerabilities in the target system much easily.
 
-    2. Scanning - Scanning searches for weaknesses and vulnerabilities in a system and These scanning techniques are automated and 
-                 they will provide a better picture of what can be exploited.
+    2. Scanning              - Scanning searches for weaknesses and vulnerabilities in a system and These scanning techniques are 
+                               automated and they will provide a better picture of what can be exploited.
 
-    3. Exploitation - Exploitation phase in penetration testing solely focuses on gaining access to a system or network by getting 
-                      past security and firewall. Exploitation phase’s precision and result depends on Vulnerability scanning phase.
+    3. Exploitation          - Exploitation phase in penetration testing solely focuses on gaining access to a system or network by 
+                               getting past security and firewall. Exploitation phase’s precision and result depends on Vulnerability 
+                               scanning phase.
 
-    
-    4. Post-Exploitation - The main aim of post exploitation is to figure out all the best exploits and vulnerabilities of target 
-                           system with a motive to gain access and escalate privileges without getting detected. 
+    4. Post-Exploitation     - The main aim of post exploitation is to figure out all the best exploits and vulnerabilities of target 
+                               system with a motive to gain access and escalate privileges without getting detected. 
 
-    
-    5. Report 
+    5. Report             - Reporting is the most important phase of the presentation listing, it is here in this phase where the 
+                            penetration tester explains to their clients about their systems weaknesses, vulnerabilities and 
+                            suggestions to resolve those weaknesses. A report must be very clear, all the findings must be documented
+                             and the client must understand what they're reading.
     
 
     Few more Important Stages that need to be performed in able to qualify Pen testing as well as for CTFs Events are :
     
-    Password cracking - Password checking itself process of retrieving passwords of a system or an account by using certain tools 
-                        and data that has been transmitted through a computer which will be in a scrambled form.
+    Password cracking     - Password checking itself process of retrieving passwords of a system or an account by using certain tools 
+                            and data that has been transmitted through a computer which will be in a scrambled form.
 
     Sniffing and Spoofing - There are two types of Internet security breaches Sniffing and Spoofing. Sniffing is art of intercepting 
                             and investigating packets using a sniffer to obtain valuable information about the target system. 
-                            Spoofing is art of impersonation or falsifying identification where the attacker poses as someone else to gain information.
+                            Spoofing is art of impersonation or falsifying identification where the attacker poses as someone else to 
+                            gain information.
 
     ''')
     input("    Press Enter key to continue")
@@ -499,8 +502,20 @@ class recon():
         Sclear()
         print('''Recon-Ng - Recon-ng is a full-featured Web Reconnaissance framework written in Python. Complete with independent modules, database interaction, \nbuilt in convenience functions, interactive help, and command completion, Recon-ng provides a powerful environment in which \nopen source web-based reconnaissance can be conducted quickly and thoroughly.''')
         input("\n\nPress Enter key to continue")
-        print('''
+        print('''Intructions to run Recon-ng:
 
+        •	Syntax to install is marketplace install hackertarget 
+        •	Load module by tying modules load hackertarget
+        •	Now set the source. 
+        •	Syntax options set SOURCE tesla.com
+        •   	tesla.com is an example domain 
+        •	Use command - info - which shows "Current Value" has changed to tesla.com
+        •	use input 
+        •	Run the module
+        •	Type run to execute the module.
+        •	Show hosts
+
+        Now we have begun to populate our hosts. Typing show hosts will give you a summary of the resources discovered.
         ''')
         self.run()
 
