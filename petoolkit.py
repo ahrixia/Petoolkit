@@ -124,15 +124,32 @@ dP   dP   dP          dP          .d88888b                                      
     frontend/backend servers) to uncover vulnerabilities, such as unsanitized inputs that are susceptible to code injection attacks.\n
     The Main phases of Penetration Testing are :
     
-    1. Information Gathering  
+    1. Information Gathering - Information gathering it's the 1st and a very important step for a successful penetration testing. 
+                               Information gathering face is where you collect as much as information about a target auto client 
+                               system which will lead to finding vulnerabilities in the target system much easily.
 
-    2. Scaning 
+    2. Scanning - Scanning searches for weaknesses and vulnerabilities in a system and These scanning techniques are automated and 
+                 they will provide a better picture of what can be exploited.
 
-    3. Exploitation 
+    3. Exploitation - Exploitation phase in penetration testing solely focuses on gaining access to a system or network by getting 
+                      past security and firewall. Exploitation phase’s precision and result depends on Vulnerability scanning phase.
 
-    4. Post-Exploitation 
+    
+    4. Post-Exploitation - The main aim of post exploitation is to figure out all the best exploits and vulnerabilities of target 
+                           system with a motive to gain access and escalate privileges without getting detected. 
 
+    
     5. Report 
+    
+
+    Few more Important Stages that need to be performed in able to qualify Pen testing as well as for CTFs Events are :
+    
+    Password cracking - Password checking itself process of retrieving passwords of a system or an account by using certain tools 
+                        and data that has been transmitted through a computer which will be in a scrambled form.
+
+    Sniffing and Spoofing - There are two types of Internet security breaches Sniffing and Spoofing. Sniffing is art of intercepting 
+                            and investigating packets using a sniffer to obtain valuable information about the target system. 
+                            Spoofing is art of impersonation or falsifying identification where the attacker poses as someone else to gain information.
 
     ''')
     input("    Press Enter key to continue")
@@ -148,7 +165,7 @@ dP   dP   dP          dP          .d88888b                                      
             pet()
         elif (ans.lower() == 'n'):
             print(quitbanner)
-            print('\nThanks.')
+            print('\nThanks. We appreciate your kindness...')
             sys.exit(0) 
 
 class pet:
@@ -157,49 +174,53 @@ class pet:
         now = datetime.datetime.now()
         nowstamp = now.strftime('%H:%M:%S %A, %d %B , %Y')
         print( startbanner + '\n\n    ' + nowstamp + '\n' )
-        print( "    1. Information Gathering" )
-        print( "    2. Scanning" )
-        print( "    3. Exploitation" )
-        print( "    4. Post Exploitation" ) 
-        print( "    5. Password Cracking" )
-        print( "    6. Sniffing & Spoofing" )
-        print( "    7. Reporting" )
-        print( "    0. Exit" )
-        choice = input(cmd) 
-        if choice == '1':
-            infogath()
-        elif choice == '2':
-            scann()
-        elif choice == '3':
-            exploit()
-        elif choice == '4':
-            postexploit()
-        elif choice == '5':
-            pwdcrack()
-        elif choice == '6':
-            sniffsnoof()
-        elif choice == '7':
-            report()
-        elif choice == '0':
-            Sclear()
-            print(quitbanner)
-            print('\nThanks For Choosing Our PEToolkit Platform! Have a Great Day :)\n')
-            sys.exit(0)
-        else:
-            self.__init__()
+        print( "    1   . Information Gathering" )
+        print( "    2   . Scanning" )
+        print( "    3   . Exploitation" )
+        print( "    4   . Post Exploitation" ) 
+        print( "    5   . Password Cracking" )
+        print( "    6   . Sniffing & Spoofing" )
+        print( "    7   . Reporting" )
+        print( "    0   . Exit" )
+        choice = input(cmd)
+        try:
+            if choice == '1':
+                infogath()
+            elif choice == '2':
+                scann()
+            elif choice == '3':
+                exploit()
+            elif choice == '4':
+                postexploit()
+            elif choice == '5':
+                pwdcrack()
+            elif choice == '6':
+                sniffsnoof()
+            elif choice == '7':
+                report()
+            elif choice == '0':
+                Sclear()
+                print(quitbanner)
+                print('\nThanks For Choosing Our PEToolkit Platform! Have a Great Day :)\n')
+                sys.exit(0)
+            else:
+                self.__init__()
+        except KeyboardInterrupt:
+            print('\nForce Quitting...Hello user you have pressed ctrl-C button.')
+            sys.exit(0) 
 
 class infogath():
      def __init__(self):
         Sclear()
         print(banner1)
-        print('    1  -  Host to IP ')
-        print('    2  -  NslookUp ')
-        print('    3  -  Recong-ng ')
-        print('    4  -  theHarvester ')
-        print('    5  -  Discover ')
-        print('    6  -  Shodan on Internet Browser ')
-        print('    7  -  Censys on Internet Browser ')
-        print('    0  -  Back to Main Menu')
+        print('    1   -  Host to IP ')
+        print('    2   -  NslookUp ')
+        print('    3   -  Recong-ng ')
+        print('    4   -  theHarvester ')
+        print('    5   -  Discover ')
+        print('    6   -  Shodan on Internet Browser ')
+        print('    7   -  Censys on Internet Browser ')
+        print('    0   -  Back to Main Menu')
         choice = input(cmd)
         if choice == '1':
             host2ip()
@@ -231,10 +252,10 @@ class scann():
     def __init__(self):
         Sclear()
         print(banner2)
-        print('    1 - Network and Port Scanning')
-        print('    2 - Web Scanning')
-        print('    3 - Full Recon and Scan ')
-        print('    0 - Back to Main Menu')
+        print('    1   - Network and Port Scanning')
+        print('    2   - Web Scanning')
+        print('    3   - Full Recon and Scan ')
+        print('    0   - Back to Main Menu')
         choice = input(cmd)
         if choice == '1':
             netport()
@@ -251,10 +272,10 @@ class netport():
     def __init__(self):
         Sclear()
         print(bannernet)
-        print('    1 - Nmap')
-        print('    2 - Hping3')
-        print('    3 - MassScan')
-        print('    0 - Back to Scanning Menu')
+        print('    1   - Nmap')
+        print('    2   - Hping3')
+        print('    3   - MassScan')
+        print('    0   - Back to Scanning Menu')
         choice = input(cmd)
         if choice == '1':
             nmap()
@@ -271,12 +292,12 @@ class webscan():
     def __init__(self):
         Sclear()
         print(bannerweb)
-        print('    1 - Nikto')
-        print('    2 - SQLMap')
-        print('    3 - WPScan')
-        print('    4 - Dirb')
-        print('    5 - SkipFish')
-        print('    0 - Back to Main Menu')
+        print('    1   - Nikto')
+        print('    2   - SQLMap')
+        print('    3   - WPScan')
+        print('    4   - Dirb')
+        print('    5   - SkipFish')
+        print('    0   - Back to Main Menu')
         choice = input(cmd)
         if choice == '1':
             nikto()
@@ -301,39 +322,35 @@ class fulrecon():
     def menu(self, host):
         Sclear()
         print('    3klCon Project v1.0 by eslam3kl')
-        print('    1  -  Full Recon and Scanning')
-        print('    0  -  Back to Main Menu')
+        print('    1   -  Full Recon and Scanning')
+        print('    0   -  Back to Main Menu')
         choice = input(cmd)
-        try:
-            if choice == '1': 
-                os.system("python 3klcon.py -t %s" % host)
-                input("\nPress Enter key to continue")
-                fulrecon()
-            elif choice == '0':
-                scann()
-            else:
-                self.menu(host)
-        except KeyboardInterrupt:
+        if choice == '1': 
+            os.system("python 3klcon.py -t %s" % host)
+            input("\nPress Enter key to continue")
+            fulrecon()
+        elif choice == '0':
+            scann()
+        else:
             self.menu(host)
-        
 
 class exploit():
     def __init__(self):
         Sclear()
         print(banner3)
         print('    OWASP TOP 10 ')
-        print('    1  -  Injection')
-        print('    2  -  Broken Authentication')
-        print('    3  -  Sensitive Data Exposure')
-        print('    4  -  XML Enternal Entities XXE')
-        print('    5  -  Broken Access Control')
-        print('    6  -  Security Misconfiguration')
-        print('    7  -  Cross-Site Scripting XSS')
-        print('    8  -  Insecure Deserialization')
-        print('    9  -  Using Components with Known Vulnerabilities')
+        print('    1   -  Injection')
+        print('    2   -  Broken Authentication')
+        print('    3   -  Sensitive Data Exposure')
+        print('    4   -  XML Enternal Entities XXE')
+        print('    5   -  Broken Access Control')
+        print('    6   -  Security Misconfiguration')
+        print('    7   -  Cross-Site Scripting XSS')
+        print('    8   -  Insecure Deserialization')
+        print('    9   -  Using Components with Known Vulnerabilities')
         print('    10  - Insufficient Logging & Monitoring')
         print('    99  - Searchsploit')
-        print('    0  -  Back to Main Menu')
+        print('    0   -  Back to Main Menu')
         choice = input(cmd)
         if choice == '1':
             inject()
@@ -375,12 +392,12 @@ class pwdcrack():
     def __init__(self):
         Sclear()
         print(banner5)
-        print('    1  -  BruteX')
-        print('    2  -  Hydra')
-        print('    3  -  JohnThRipper')
-        print('    4  -  Hashcat')
-        print('    5  -  Ncrack')
-        print('    0  -  Back to Main Menu')
+        print('    1   -  BruteX')
+        print('    2   -  Hydra')
+        print('    3   -  JohnThRipper')
+        print('    4   -  Hashcat')
+        print('    5   -  Ncrack')
+        print('    0   -  Back to Main Menu')
         choice = input(cmd)
         if choice == '1':
             brutex()
@@ -401,9 +418,9 @@ class sniffsnoof():
     def __init__(self):
         Sclear()
         print(banner6)
-        print('    1  -  Setoolkit')
-        print('    2  -  Macchanger')
-        print('    0  -  Back to Main Menu')
+        print('    1   -  Setoolkit')
+        print('    2   -  Macchanger')
+        print('    0   -  Back to Main Menu')
         choice = input(cmd)
         if choice == '1':
             setoolkit()
@@ -419,80 +436,30 @@ class report():
         Sclear()
         print(banner7)
         print('\n')
-        print( "    1. Information Gathering Report" )
-        print( "    2. Scanning Report" )
-        print( "    3. Metasploit")
-        print( "    4. Wireshark")
-        print( "    5. Burp Suite")
-        print( "    6. Maltego")
-        print( "    7. Metagoofil")
-        print( "    99. Read Report" )
-        print( "    0. Back" )
+        print( "    1   . Information Gathering Report" )
+        print( "    2   . Scanning Report" )
+        print( "    3   . Metasploit")
+        print( "    4   . Wireshark")
+        print( "    5   . Burp Suite")
+        print( "    6   . Maltego")
+        print( "    7   . Metagoofil")
+        print( "    99  . Read Report" )
+        print( "    0   . Back" )
         choice = input(cmd) 
         if choice == '1':
             inforeport()
         elif choice == '2':
             scanreport()
         elif choice == '3':
-            Sclear()
-            print('''
-            Metasploit is a penetration testing platform that enables you to find, exploit, and validate vulnerabilities. 
-            It provides the infrastructure, content, and tools to perform penetration tests and extensive security auditing 
-            and thanks to the open source community and Rapid7’s own hard working content team, new modules are added on a 
-            regular basis, which means that the latest exploit is available to you as soon as it’s published.
-            ''')
-            input("\nPress Enter key to continue")
-            os.system("msfconsole")
-            input("\nPress Enter key to continue")
-            report() 
+            metasploit()
         elif choice == '4':
-            Sclear()
-            print('''
-            Wireshark is the world’s foremost network protocol analyzer. It lets you see what’s happening on your network 
-            at a microscopic level. It is the de facto (and often de jure) standard across many industries and educational 
-            institutions. Wireshark development thrives thanks to the contributions of networking experts across the globe. 
-            ''')
-            input("\nPress Enter key to continue")
-            os.system("wireshark")
-            input("\nPress Enter key to continue")
-            report()
+            wireshark()
         elif choice == '5':
-            Sclear()
-            print('''
-            Burp Suite is an integrated platform for performing security testing of web applications. Its various tools 
-            work seamlessly together to support the entire testing process, from initial mapping and analysis of an 
-            application’s attack surface, through to finding and exploiting security vulnerabilities.
-            ''')
-            input("\nPress Enter key to continue")
-            os.system("burpsuite")
-            input("\nPress Enter key to continue")
-            report()
+            burpsuite()
         elif choice == '6':
-            Sclear()
-            print('''
-            Maltego is a unique platform developed to deliver a clear threat picture to the environment that 
-            an organization owns and operates. Maltego’s unique advantage is to demonstrate the complexity and 
-            severity of single points of failure as well as trust relationships that exist currently within the 
-            scope of your infrastructure. 
-            ''')
-            input("\nPress Enter key to continue")
-            os.system("maltego")
-            input("\nPress Enter key to continue")
-            report()
+            maltego()
         elif choice == '7':
-            Sclear()
-            print('''
-            Metagoofil is an information gathering tool designed for extracting metadata of public documents (pdf,doc,xls,ppt,docx,pptx,xlsx) belonging to a target company.
-            ''')
-            host = input(' Enter the Domain: ')
-            ftype = input(' File type to download ((pdf,doc,xls,ppt,odp,ods,docx,xlsx,pptx): ')
-            results = input(' Enter Limit of Results (>1): ')
-            download = input(' Enter the download limit: ')
-            dire = input(' Enter directory to save: ')
-            f = input(' Enter the File name to be saved: ')
-            os.system("metagoofil -d %s -t %s -l %s -n %s -o %s -f %s" % (host,ftype,results,download,dire,f))
-            input("\nPress Enter key to continue")
-            report()
+            metagoofil()
         elif choice == '99':
             Sclear()
             filename = input('Enter the report Name with location: ')
@@ -532,6 +499,9 @@ class recon():
         Sclear()
         print('''Recon-Ng - Recon-ng is a full-featured Web Reconnaissance framework written in Python. Complete with independent modules, database interaction, \nbuilt in convenience functions, interactive help, and command completion, Recon-ng provides a powerful environment in which \nopen source web-based reconnaissance can be conducted quickly and thoroughly.''')
         input("\n\nPress Enter key to continue")
+        print('''
+
+        ''')
         self.run()
 
     def installed(self):
@@ -620,41 +590,38 @@ class nmap():
 
     def menu(self, host):
         print(" NMAP : %s\n" % host)
-        print(" 1 . Simple Scan ")
-        print(" 2 . Port Scan ")
-        print(" 3 . Operating System Scan ")
-        print(" 4 . All port Scan ")
-        print(" 5 . Manual Scan")
-        print(" 0 . Back on Network and Port Scanning ")
+        print(" 1   . Simple Scan ")
+        print(" 2   . Port Scan ")
+        print(" 3   . Operating System Scan ")
+        print(" 4   . All port Scan ")
+        print(" 99  . Manual Scan")
+        print(" 0   . Back on Network and Port Scanning ")
         choice = input(cmd)
-        try:
-            if choice == '1':  
-                os.system("nmap -sV -F %s" % host)
-                input("\nPress Enter key to continue")
-                netport()
-            elif choice == '2':
-                os.system("nmap -Pn %s" % host)
-                input("\nPress Enter key to continue")
-                netport()
-            elif choice == '3':
-                os.system("nmap -A %s" % host)
-                input("\nPress Enter key to continue")
-                netport()
-            elif choice == '4':
-                os.system("nmap -p- %s" % host)
-                input("\nPress Enter key to continue")
-                netport()
-            elif choice == '5':
-                os.system("nmap --help")
-                port = input(" Enter only Flag : ")
-                os.system("nmap %s %s " % (port,host))
-                input("\nPress Enter key to continue")
-                netport()
-            elif choice == '0':
-                netport()
-            else:
-                self.menu(host)
-        except KeyboardInterrupt:
+        if choice == '1':  
+            os.system("nmap -sV -F %s" % host)
+            input("\nPress Enter key to continue")
+            netport()
+        elif choice == '2':
+            os.system("nmap -Pn %s" % host)
+            input("\nPress Enter key to continue")
+            netport()
+        elif choice == '3':
+            os.system("nmap -A %s" % host)
+            input("\nPress Enter key to continue")
+            netport()
+        elif choice == '4':
+            os.system("nmap -p- %s" % host)
+            input("\nPress Enter key to continue")
+            netport()
+        elif choice == '99':
+            os.system("nmap --help")
+            port = input(" Enter only Flag : ")
+            os.system("nmap %s %s " % (port,host))
+            input("\nPress Enter key to continue")
+            netport()
+        elif choice == '0':
+            netport()
+        else:
             self.menu(host)
 
 class hping3():
@@ -677,36 +644,40 @@ class hping3():
 
     def menu(self, host):
         print(" HPING3 : %s\n" % host)
-        print(" 1 . Scan Mode")
-        print(" 2 . TraceRoute Mode ")
-        print(" 3 . Verbose Scan ")
-        print(" 4 . SYN FLood ")
-        print(" 0 . Back on Network and Port Scanning ")
+        print(" 1   . Scan Mode")
+        print(" 2   . TraceRoute Mode ")
+        print(" 3   . Verbose Scan ")
+        print(" 4   . SYN FLood ")
+        print(" 99  . Manual Scan")
+        print(" 0   . Back on Network and Port Scanning ")
         choice = input(cmd)
-        try:
-            if choice == '1':  
-                os.system("sudo hping3 --scan 1-100 -S %s" % host)
-                input("\nPress Enter key to continue")
-                netport()
-            elif choice == '2':
-                os.system("sudo hping3 --traceroute -S %s" % host)
-                input("\nPress Enter key to continue")
-                netport()
-            elif choice == '3':
-                os.system("sudo hping3 -V -S %s" % host)
-                input("\nPress Enter key to continue")
-                netport()
-            elif choice == '4':
-                os.system("sudo hping3 -S --flood -V %s" % host)
-                input("\nPress Enter key to continue")
-                netport()
-            elif choice == '0':
-                netport()
-            else:
-                self.menu(host)
-        except KeyboardInterrupt:
+        if choice == '1':  
+            os.system("sudo hping3 --scan 1-100 -S %s" % host)
+            input("\nPress Enter key to continue")
+            netport()
+        elif choice == '2':
+            os.system("sudo hping3 --traceroute -S %s" % host)
+            input("\nPress Enter key to continue")
+            netport()
+        elif choice == '3':
+            os.system("sudo hping3 -V -S %s" % host)
+            input("\nPress Enter key to continue")
+            netport()
+        elif choice == '4':
+            os.system("sudo hping3 -S --flood -V %s" % host)
+            input("\nPress Enter key to continue")
+            netport()
+        elif choice == '99':
+            os.system("hping3 --help")
+            port = input(" Enter only Flag : ")
+            os.system("hping3 %s %s " % (port,host))
+            input("\nPress Enter key to continue")
+            netport()
+        elif choice == '0':
+            netport()
+        else:
             self.menu(host)
-
+        
 class masscan():
     def __init__(self):
         self.Install_directory = toolDir + "masscan"
@@ -735,41 +706,45 @@ class masscan():
     def menu(self, host):
         Sclear()
         print(" MASSCAN : %s\n" % host)
-        print(" 1 . Port Range ")
-        print(" 2 . Selected Ports")
-        print(" 3 . Exlude List Scan ")
-        print(" 4 . Packet Rate Scan ")
-        print(" 0 . Back ")
+        print(" 1   . Port Range ")
+        print(" 2   . Selected Ports")
+        print(" 3   . Exlude List Scan ")
+        print(" 4   . Packet Rate Scan ")
+        print(" 99  . Manual Scan")
+        print(" 0   . Back ")
         choice = input(cmd)
-        try:
-            if choice == '1':
-                start = input('Start Range: ')
-                end = input('End Range: ') 
-                os.system("sudo masscan %s ‐p%s-%s" % (host,start,end))
-                input("\nPress Enter key to continue")
-                netport()
-            elif choice == '2':
-                port = input('''Enter Ports(No space just ',' in between): ''')
-                os.system("sudo masscan %s -p%s" % (host,port))
-                input("\nPress Enter key to continue")
-                netport()
-            elif choice == '3':
-                port = input('''Enter Ports(No space just ',' in between): ''')
-                efile = input(' Exclude IP file location: ')
-                os.system("masscan %s -p%s --exludefile %s" % (host,port,efile))
-                input("\nPress Enter key to continue")
-                netport()
-            if choice == '4':
-                port = input('''Enter Ports(No space just ',' in between): ''')
-                rate = input('Packet rate(Default 10000): ')
-                os.system("sudo masscan %s -p%s --rate %s" % (host,port,rate))
-                input("\nPress Enter key to continue")
-                netport()
-            elif choice == '0':
-                netport()
-            else:
-                self.menu(host)
-        except KeyboardInterrupt:
+        if choice == '1':
+            start = input('Start Range: ')
+            end = input('End Range: ') 
+            os.system("sudo masscan %s ‐p%s-%s" % (host,start,end))
+            input("\nPress Enter key to continue")
+            netport()
+        elif choice == '2':
+            port = input('''Enter Ports(No space just ',' in between): ''')
+            os.system("sudo masscan %s -p%s" % (host,port))
+            input("\nPress Enter key to continue")
+            netport()
+        elif choice == '3':
+            port = input('''Enter Ports(No space just ',' in between): ''')
+            efile = input(' Exclude IP file location: ')
+            os.system("masscan %s -p%s --exludefile %s" % (host,port,efile))
+            input("\nPress Enter key to continue")
+            netport()
+        elif choice == '4':
+            port = input('''Enter Ports(No space just ',' in between): ''')
+            rate = input('Packet rate(Default 10000): ')
+            os.system("sudo masscan %s -p%s --rate %s" % (host,port,rate))
+            input("\nPress Enter key to continue")
+            netport()
+        elif choice == '99':
+            os.system("masscan --help")
+            port = input(" Enter only Flag : ")
+            os.system("masscan %s %s " % (port,host))
+            input("\nPress Enter key to continue")
+            netport()
+        elif choice == '0':
+            netport()
+        else:
             self.menu(host)
 
 class nikto():
@@ -794,49 +769,53 @@ class nikto():
     def menu(self, host):
         Sclear()
         print(" NIKTO : %s\n" % host)
-        print(" 1 . Basic Scan ")
-        print(" 2 . Port Scan ")
-        print(" 3 . SSL Scan ")
-        print(" 4 . No SSL Scan ")
-        print(" 5 . Tuning Scan - Option List ")
-        print(" 6 . Mutate Scan - Option List ")
-        print(" 0 . Back ")
+        print(" 1   . Basic Scan ")
+        print(" 2   . Port Scan ")
+        print(" 3   . SSL Scan ")
+        print(" 4   . No SSL Scan ")
+        print(" 5   . Tuning Scan - Option List ")
+        print(" 6   . Mutate Scan - Option List ")
+        print(" 99  . Manual Scan")
+        print(" 0   . Back ")
         choice = input(cmd)
-        try:
-            if choice == '1': 
-                os.system("nikto -h %s" % host)
-                input("\nPress Enter key to continue")
-                webscan()
-            elif choice == '2':
-                port = input('''Enter Ports(No space just ',' in between): ''')
-                os.system("nikto -h %s -port %s" % (host,port))
-                input("\nPress Enter key to continue")
-                webscan()
-            if choice == '3':
-                os.system("nikto -h %s -ssl %s" % (host,port))
-                input("\nPress Enter key to continue")
-                webscan()
-            if choice == '4':
-                os.system("nikto -h %s -nossl %s" % (host,port))
-                input("\nPress Enter key to continue")
-                webscan()
-            if choice == '5': 
-                print('''\n1   Interesting file\n2   Misconfiguration\n3   Information Disclosure\n4   Injection (XSS/Script/HTML)\n5   Remote File Retrieval – Inside Web Root\n6   Denial of Service\n7   Remote File Retrieval – Server Wide\n8   Command Execution – Remote Shell\n9   SQL Injection\n0   File Upload\na   Authentication Bypass\nb      Software Identification\nc   Remote Source Inclusion\nx   Reverse Tuning Option ''')
-                tuning = input("\nTuning Option: ")
-                os.system("nikto -h %s -Tuning %s" % (host,tuning))
-                input("\nPress Enter key to continue")
-                webscan()
-            if choice == '6': 
-                print('''\n1   Test all files in root directory\n2   Guess for password file names\n3   Enumerate user names via apache\n4   Enumerate user names via cgiwrap\n5   Attempt to brute force sub-domain names\n6   Attempt to guess directory names from a file''')
-                mutate = input('\nMutate Option: ')
-                os.system("nikto -h %s -mutate %s" % (host,mutate))
-                input("\nPress Enter key to continue")
-                webscan()
-            elif choice == '0':
-                webscan()
-            else:
-                self.menu(host)
-        except KeyboardInterrupt:
+        if choice == '1': 
+            os.system("nikto -h %s" % host)
+            input("\nPress Enter key to continue")
+            webscan()
+        elif choice == '2':
+            port = input('''Enter Ports(No space just ',' in between): ''')
+            os.system("nikto -h %s -port %s" % (host,port))
+            input("\nPress Enter key to continue")
+            webscan()
+        elif choice == '3':
+            os.system("nikto -h %s -ssl %s" % (host,port))
+            input("\nPress Enter key to continue")
+            webscan()
+        elif choice == '4':
+            os.system("nikto -h %s -nossl %s" % (host,port))
+            input("\nPress Enter key to continue")
+            webscan()
+        elif choice == '5': 
+            print('''\n1   Interesting file\n2   Misconfiguration\n3   Information Disclosure\n4   Injection (XSS/Script/HTML)\n5   Remote File Retrieval – Inside Web Root\n6   Denial of Service\n7   Remote File Retrieval – Server Wide\n8   Command Execution – Remote Shell\n9   SQL Injection\n0   File Upload\na   Authentication Bypass\nb      Software Identification\nc   Remote Source Inclusion\nx   Reverse Tuning Option ''')
+            tuning = input("\nTuning Option: ")
+            os.system("nikto -h %s -Tuning %s" % (host,tuning))
+            input("\nPress Enter key to continue")
+            webscan()
+        elif choice == '6': 
+            print('''\n1   Test all files in root directory\n2   Guess for password file names\n3   Enumerate user names via apache\n4   Enumerate user names via cgiwrap\n5   Attempt to brute force sub-domain names\n6   Attempt to guess directory names from a file''')
+            mutate = input('\nMutate Option: ')
+            os.system("nikto -h %s -mutate %s" % (host,mutate))
+            input("\nPress Enter key to continue")
+            webscan()
+        elif choice == '99':
+            os.system("nikto --help")
+            port = input(" Enter only Flag : ")
+            os.system("nikto %s %s " % (port,host))
+            input("\nPress Enter key to continue")
+            webscan()
+        elif choice == '0':
+            webscan()
+        else:
             self.menu(host)
 
 class sqlmap():
@@ -864,56 +843,53 @@ class sqlmap():
     def menu(self, host):
         Sclear()
         print(" SQLMap : %s\n" % host)
-        print(" 1 . Scan ")
-        print(" 2 . Database")
-        print(" 3 . Tables ")
-        print(" 4 . Column ")
-        print(" 5 . Dumps ")
-        print(" 6 . OS Shells ")
-        print(" 7 . Manual Scan")
-        print(" 0 . Back ")
+        print(" 1   . Scan ")
+        print(" 2   . Database")
+        print(" 3   . Tables ")
+        print(" 4   . Column ")
+        print(" 5   . Dumps ")
+        print(" 6   . OS Shells ")
+        print(" 99  . Manual Scan")
+        print(" 0   . Back ")
         choice = input(cmd)
-        try:
-            if choice == '1': 
-                os.system("python %s/sqlmap.py -u %s" % (self.Install_directory,host))
-                input("\nPress Enter key to continue")
-                webscan()
-            elif choice == '2':
-                os.system("python %s/sqlmap.py -u %s ‐‐dbs" % (self.Install_directory,host))
-                input("\nPress Enter key to continue")
-                webscan()
-            elif choice == '3':
-                dbs = input( " Database :")
-                os.system("python %s/sqlmap.py -u %s -D %s --table " % (self.Install_directory,host,dbs))
-                input("\nPress Enter key to continue")
-                webscan()
-            elif choice == '4':
-                dbs = input( " Database :")
-                table = input( " Table :")
-                os.system("python %s/sqlmap.py -u %s ‐D %s -T %s --columns" % (self.Install_directory,host,dbs,table))
-                input("\nPress Enter key to continue")
-                webscan()
-            elif choice == '5':
-                dbs = input( " Database :")
-                table = input( " Table :")
-                os.system("python %s/sqlmap.py -u %s -D %s -T %s --dump" % (self.Install_directory,host,dbs,table))
-                input("\nPress Enter key to continue")
-                webscan()
-            elif choice == '6':
-                db = input(" Input Database Type (Eg. mysql): ")
-                os.system("python %s/sqlmap.py --dbms=%s -u %s --os-shell" % (self.Install_directory,db,host))
-                input("\nPress Enter key to continue")
-                webscan()
-            elif choice == '7':
-                flag = input(" All flags : ")
-                os.system("python %s/sqlmap.py -u %s %s" % (self.Install_directory,host,flag))
-                input("\nPress Enter key to continue")
-                webscan()
-            elif choice == '0':
-                webscan()
-            else:
-                self.menu(host)
-        except KeyboardInterrupt:
+        if choice == '1': 
+            os.system("python %s/sqlmap.py -u %s" % (self.Install_directory,host))
+            input("\nPress Enter key to continue")
+            webscan()
+        elif choice == '2':
+            os.system("python %s/sqlmap.py -u %s ‐‐dbs" % (self.Install_directory,host))
+            input("\nPress Enter key to continue")
+            webscan()
+        elif choice == '3':
+            dbs = input( " Database :")
+            os.system("python %s/sqlmap.py -u %s -D %s --table " % (self.Install_directory,host,dbs))
+            input("\nPress Enter key to continue")
+            webscan()
+        elif choice == '4':
+            dbs = input( " Database :")
+            table = input( " Table :")
+            os.system("python %s/sqlmap.py -u %s ‐D %s -T %s --columns" % (self.Install_directory,host,dbs,table))
+            input("\nPress Enter key to continue")
+            webscan()
+        elif choice == '5':
+            dbs = input( " Database :")
+            table = input( " Table :")
+            os.system("python %s/sqlmap.py -u %s -D %s -T %s --dump" % (self.Install_directory,host,dbs,table))
+            input("\nPress Enter key to continue")
+            webscan()
+        elif choice == '6':
+            db = input(" Input Database Type (Eg. mysql): ")
+            os.system("python %s/sqlmap.py --dbms=%s -u %s --os-shell" % (self.Install_directory,db,host))
+            input("\nPress Enter key to continue")
+            webscan()
+        elif choice == '99':
+            flag = input(" All flags : ")
+            os.system("python %s/sqlmap.py -u %s %s" % (self.Install_directory,host,flag))
+            input("\nPress Enter key to continue")
+            webscan()
+        elif choice == '0':
+            webscan()
+        else:
             self.menu(host)
 
 class wpscan():
@@ -939,31 +915,35 @@ class wpscan():
     def menu(self, host):
         Sclear()
         print(" WPScan : %s\n" % host)
-        print(" 1 . Enumerate Users ")
-        print(" 2 . Database")
-        print(" 3 . Help ")
-        print(" 0 . Back ")
+        print(" 1   . Enumerate Users ")
+        print(" 2   . Database")
+        print(" 3   . Help ")
+        print(" 99  . Manual Scan")
+        print(" 0   . Back ")
         choice = input(cmd)
-        try:
-            if choice == '1': 
-                os.system("wpscan --url %s --enumerate" % host)
-                input("\nPress Enter key to continue")
-                webscan()
-            elif choice == '2':
-                username = input(" Enter Username List Location: ")
-                password = input(" Enter Password List Location: ")
-                os.system("wpscan --url %s --usernames %s --passwords %s" % (host,username,password))
-                input("\nPress Enter key to continue")
-                webscan()
-            elif choice == '3':
-                os.system("wpscan --help")
-                input("\nPress Enter key to continue")
-                webscan()
-            elif choice == '0':
-                webscan()
-            else:
-                self.menu(host)
-        except KeyboardInterrupt:
+        if choice == '1': 
+            os.system("wpscan --url %s --enumerate" % host)
+            input("\nPress Enter key to continue")
+            webscan()
+        elif choice == '2':
+            username = input(" Enter Username List Location: ")
+            password = input(" Enter Password List Location: ")
+            os.system("wpscan --url %s --usernames %s --passwords %s" % (host,username,password))
+            input("\nPress Enter key to continue")
+            webscan()
+        elif choice == '3':
+            os.system("wpscan --help")
+            input("\nPress Enter key to continue")
+            webscan()
+        elif choice == '99':
+            os.system("wpscan --help")
+            port = input(" Enter only Flag : ")
+            os.system("wpscan %s %s " % (port,host))
+            input("\nPress Enter key to continue")
+            webscan()
+        elif choice == '0':
+            webscan()
+        else:
             self.menu(host)
 
 class dirb():
@@ -1041,39 +1021,36 @@ class inject():
     def menu(self, host):
         Sclear() 
         print(" SQLiv : %s\n" % host)
-        print('  1  -  Multiple Domain Scanning with SQLi Dork')
-        print('  2  -  Target Scanning')
-        print('  3  -  Reverse Domain and Scanning')
-        print('  0  -  Back to Main Menu')
+        print('  1   -  Multiple Domain Scanning with SQLi Dork')
+        print('  2   -  Target Scanning')
+        print('  3   -  Reverse Domain and Scanning')
+        print('  0   -  Back to Main Menu')
         choice = input(cmd)
-        try:
-            if choice == '1': 
-                dork = input(''' Enter the Dork (Eg. "inurl:index.php?id="): ''')
-                engine = input(" Enter Seach Engine(google/bing/yahoo): ")
-                os.system("python %s/sqliv.py -d %s -e  %s" % (self.Install_directory,dork,engine))
-                input("\nPress Enter key to continue")
-                exploit()
-            elif choice == '2':
-                os.system("python %s/sqliv.py -t %s " % (self.Install_directory,host))
-                input("\nPress Enter key to continue")
-                exploit()
-            elif choice == '3':
-                os.system("python %s/sqliv.py -t %s -r" % (self.Install_directory,host))
-                input("\nPress Enter key to continue")
-                exploit()
-            elif choice == '0':
-                exploit()
-            else:
-                self.menu(host)
-        except KeyboardInterrupt:
+        if choice == '1': 
+            dork = input(''' Enter the Dork (Eg. "inurl:index.php?id="): ''')
+            engine = input(" Enter Seach Engine(google/bing/yahoo): ")
+            os.system("python %s/sqliv.py -d %s -e  %s" % (self.Install_directory,dork,engine))
+            input("\nPress Enter key to continue")
+            exploit()
+        elif choice == '2':
+            os.system("python %s/sqliv.py -t %s " % (self.Install_directory,host))
+            input("\nPress Enter key to continue")
+            exploit()
+        elif choice == '3':
+            os.system("python %s/sqliv.py -t %s -r" % (self.Install_directory,host))
+            input("\nPress Enter key to continue")
+            exploit()
+        elif choice == '0':
+            exploit()
+        else:
             self.menu(host)
 
 class broauth():
     def __init__(self):
         Sclear()
         print(" HACKBAR : It's a sidebar that assists you with Web Application Security Testing.\n")
-        print('  1  -  Firefox Add-On')
-        print('  0  -  Back')
+        print('  1   -  Firefox Add-On')
+        print('  0   -  Back')
         choice = input(cmd)
         if choice == '1': 
             os.system("firefox https://addons.mozilla.org/fr/firefox/addon/hackbar-free/")
@@ -1134,23 +1111,20 @@ class kwnvuln():
     def menu(self, host):
         Sclear() 
         print("  Using Components with Known Vulnerabilities : %s\n" % host)
-        print('  1  -  Seach from Known Vulnerabilities - CVE,NVD,Exploit-DB ')
-        print('  0  -  Back to Main Menu')
+        print('  1   -  Seach from Known Vulnerabilities - CVE,NVD,Exploit-DB ')
+        print('  0   -  Back to Main Menu')
         choice = input(cmd)
-        try:
-            if choice == '1':
-                webbrowser.open('https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=%s' % host, new = 2)
-                webbrowser.open('https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&query=%s&search_type=all' % host, new = 3)
-                webbrowser.open('https://www.exploit-db.com/search?q=%s' % host, new = 4)
-                input("\nPress Enter key to continue")
-                exploit()
-            elif choice == '0':
-                exploit()
-            else:
-                self.menu(host)
-        except KeyboardInterrupt:
+        if choice == '1':
+            webbrowser.open('https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=%s' % host, new = 2)
+            webbrowser.open('https://nvd.nist.gov/vuln/search/results?form_type=Basic&results_type=overview&query=%s&search_type=all' % host, new = 3)
+            webbrowser.open('https://www.exploit-db.com/search?q=%s' % host, new = 4)
+            input("\nPress Enter key to continue")
+            exploit()
+        elif choice == '0':
+            exploit()
+        else:
             self.menu(host)
-
+    
 # class lognmoni():
 
 #Report - inject -Dumping Scanned Result - python sqliv.py -d <SQLI DORK> -e <SEARCH ENGINE> -o result.json
@@ -1337,27 +1311,24 @@ class macchanger:
         self.run()
     def run(self):
         print("  Macchanger: It changes MAC Address of the network interface.\n")
-        print('  1  -  Create your own mac ')
-        print('  2  -  Random')
-        print('  0  -  Back to Main Menu')
+        print('  1   -  Create your own mac ')
+        print('  2   -  Random')
+        print('  0   -  Back to Main Menu')
         choice = input(cmd)
-        try:
-            if choice == '1':
-                device = input(' Enter network device: ')
-                mac = input(' Enter MAC Address(XX:XX:XX:XX:XX:XX): ')
-                os.system("sudo macchanger --mac=%s %s" % (mac,device))
-                input("\nPress Enter key to continue")
-                sniffsnoof()
-            elif choice == '2':
-                device = input(' Enter network device: ')
-                os.system("sudo macchanger --random %s " % device)
-                input("\nPress Enter key to continue")
-                sniffsnoof()
-            else:
-                self.menu(host)
-        except KeyboardInterrupt:
+        if choice == '1':
+            device = input(' Enter network device: ')
+            mac = input(' Enter MAC Address(XX:XX:XX:XX:XX:XX): ')
+            os.system("sudo macchanger --mac=%s %s" % (mac,device))
+            input("\nPress Enter key to continue")
+            sniffsnoof()
+        elif choice == '2':
+            device = input(' Enter network device: ')
+            os.system("sudo macchanger --random %s " % device)
+            input("\nPress Enter key to continue")
+            sniffsnoof()
+        else:
             self.menu(host)
-
+    
 class inforeport():
     def __init__(self):
         Sclear()
@@ -1418,6 +1389,137 @@ class scanreport():
         rep.close()
         print('The File is Saved.')
         print("Open the Saved report using this Platform in the Reporting Menu")
+        input("\nPress Enter key to continue")
+        report()
+
+class metasploit():
+    def __init__(self):
+        if not self.installed():
+            self.install()
+        Sclear()
+        print('''
+        Metasploit is a penetration testing platform that enables you to find, exploit, and validate vulnerabilities. 
+        It provides the infrastructure, content, and tools to perform penetration tests and extensive security auditing 
+        and thanks to the open source community and Rapid7’s own hard working content team, new modules are added on a 
+        regular basis, which means that the latest exploit is available to you as soon as it’s published.
+        ''')
+        input("\nPress Enter key to continue")
+        self.run()
+
+    def installed(self):
+        return (os.path.isfile("/usr/bin/") or os.path.isfile("/usr/local/bin/"))
+
+    def install(self):
+        os.system("sudo apt-get install ")
+
+    def run(self):
+        Sclear()
+        os.system("msfconsole")
+        input("\nPress Enter key to continue")
+        report()
+
+class wireshark():
+    def __init__(self):
+        if not self.installed():
+            self.install()
+        Sclear()
+        print('''
+        Wireshark is the world’s foremost network protocol analyzer. It lets you see what’s happening on your network 
+        at a microscopic level. It is the de facto (and often de jure) standard across many industries and educational 
+        institutions. Wireshark development thrives thanks to the contributions of networking experts across the globe. 
+        ''')
+        input("\nPress Enter key to continue")
+        self.run()
+
+    def installed(self):
+        return (os.path.isfile("/usr/bin/") or os.path.isfile("/usr/local/bin/"))
+
+    def install(self):
+        os.system("sudo apt-get install ")
+
+    def run(self):
+        Sclear()
+        os.system("wireshark")
+        input("\nPress Enter key to continue")
+        report()
+
+class burpsuite():
+    def __init__(self):
+        if not self.installed():
+            self.install()
+        Sclear()
+        print('''
+        Burp Suite is an integrated platform for performing security testing of web applications. Its various tools 
+        work seamlessly together to support the entire testing process, from initial mapping and analysis of an 
+        application’s attack surface, through to finding and exploiting security vulnerabilities.
+        ''')
+        input("\nPress Enter key to continue")
+        self.run()
+
+    def installed(self):
+        return (os.path.isfile("/usr/bin/") or os.path.isfile("/usr/local/bin/"))
+
+    def install(self):
+        os.system("sudo apt-get install ")
+
+    def run(self):
+        Sclear()
+        os.system("burpsuite")
+        input("\nPress Enter key to continue")
+        report()
+
+class maltego():
+    def __init__(self):
+        if not self.installed():
+            self.install()
+        Sclear()
+        print('''
+        Maltego is a unique platform developed to deliver a clear threat picture to the environment that 
+        an organization owns and operates. Maltego’s unique advantage is to demonstrate the complexity and 
+        severity of single points of failure as well as trust relationships that exist currently within the 
+        scope of your infrastructure. 
+        ''')
+        input("\nPress Enter key to continue")
+        self.run()
+
+    def installed(self):
+        return (os.path.isfile("/usr/bin/") or os.path.isfile("/usr/local/bin/"))
+
+    def install(self):
+        os.system("sudo apt-get install ")
+
+    def run(self):
+        Sclear()
+        os.system("maltego")
+        input("\nPress Enter key to continue")
+        report()
+
+class metagoofil():
+    def __init__(self):
+        if not self.installed():
+            self.install()
+        Sclear()
+        print('''
+        Metagoofil is an information gathering tool designed for extracting metadata of public documents (pdf,doc,xls,ppt,docx,pptx,xlsx) belonging to a target company.
+        ''')
+        input("\nPress Enter key to continue")
+        self.run()
+
+    def installed(self):
+        return (os.path.isfile("/usr/bin/") or os.path.isfile("/usr/local/bin/"))
+
+    def install(self):
+        os.system("sudo apt-get install ")
+
+    def run(self):
+        Sclear()
+        host = input(' Enter the Domain: ')
+        ftype = input(' File type to download ((pdf,doc,xls,ppt,odp,ods,docx,xlsx,pptx): ')
+        results = input(' Enter Limit of Results (>1): ')
+        download = input(' Enter the download limit: ')
+        dire = input(' Enter directory to save: ')
+        f = input(' Enter the File name to be saved: ')
+        os.system("metagoofil -d %s -t %s -l %s -n %s -o %s -f %s" % (host,ftype,results,download,dire,f))
         input("\nPress Enter key to continue")
         report()
 
