@@ -1407,10 +1407,10 @@ class metasploit():
         self.run()
 
     def installed(self):
-        return (os.path.isfile("/usr/bin/") or os.path.isfile("/usr/local/bin/"))
+        return (os.path.isfile("/usr/bin/msfconsole") or os.path.isfile("/usr/local/bin/msfconsole"))
 
     def install(self):
-        os.system("sudo apt-get install ")
+        os.system("curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall &&  chmod 755 msfinstall && ./msfinstall")
 
     def run(self):
         Sclear()
@@ -1441,10 +1441,10 @@ class wireshark():
         self.run()
 
     def installed(self):
-        return (os.path.isfile("/usr/bin/") or os.path.isfile("/usr/local/bin/"))
+        return (os.path.isfile("/usr/bin/wireshark") or os.path.isfile("/usr/local/bin/wireshark"))
 
     def install(self):
-        os.system("sudo apt-get install ")
+        os.system("sudo apt-get install wireshark")
 
     def run(self):
         Sclear()
@@ -1464,7 +1464,7 @@ class burpsuite():
         
         Instructions:
         •       After opening Burp click on Start Burp it will load and Intall extensions we go to the BApp Store from the Extender menu. Install are as following: J2EEScan, Wsdler, Java Deserialization Scannerand HeartBleed
-        •       Now, we are prepare for scanning. We fire up a browser (Firefox) and go to its preferences. In the Network settings (last in the General Settings), we add our HTTP Proxy, IP and Port.
+        •       Now, prepare for scanning. We fire up a browser (Firefox) and go to its preferences. In the Network settings (last in the General Settings), we add our HTTP Proxy, IP and Port.
         •       Click on the Intercept is on to start intercepting the requests.
         •       Then we browse the website we need to scan. Whenever all request are captured, we can just go to Target and select our domain. To perform a scan, we can select individual requests and send them for an active scan.
         •       After sending requests on Scanner, we go to the Scanner tab and choose the Options. Here we can basically tell the scanner what actually we want to scan in our target domain.
@@ -1474,10 +1474,10 @@ class burpsuite():
         self.run()
 
     def installed(self):
-        return (os.path.isfile("/usr/bin/") or os.path.isfile("/usr/local/bin/"))
+        return (os.path.isfile("/usr/bin/burpsuite") or os.path.isfile("/usr/local/bin/burpsuite"))
 
     def install(self):
-        os.system("sudo apt-get install ")
+        os.system("sudo apt-get install burpsuite")
 
     def run(self):
         Sclear()
@@ -1512,10 +1512,11 @@ class maltego():
         self.run()
 
     def installed(self):
-        return (os.path.isfile("/usr/bin/") or os.path.isfile("/usr/local/bin/"))
+        return (os.path.isfile("/usr/bin/maltego") or os.path.isfile("/usr/local/bin/maltego"))
 
     def install(self):
-        os.system("sudo apt-get install ")
+        os.system("sudo add-apt-repository ppa:darklordpaunik8880/darkminttrustytahr")
+        os.system("sudo apt-get install maltego")
 
     def run(self):
         Sclear()
@@ -1535,10 +1536,10 @@ class metagoofil():
         self.run()
 
     def installed(self):
-        return (os.path.isfile("/usr/bin/") or os.path.isfile("/usr/local/bin/"))
+        return (os.path.isfile("/usr/bin/metagoofil") or os.path.isfile("/usr/local/bin/metagoofil"))
 
     def install(self):
-        os.system("sudo apt-get install ")
+        os.system("sudo apt-get install metagoofil")
 
     def run(self):
         Sclear()
