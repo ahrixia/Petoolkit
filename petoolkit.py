@@ -14,108 +14,108 @@ def pentest():
     Sclear()
     global startbanner,banner1,banner2,banner3,banner4,banner5,banner6,banner7,bannernet,bannerweb,quitbanner,cmd 
     startbanner = '''    
-PPPPPPPPPPPPPPPPP  EEEEEEEEEEEEEEEEEEEEETTTTTTTTTTTTTTTTTTTTTTT                            lllllllkkkkkkkk            iiii         tttt          
-P::::::::::::::::P E::::::::::::::::::::T:::::::::::::::::::::T                            l:::::lk::::::k           i::::i     ttt:::t          
-P::::::PPPPPP:::::PE::::::::::::::::::::T:::::::::::::::::::::T                            l:::::lk::::::k            iiii      t:::::t          
-PP:::::P     P:::::EE::::::EEEEEEEEE::::T:::::TT:::::::TT:::::T                            l:::::lk::::::k                      t:::::t          
-  P::::P     P:::::P E:::::E       EEEEETTTTTT  T:::::T  TTTTTooooooooooo     ooooooooooo   l::::l k:::::k    kkkkkkiiiiiittttttt:::::ttttttt    
-  P::::P     P:::::P E:::::E                    T:::::T     oo:::::::::::oo oo:::::::::::oo l::::l k:::::k   k:::::ki:::::t:::::::::::::::::t    
-  P::::PPPPPP:::::P  E::::::EEEEEEEEEE          T:::::T    o:::::::::::::::o:::::::::::::::ol::::l k:::::k  k:::::k  i::::t:::::::::::::::::t    
-  P:::::::::::::PP   E:::::::::::::::E          T:::::T    o:::::ooooo:::::o:::::ooooo:::::ol::::l k:::::k k:::::k   i::::tttttt:::::::tttttt    
-  P::::PPPPPPPPP     E:::::::::::::::E          T:::::T    o::::o     o::::o::::o     o::::ol::::l k::::::k:::::k    i::::i     t:::::t          
-  P::::P             E::::::EEEEEEEEEE          T:::::T    o::::o     o::::o::::o     o::::ol::::l k:::::::::::k     i::::i     t:::::t          
-  P::::P             E:::::E                    T:::::T    o::::o     o::::o::::o     o::::ol::::l k:::::::::::k     i::::i     t:::::t          
-  P::::P             E:::::E       EEEEEE       T:::::T    o::::o     o::::o::::o     o::::ol::::l k::::::k:::::k    i::::i     t:::::t    tttttt
-PP::::::PP         EE::::::EEEEEEEE:::::E     TT:::::::TT  o:::::ooooo:::::o:::::ooooo:::::l::::::k::::::k k:::::k  i::::::i    t::::::tttt:::::t
-P::::::::P         E::::::::::::::::::::E     T:::::::::T  o:::::::::::::::o:::::::::::::::l::::::k::::::k  k:::::k i::::::i    tt::::::::::::::t
-P::::::::P         E::::::::::::::::::::E     T:::::::::T   oo:::::::::::oo oo:::::::::::ool::::::k::::::k   k:::::ki::::::i      tt:::::::::::tt
-PPPPPPPPPP         EEEEEEEEEEEEEEEEEEEEEE     TTTTTTTTTTT     ooooooooooo     ooooooooooo  lllllllkkkkkkkk    kkkkkkiiiiiiii        ttttttttttt  '''
+    PPPPPPPPPPPPPPPPP  EEEEEEEEEEEEEEEEEEEEETTTTTTTTTTTTTTTTTTTTTTT                            lllllllkkkkkkkk            iiii         tttt          
+    P::::::::::::::::P E::::::::::::::::::::T:::::::::::::::::::::T                            l:::::lk::::::k           i::::i     ttt:::t          
+    P::::::PPPPPP:::::PE::::::::::::::::::::T:::::::::::::::::::::T                            l:::::lk::::::k            iiii      t:::::t          
+    PP:::::P     P:::::EE::::::EEEEEEEEE::::T:::::TT:::::::TT:::::T                            l:::::lk::::::k                      t:::::t          
+      P::::P     P:::::P E:::::E       EEEEETTTTTT  T:::::T  TTTTTooooooooooo     ooooooooooo   l::::l k:::::k    kkkkkkiiiiiittttttt:::::ttttttt    
+      P::::P     P:::::P E:::::E                    T:::::T     oo:::::::::::oo oo:::::::::::oo l::::l k:::::k   k:::::ki:::::t:::::::::::::::::t    
+      P::::PPPPPP:::::P  E::::::EEEEEEEEEE          T:::::T    o:::::::::::::::o:::::::::::::::ol::::l k:::::k  k:::::k  i::::t:::::::::::::::::t    
+      P:::::::::::::PP   E:::::::::::::::E          T:::::T    o:::::ooooo:::::o:::::ooooo:::::ol::::l k:::::k k:::::k   i::::tttttt:::::::tttttt    
+      P::::PPPPPPPPP     E:::::::::::::::E          T:::::T    o::::o     o::::o::::o     o::::ol::::l k::::::k:::::k    i::::i     t:::::t          
+      P::::P             E::::::EEEEEEEEEE          T:::::T    o::::o     o::::o::::o     o::::ol::::l k:::::::::::k     i::::i     t:::::t          
+      P::::P             E:::::E                    T:::::T    o::::o     o::::o::::o     o::::ol::::l k:::::::::::k     i::::i     t:::::t          
+      P::::P             E:::::E       EEEEEE       T:::::T    o::::o     o::::o::::o     o::::ol::::l k::::::k:::::k    i::::i     t:::::t    tttttt
+    PP::::::PP         EE::::::EEEEEEEE:::::E     TT:::::::TT  o:::::ooooo:::::o:::::ooooo:::::l::::::k::::::k k:::::k  i::::::i    t::::::tttt:::::t
+    P::::::::P         E::::::::::::::::::::E     T:::::::::T  o:::::::::::::::o:::::::::::::::l::::::k::::::k  k:::::k i::::::i    tt::::::::::::::t
+    P::::::::P         E::::::::::::::::::::E     T:::::::::T   oo:::::::::::oo oo:::::::::::ool::::::k::::::k   k:::::ki::::::i      tt:::::::::::tt
+    PPPPPPPPPP         EEEEEEEEEEEEEEEEEEEEEE     TTTTTTTTTTT     ooooooooooo     ooooooooooo  lllllllkkkkkkkk    kkkkkkiiiiiiii        ttttttttttt  '''
     banner1 = '''
-dP          .8888b                                         dP   oo                       .88888.             dP   dP                         oo                   
-88          88   "                                         88                           d8'   `88            88   88                                              
-88 88d888b. 88aaa  .d8888b. 88d888b. 88d8b.d8b. .d8888b. d8888P dP .d8888b. 88d888b.    88        .d8888b. d8888P 88d888b. .d8888b. 88d888b. dP 88d888b. .d8888b. 
-88 88'  `88 88     88'  `88 88'  `88 88'`88'`88 88'  `88   88   88 88'  `88 88'  `88    88   YP88 88'  `88   88   88'  `88 88ooood8 88'  `88 88 88'  `88 88'  `88 
-88 88    88 88     88.  .88 88       88  88  88 88.  .88   88   88 88.  .88 88    88    Y8.   .88 88.  .88   88   88    88 88.  ... 88       88 88    88 88.  .88 
-dP dP    dP dP     `88888P' dP       dP  dP  dP `88888P8   dP   dP `88888P' dP    dP     `88888'  `88888P8   dP   dP    dP `88888P' dP       dP dP    dP `8888P88 
+    dP          .8888b                                         dP   oo                       .88888.             dP   dP                         oo                   
+    88          88   "                                         88                           d8'   `88            88   88                                              
+    88 88d888b. 88aaa  .d8888b. 88d888b. 88d8b.d8b. .d8888b. d8888P dP .d8888b. 88d888b.    88        .d8888b. d8888P 88d888b. .d8888b. 88d888b. dP 88d888b. .d8888b. 
+    88 88'  `88 88     88'  `88 88'  `88 88'`88'`88 88'  `88   88   88 88'  `88 88'  `88    88   YP88 88'  `88   88   88'  `88 88ooood8 88'  `88 88 88'  `88 88'  `88 
+    88 88    88 88     88.  .88 88       88  88  88 88.  .88   88   88 88.  .88 88    88    Y8.   .88 88.  .88   88   88    88 88.  ... 88       88 88    88 88.  .88 
+    dP dP    dP dP     `88888P' dP       dP  dP  dP `88888P8   dP   dP `88888P' dP    dP     `88888'  `88888P8   dP   dP    dP `88888P' dP       dP dP    dP `8888P88 
                                                                                                                                                               .88 
                                                                                                                                                           d8888P  '''
     banner2 = '''
-.d88888b                                      oo                   
-88.    "'                                                          
-`Y88888b. .d8888b. .d8888b. 88d888b. 88d888b. dP 88d888b. .d8888b. 
+    .d88888b                                      oo                   
+    88.    "'                                                          
+    `Y88888b. .d8888b. .d8888b. 88d888b. 88d888b. dP 88d888b. .d8888b. 
       `8b 88'  `"" 88'  `88 88'  `88 88'  `88 88 88'  `88 88'  `88 
-d8'   .8P 88.  ... 88.  .88 88    88 88    88 88 88    88 88.  .88 
- Y88888P  `88888P' `88888P8 dP    dP dP    dP dP dP    dP `8888P88 
+    d8'   .8P 88.  ... 88.  .88 88    88 88    88 88 88    88 88.  .88 
+     Y88888P  `88888P' `88888P8 dP    dP dP    dP dP dP    dP `8888P88 
                                                                .88 
                                                            d8888P   '''
     banner3 = '''
- 88888888b                   dP          oo   dP              dP   oo                   
- 88                          88               88              88                        
-a88aaaa    dP.  .dP 88d888b. 88 .d8888b. dP d8888P .d8888b. d8888P dP .d8888b. 88d888b. 
- 88         `8bd8'  88'  `88 88 88'  `88 88   88   88'  `88   88   88 88'  `88 88'  `88 
- 88         .d88b.  88.  .88 88 88.  .88 88   88   88.  .88   88   88 88.  .88 88    88 
- 88888888P dP'  `dP 88Y888P' dP `88888P' dP   dP   `88888P8   dP   dP `88888P' dP    dP 
-                    88                                                                  
-                    dP                                                                   '''
+     88888888b                   dP          oo   dP              dP   oo                   
+     88                          88               88              88                        
+    a88aaaa    dP.  .dP 88d888b. 88 .d8888b. dP d8888P .d8888b. d8888P dP .d8888b. 88d888b. 
+     88         `8bd8'  88'  `88 88 88'  `88 88   88   88'  `88   88   88 88'  `88 88'  `88 
+     88         .d88b.  88.  .88 88 88.  .88 88   88   88.  .88   88   88 88.  .88 88    88 
+     88888888P dP'  `dP 88Y888P' dP `88888P' dP   dP   `88888P8   dP   dP `88888P' dP    dP 
+                        88                                                                  
+                        dP                                                                   '''
     banner4 = '''
- 888888ba                      dP       88888888b                   dP          oo   dP              dP   oo                   
- 88    `8b                     88       88                          88               88              88                        
-a88aaaa8P' .d8888b. .d8888b. d8888P    a88aaaa    dP.  .dP 88d888b. 88 .d8888b. dP d8888P .d8888b. d8888P dP .d8888b. 88d888b. 
- 88        88'  `88 Y8ooooo.   88       88         `8bd8'  88'  `88 88 88'  `88 88   88   88'  `88   88   88 88'  `88 88'  `88 
- 88        88.  .88       88   88       88         .d88b.  88.  .88 88 88.  .88 88   88   88.  .88   88   88 88.  .88 88    88 
- dP        `88888P' `88888P'   dP       88888888P dP'  `dP 88Y888P' dP `88888P' dP   dP   `88888P8   dP   dP `88888P' dP    dP 
-                                                           88                                                                  
-                                                           dP                                                                      '''
+     888888ba                      dP       88888888b                   dP          oo   dP              dP   oo                   
+     88    `8b                     88       88                          88               88              88                        
+    a88aaaa8P' .d8888b. .d8888b. d8888P    a88aaaa    dP.  .dP 88d888b. 88 .d8888b. dP d8888P .d8888b. d8888P dP .d8888b. 88d888b. 
+     88        88'  `88 Y8ooooo.   88       88         `8bd8'  88'  `88 88 88'  `88 88   88   88'  `88   88   88 88'  `88 88'  `88 
+     88        88.  .88       88   88       88         .d88b.  88.  .88 88 88.  .88 88   88   88.  .88   88   88 88.  .88 88    88 
+     dP        `88888P' `88888P'   dP       88888888P dP'  `dP 88Y888P' dP `88888P' dP   dP   `88888P8   dP   dP `88888P' dP    dP 
+                                                               88                                                                  
+                                                               dP                                                                      '''
     banner5 = '''
- 888888ba                                                                dP     a88888b.                            dP       oo                   
- 88    `8b                                                               88    d8'   `88                            88                            
-a88aaaa8P' .d8888b. .d8888b. .d8888b. dP  dP  dP .d8888b. 88d888b. .d888b88    88        88d888b. .d8888b. .d8888b. 88  .dP  dP 88d888b. .d8888b. 
- 88        88'  `88 Y8ooooo. Y8ooooo. 88  88  88 88'  `88 88'  `88 88'  `88    88        88'  `88 88'  `88 88'  `"" 88888"   88 88'  `88 88'  `88 
- 88        88.  .88       88       88 88.88b.88' 88.  .88 88       88.  .88    Y8.   .88 88       88.  .88 88.  ... 88  `8b. 88 88    88 88.  .88 
- dP        `88888P8 `88888P' `88888P' 8888P Y8P  `88888P' dP       `88888P8     Y88888P' dP       `88888P8 `88888P' dP   `YP dP dP    dP `8888P88 
-                                                                                                                                              .88 
-                                                                                                                                          d8888P      '''
+     888888ba                                                                dP     a88888b.                            dP       oo                   
+     88    `8b                                                               88    d8'   `88                            88                            
+    a88aaaa8P' .d8888b. .d8888b. .d8888b. dP  dP  dP .d8888b. 88d888b. .d888b88    88        88d888b. .d8888b. .d8888b. 88  .dP  dP 88d888b. .d8888b. 
+     88        88'  `88 Y8ooooo. Y8ooooo. 88  88  88 88'  `88 88'  `88 88'  `88    88        88'  `88 88'  `88 88'  `"" 88888"   88 88'  `88 88'  `88 
+     88        88.  .88       88       88 88.88b.88' 88.  .88 88       88.  .88    Y8.   .88 88       88.  .88 88.  ... 88  `8b. 88 88    88 88.  .88 
+     dP        `88888P8 `88888P' `88888P' 8888P Y8P  `88888P' dP       `88888P8     Y88888P' dP       `88888P8 `88888P' dP   `YP dP dP    dP `8888P88 
+                                                                                                                                                  .88 
+                                                                                                                                              d8888P      '''
     banner6 = '''
-.d88888b           oo .8888b .8888b oo                         d88b       .d88888b                             .8888b oo                   
-88.    "'             88   " 88   "                            8`'8       88.    "'                            88   "                      
-`Y88888b. 88d888b. dP 88aaa  88aaa  dP 88d888b. .d8888b.       d8b        `Y88888b. 88d888b. .d8888b. .d8888b. 88aaa  dP 88d888b. .d8888b. 
-      `8b 88'  `88 88 88     88     88 88'  `88 88'  `88     d8P`8b             `8b 88'  `88 88'  `88 88'  `88 88     88 88'  `88 88'  `88 
-d8'   .8P 88    88 88 88     88     88 88    88 88.  .88     d8' `8bP     d8'   .8P 88.  .88 88.  .88 88.  .88 88     88 88    88 88.  .88 
- Y88888P  dP    dP dP dP     dP     dP dP    dP `8888P88     `888P'`YP     Y88888P  88Y888P' `88888P' `88888P' dP     dP dP    dP `8888P88 
-                                                     .88                            88                                                 .88 
-                                                 d8888P                             dP                                             d8888P      '''
+    .d88888b           oo .8888b .8888b oo                         d88b       .d88888b                             .8888b oo                   
+    88.    "'             88   " 88   "                            8`'8       88.    "'                            88   "                      
+    `Y88888b. 88d888b. dP 88aaa  88aaa  dP 88d888b. .d8888b.       d8b        `Y88888b. 88d888b. .d8888b. .d8888b. 88aaa  dP 88d888b. .d8888b. 
+          `8b 88'  `88 88 88     88     88 88'  `88 88'  `88     d8P`8b             `8b 88'  `88 88'  `88 88'  `88 88     88 88'  `88 88'  `88 
+    d8'   .8P 88    88 88 88     88     88 88    88 88.  .88     d8' `8bP     d8'   .8P 88.  .88 88.  .88 88.  .88 88     88 88    88 88.  .88 
+     Y88888P  dP    dP dP dP     dP     dP dP    dP `8888P88     `888P'`YP     Y88888P  88Y888P' `88888P' `88888P' dP     dP dP    dP `8888P88 
+                                                         .88                            88                                                 .88 
+                                                     d8888P                             dP                                             d8888P      '''
     banner7 = '''
- 888888ba                                        dP   oo                   
- 88    `8b                                       88                        
-a88aaaa8P' .d8888b. 88d888b. .d8888b. 88d888b. d8888P dP 88d888b. .d8888b. 
- 88   `8b. 88ooood8 88'  `88 88'  `88 88'  `88   88   88 88'  `88 88'  `88 
- 88     88 88.  ... 88.  .88 88.  .88 88         88   88 88    88 88.  .88 
- dP     dP `88888P' 88Y888P' `88888P' dP         dP   dP dP    dP `8888P88 
-                    88                                                 .88 
-                    dP                                             d8888P      '''
+     888888ba                                        dP   oo                   
+     88    `8b                                       88                        
+    a88aaaa8P' .d8888b. 88d888b. .d8888b. 88d888b. d8888P dP 88d888b. .d8888b. 
+     88   `8b. 88ooood8 88'  `88 88'  `88 88'  `88   88   88 88'  `88 88'  `88 
+     88     88 88.  ... 88.  .88 88.  .88 88         88   88 88    88 88.  .88 
+     dP     dP `88888P' 88Y888P' `88888P' dP         dP   dP dP    dP `8888P88 
+                        88                                                 .88 
+                        dP                                             d8888P      '''
     bannernet = '''
-888888ba             dP                                dP             d88b        888888ba                      dP      .d88888b                                      oo                   
-88    `8b            88                                88             8`'8        88    `8b                     88      88.    "'                                                          
-88     88 .d8888b. d8888P dP  dP  dP .d8888b. 88d888b. 88  .dP        d8b        a88aaaa8P' .d8888b. 88d888b. d8888P    `Y88888b. .d8888b. .d8888b. 88d888b. 88d888b. dP 88d888b. .d8888b. 
-88     88 88ooood8   88   88  88  88 88'  `88 88'  `88 88888"       d8P`8b        88        88'  `88 88'  `88   88            `8b 88'  `"" 88'  `88 88'  `88 88'  `88 88 88'  `88 88'  `88 
-88     88 88.  ...   88   88.88b.88' 88.  .88 88       88  `8b.     d8' `8bP      88        88.  .88 88         88      d8'   .8P 88.  ... 88.  .88 88    88 88    88 88 88    88 88.  .88 
-dP     dP `88888P'   dP   8888P Y8P  `88888P' dP       dP   `YP     `888P'`YP     dP        `88888P' dP         dP       Y88888P  `88888P' `88888P8 dP    dP dP    dP dP dP    dP `8888P88 
-                                                                                                                                                                                       .88 
-                                                                                                                                                                                   d8888P      '''
+    888888ba             dP                                dP             d88b        888888ba                      dP      .d88888b                                      oo                   
+    88    `8b            88                                88             8`'8        88    `8b                     88      88.    "'                                                          
+    88     88 .d8888b. d8888P dP  dP  dP .d8888b. 88d888b. 88  .dP        d8b        a88aaaa8P' .d8888b. 88d888b. d8888P    `Y88888b. .d8888b. .d8888b. 88d888b. 88d888b. dP 88d888b. .d8888b. 
+    88     88 88ooood8   88   88  88  88 88'  `88 88'  `88 88888"       d8P`8b        88        88'  `88 88'  `88   88            `8b 88'  `"" 88'  `88 88'  `88 88'  `88 88 88'  `88 88'  `88 
+    88     88 88.  ...   88   88.88b.88' 88.  .88 88       88  `8b.     d8' `8bP      88        88.  .88 88         88      d8'   .8P 88.  ... 88.  .88 88    88 88    88 88 88    88 88.  .88 
+    dP     dP `88888P'   dP   8888P Y8P  `88888P' dP       dP   `YP     `888P'`YP     dP        `88888P' dP         dP       Y88888P  `88888P' `88888P8 dP    dP dP    dP dP dP    dP `8888P88 
+                                                                                                                                                                                           .88 
+                                                                                                                                                                                       d8888P      '''
     bannerweb = '''
-dP   dP   dP          dP          .d88888b                                      oo                   
-88   88   88          88          88.    "'                                                          
-88  .8P  .8P .d8888b. 88d888b.    `Y88888b. .d8888b. .d8888b. 88d888b. 88d888b. dP 88d888b. .d8888b. 
-88  d8'  d8' 88ooood8 88'  `88          `8b 88'  `"" 88'  `88 88'  `88 88'  `88 88 88'  `88 88'  `88 
-88.d8P8.d8P  88.  ... 88.  .88    d8'   .8P 88.  ... 88.  .88 88    88 88    88 88 88    88 88.  .88 
-8888' Y88'   `88888P' 88Y8888'     Y88888P  `88888P' `88888P8 dP    dP dP    dP dP dP    dP `8888P88 
-                                                                                                 .88 
-                                                                                             d8888P      '''
+    dP   dP   dP          dP          .d88888b                                      oo                   
+    88   88   88          88          88.    "'                                                          
+    88  .8P  .8P .d8888b. 88d888b.    `Y88888b. .d8888b. .d8888b. 88d888b. 88d888b. dP 88d888b. .d8888b. 
+    88  d8'  d8' 88ooood8 88'  `88          `8b 88'  `"" 88'  `88 88'  `88 88'  `88 88 88'  `88 88'  `88 
+    88.d8P8.d8P  88.  ... 88.  .88    d8'   .8P 88.  ... 88.  .88 88    88 88    88 88 88    88 88.  .88 
+    8888' Y88'   `88888P' 88Y8888'     Y88888P  `88888P' `88888P8 dP    dP dP    dP dP dP    dP `8888P88 
+                                                                                                     .88 
+                                                                                                 d8888P      '''
     quitbanner = '''
- ___       ___ 
-|__  \_/ |  |  
-|___ / \ |  |  
-                   '''
+     ___       ___ 
+    |__  \_/ |  |  
+    |___ / \ |  |  
+                       '''
     cmd = colored("    PET ~# ", 'red')
 
     Sclear()
@@ -145,29 +145,29 @@ dP   dP   dP          dP          .d88888b                                      
 
     Few more Important Stages that need to be performed in able to qualify Pen testing as well as for CTFs Events are :
     
-    Password cracking     - Password checking itself process of retrieving passwords of a system or an account by using certain tools 
-                            and data that has been transmitted through a computer which will be in a scrambled form.
+    Password cracking        - Password checking itself process of retrieving passwords of a system or an account by using certain tools 
+                               and data that has been transmitted through a computer which will be in a scrambled form.
 
-    Sniffing and Spoofing - There are two types of Internet security breaches Sniffing and Spoofing. Sniffing is art of intercepting 
-                            and investigating packets using a sniffer to obtain valuable information about the target system. 
-                            Spoofing is art of impersonation or falsifying identification where the attacker poses as someone else to 
-                            gain information.
+    Sniffing and Spoofing    - There are two types of Internet security breaches Sniffing and Spoofing. Sniffing is art of intercepting 
+                               and investigating packets using a sniffer to obtain valuable information about the target system. 
+                               Spoofing is art of impersonation or falsifying identification where the attacker poses as someone else to 
+                               gain information.
 
     ''')
     input("    Press Enter key to continue")
     Sclear()
     
     while(True):
-        print('''\n\nDisclaimer:All the information on this Toolkit is published in good faith and for general information purpose only.
-           This platform does not make any warranties about the completeness, reliability and accuracy of this information.
-           Any action you take upon the information you find on this Toolkit, is strictly at your own risk.
+        print('''\n\nDisclaimer:    All the information on this Toolkit is published in good faith and for general information purpose only.
+               This platform does not make any warranties about the completeness, reliability and accuracy of this information.
+               Any action you take upon the information you find on this Toolkit, is strictly at your own risk.
         ''')
-        ans = input("Do you agree to use it for Right purpose? (y/n): ")
+        ans = input("               Do you agree to use it for Right purpose? (y/n): ")
         if (ans.lower() == 'y'):
             petoolkit()
         elif (ans.lower() == 'n'):
             print(quitbanner)
-            print('\nThanks. We appreciate your kindness...')
+            print('\n   Thanks. We appreciate your kindness...')
             sys.exit(0) 
 
 class petoolkit:
@@ -176,14 +176,14 @@ class petoolkit:
         now = datetime.datetime.now()
         nowstamp = now.strftime('%H:%M:%S %A, %d %B , %Y')
         print( startbanner + '\n\n    ' + nowstamp + '\n' )
-        print( "    1   . Information Gathering" )
-        print( "    2   . Scanning" )
-        print( "    3   . Exploitation" )
-        print( "    4   . Post Exploitation" ) 
-        print( "    5   . Password Cracking" )
-        print( "    6   . Sniffing & Spoofing" )
-        print( "    7   . Reporting" )
-        print( "    0   . Exit" )
+        print( "    1   .   Information Gathering" )
+        print( "    2   .   Scanning" )
+        print( "    3   .   Exploitation" )
+        print( "    4   .   Post Exploitation" ) 
+        print( "    5   .   Password Cracking" )
+        print( "    6   .   Sniffing & Spoofing" )
+        print( "    7   .   Reporting" )
+        print( "    0   .   Exit" )
         choice = input(cmd)
         try:
             if choice == '1':
@@ -203,7 +203,7 @@ class petoolkit:
             elif choice == '0':
                 Sclear()
                 print(quitbanner)
-                print('\nThanks For Choosing Our PEToolkit Platform! Have a Great Day :)\n')
+                print('\n   Thanks For Choosing Our PEToolkit Platform! Have a Great Day :)\n')
                 sys.exit(0)
             else:
                 self.__init__()
@@ -215,14 +215,15 @@ class infogath():
      def __init__(self):
         Sclear()
         print(banner1)
-        print('    1   -  Host to IP ')
-        print('    2   -  NslookUp ')
-        print('    3   -  Recong-ng ')
-        print('    4   -  theHarvester ')
-        print('    5   -  Discover ')
-        print('    6   -  Shodan on Internet Browser ')
-        print('    7   -  Censys on Internet Browser ')
-        print('    0   -  Back to Main Menu')
+        print('\n')    
+        print('    1   .   Host to IP ')
+        print('    2   .   NslookUp ')
+        print('    3   .   Recong-ng ')
+        print('    4   .   theHarvester ')
+        print('    5   .   Discover ')
+        print('    6   .   Shodan on Internet Browser ')
+        print('    7   .   Censys on Internet Browser ')
+        print('    0   .   Back to Main Menu')
         choice = input(cmd)
         if choice == '1':
             host2ip()
@@ -254,10 +255,11 @@ class scann():
     def __init__(self):
         Sclear()
         print(banner2)
-        print('    1   - Network and Port Scanning')
-        print('    2   - Web Scanning')
-        print('    3   - Full Recon and Scan ')
-        print('    0   - Back to Main Menu')
+        print('\n')    
+        print('    1   .   Network and Port Scanning')
+        print('    2   .   Web Scanning')
+        print('    3   .   Full Recon and Scan ')
+        print('    0   .   Back to Main Menu')
         choice = input(cmd)
         if choice == '1':
             netport()
@@ -274,10 +276,11 @@ class netport():
     def __init__(self):
         Sclear()
         print(bannernet)
-        print('    1   - Nmap')
-        print('    2   - Hping3')
-        print('    3   - MassScan')
-        print('    0   - Back to Scanning Menu')
+        print('\n')    
+        print('    1   .   Nmap')
+        print('    2   .   Hping3')
+        print('    3   .   MassScan')
+        print('    0   .   Back to Scanning Menu')
         choice = input(cmd)
         if choice == '1':
             nmap()
@@ -294,12 +297,13 @@ class webscan():
     def __init__(self):
         Sclear()
         print(bannerweb)
-        print('    1   - Nikto')
-        print('    2   - SQLMap')
-        print('    3   - WPScan')
-        print('    4   - Dirb')
-        print('    5   - SkipFish')
-        print('    0   - Back to Main Menu')
+        print('\n')    
+        print('    1   .   Nikto')
+        print('    2   .   SQLMap')
+        print('    3   .   WPScan')
+        print('    4   .   Dirb')
+        print('    5   .   SkipFish')
+        print('    0   .   Back to Main Menu')
         choice = input(cmd)
         if choice == '1':
             nikto()
@@ -320,19 +324,20 @@ class exploit():
     def __init__(self):
         Sclear()
         print(banner3)
+        print('\n')    
         print('    OWASP TOP 10 ')
-        print('    1   -  Injection')
-        print('    2   -  Broken Authentication')
-        print('    3   -  Sensitive Data Exposure')
-        print('    4   -  XML Enternal Entities XXE')
-        print('    5   -  Broken Access Control')
-        print('    6   -  Security Misconfiguration')
-        print('    7   -  Cross-Site Scripting XSS')
-        print('    8   -  Insecure Deserialization')
-        print('    9   -  Using Components with Known Vulnerabilities')
-        print('    10  - Insufficient Logging & Monitoring')
-        print('    99  - Searchsploit')
-        print('    0   -  Back to Main Menu')
+        print('    1   .   Injection')
+        print('    2   .   Broken Authentication')
+        print('    3   .   Sensitive Data Exposure')
+        print('    4   .   XML Enternal Entities XXE')
+        print('    5   .   Broken Access Control')
+        print('    6   .   Security Misconfiguration')
+        print('    7   .   Cross-Site Scripting XSS')
+        print('    8   .   Insecure Deserialization')
+        print('    9   .   Using Components with Known Vulnerabilities')
+        print('    10  .   Insufficient Logging & Monitoring')
+        print('    99  .   Searchsploit')
+        print('    0   .   Back to Main Menu')
         choice = input(cmd)
         if choice == '1':
             inject()
@@ -345,18 +350,18 @@ class exploit():
         elif choice == '5':
             Sclear()
             print(''' 
-            Broken Access Control - It occur when users can act outside of their intended permissions. This typically leads to unauthorized access, 
-            information disclosure, and modification or destruction of data. These vulnerabilities arise from insecure coding or insecure 
-            implementation of authentication and authorization mechanisms
-            It could be performed by changing HTTP Parameter. For Eg.
-            
-            On website - https://mybankingapp.test/login?accountId=4462, If we change the accoundId to different value and can get access to different
-            user this could lead to Broken Access Control. By changing value 4462 to 4463 or 4461.
+                Broken Access Control - It occur when users can act outside of their intended permissions. This typically leads to unauthorized access, 
+                information disclosure, and modification or destruction of data. These vulnerabilities arise from insecure coding or insecure 
+                implementation of authentication and authorization mechanisms
+                It could be performed by changing HTTP Parameter. For Eg.
 
-            Another Example is An attacker simply force browses to target URLs. Admin rights are required for access to the admin page.
-            Change http://example.com/app/getappInfo to http://example.com/app/admin_getappInfo
-            If an unauthenticated user can access either page, it’s a flaw. If a non-admin can access the admin page, this is a flaw.
-            ''')
+                On website - https://mybankingapp.test/login?accountId=4462, If we change the accoundId to different value and can get access to different
+                user this could lead to Broken Access Control. By changing value 4462 to 4463 or 4461.
+
+                Another Example is An attacker simply force browses to target URLs. Admin rights are required for access to the admin page.
+                Change http://example.com/app/getappInfo to http://example.com/app/admin_getappInfo
+                If an unauthenticated user can access either page, it’s a flaw. If a non-admin can access the admin page, this is a flaw.
+                ''')
             input("\nPress Enter key to continue")
             exploit()
         elif choice == '6':
@@ -382,13 +387,14 @@ class exploit():
 class postexploit():
     def __init__(self):
         Sclear()
-        print(banner4)      
-        print('    1  -  TheFatrat ')
-        print('    2  -  Bashark ')
-        print('    3  -  Weevely')
-        print('    4  -  Linux Post Expoitation Command List')
-        print('    5  -  Windows Post Expoiltation Command List')
-        print('    0  -  Back to Main Menu')
+        print(banner4)  
+        print('\n')    
+        print('    1   .   TheFatrat ')
+        print('    2   .   Bashark ')
+        print('    3   .   Weevely')
+        print('    4   .   Linux Post Expoitation Command List')
+        print('    5   .   Windows Post Expoiltation Command List')
+        print('    0   .   Back to Main Menu')
         choice = input(cmd)
         if choice == '1':
             fatrat()
@@ -415,12 +421,13 @@ class pwdcrack():
     def __init__(self):
         Sclear()
         print(banner5)
-        print('    1   -  BruteX')
-        print('    2   -  Hydra')
-        print('    3   -  JohnThRipper')
-        print('    4   -  Hashcat')
-        print('    5   -  Ncrack')
-        print('    0   -  Back to Main Menu')
+        print('\n')
+        print('    1   .   BruteX')
+        print('    2   .   Hydra')
+        print('    3   .   JohnThRipper')
+        print('    4   .   Hashcat')
+        print('    5   .   Ncrack')
+        print('    0   .   Back to Main Menu')
         choice = input(cmd)
         if choice == '1':
             brutex()
@@ -441,9 +448,10 @@ class sniffsnoof():
     def __init__(self):
         Sclear()
         print(banner6)
-        print('    1   -  Setoolkit')
-        print('    2   -  Macchanger')
-        print('    0   -  Back to Main Menu')
+        print('\n')
+        print('    1   .   Setoolkit')
+        print('    2   .   Macchanger')
+        print('    0   .   Back to Main Menu')
         choice = input(cmd)
         if choice == '1':
             setoolkit()
@@ -459,14 +467,14 @@ class report():
         Sclear()
         print(banner7)
         print('\n')
-        print( "    1   . Information Gathering Report" )
-        print( "    2   . Scanning Report" )
-        print( "    3   . Metasploit")
-        print( "    4   . Wireshark")
-        print( "    5   . Burp Suite")
-        print( "    6   . Maltego")
-        print( "    7   . Metagoofil")
-        print( "    0   . Back" )
+        print( "    1   .   Information Gathering Report" )
+        print( "    2   .   Scanning Report" )
+        print( "    3   .   Metasploit")
+        print( "    4   .   Wireshark")
+        print( "    5   .   Burp Suite")
+        print( "    6   .   Maltego")
+        print( "    7   .   Metagoofil")
+        print( "    0   .   Back" )
         choice = input(cmd) 
         if choice == '1':
             inforeport()
@@ -616,13 +624,13 @@ class nmap():
         os.system("cd %s && ./configure && make && make install" %self.Install_directory)
 
     def menu(self, host):
-        print(" NMAP : %s\n" % host)
-        print(" 1   . Simple Scan ")
-        print(" 2   . Port Scan ")
-        print(" 3   . Operating System Scan ")
-        print(" 4   . All port Scan ")
-        print(" 99  . Manual Scan")
-        print(" 0   . Back on Network and Port Scanning ")
+        print("    NMAP:   %s\n" % host)
+        print("    1   .   Simple Scan ")
+        print("    2   .   Port Scan ")
+        print("    3   .   Operating System Scan ")
+        print("    4   .   All port Scan ")
+        print("    99  .   Manual Scan")
+        print("    0   .   Back on Network and Port Scanning ")
         choice = input(cmd)
         if choice == '1':  
             os.system("nmap -sV -F %s" % host)
@@ -670,13 +678,13 @@ class hping3():
         os.system("sudo apt-get install hping3 -y")
 
     def menu(self, host):
-        print(" HPING3 : %s\n" % host)
-        print(" 1   . Scan Mode")
-        print(" 2   . TraceRoute Mode ")
-        print(" 3   . Verbose Scan ")
-        print(" 4   . SYN FLood ")
-        print(" 99  . Manual Scan")
-        print(" 0   . Back on Network and Port Scanning ")
+        print("    HPING3 : %s\n" % host)
+        print("    1   .   Scan Mode")
+        print("    2   .   TraceRoute Mode ")
+        print("    3   .   Verbose Scan ")
+        print("    4   .   SYN FLood ")
+        print("    99  .   Manual Scan")
+        print("    0   .   Back on Network and Port Scanning ")
         choice = input(cmd)
         if choice == '1':  
             os.system("sudo hping3 --scan 1-100 -S %s" % host)
@@ -719,7 +727,7 @@ class masscan():
         arbitrary address ranges and port ranges.\n
         NOTE: masscan uses a custom TCP/IP stack. Anything other than simple port scans will cause conflict with the local TCP/IP stack. 
         ''')
-        host = input(" Enter the target IP or URL : ")
+        host = input("    Enter the target IP or URL : ")
         self.menu(host)
 
     def installed(self):
@@ -732,13 +740,13 @@ class masscan():
 
     def menu(self, host):
         Sclear()
-        print(" MASSCAN : %s\n" % host)
-        print(" 1   . Port Range ")
-        print(" 2   . Selected Ports")
-        print(" 3   . Exlude List Scan ")
-        print(" 4   . Packet Rate Scan ")
-        print(" 99  . Manual Scan")
-        print(" 0   . Back ")
+        print("    MASSCAN : %s\n" % host)
+        print("    1   .   Port Range ")
+        print("    2   .   Selected Ports")
+        print("    3   .   Exlude List Scan ")
+        print("    4   .   Packet Rate Scan ")
+        print("    99  .   Manual Scan")
+        print("    0   .   Back ")
         choice = input(cmd)
         if choice == '1':
             start = input('Start Range: ')
@@ -784,7 +792,7 @@ class nikto():
         including over 6700 potentially dangerous files/programs, checks for outdated versions of over 1250 servers, and version 
         specific problems on over 270 servers. 
         ''')
-        host = input(" Enter the target IP or URL : ")
+        host = input("    Enter the target IP or URL : ")
         self.menu(host)
 
     def installed(self):
@@ -795,15 +803,15 @@ class nikto():
 
     def menu(self, host):
         Sclear()
-        print(" NIKTO : %s\n" % host)
-        print(" 1   . Basic Scan ")
-        print(" 2   . Port Scan ")
-        print(" 3   . SSL Scan ")
-        print(" 4   . No SSL Scan ")
-        print(" 5   . Tuning Scan - Option List ")
-        print(" 6   . Mutate Scan - Option List ")
-        print(" 99  . Manual Scan")
-        print(" 0   . Back ")
+        print("    NIKTO : %s\n" % host)
+        print("    1   . Basic Scan ")
+        print("    2   . Port Scan ")
+        print("    3   . SSL Scan ")
+        print("    4   . No SSL Scan ")
+        print("    5   . Tuning Scan - Option List ")
+        print("    6   . Mutate Scan - Option List ")
+        print("    99  . Manual Scan")
+        print("    0   . Back ")
         choice = input(cmd)
         if choice == '1': 
             os.system("nikto -h %s" % host)
@@ -871,15 +879,15 @@ class sqlmap():
 
     def menu(self, host):
         Sclear()
-        print(" SQLMap : %s\n" % host)
-        print(" 1   . Scan ")
-        print(" 2   . Database")
-        print(" 3   . Tables ")
-        print(" 4   . Column ")
-        print(" 5   . Dumps ")
-        print(" 6   . OS Shells ")
-        print(" 99  . Manual Scan")
-        print(" 0   . Back ")
+        print("    SQLMap : %s\n" % host)
+        print("    1   . Scan ")
+        print("    2   . Database")
+        print("    3   . Tables ")
+        print("    4   . Column ")
+        print("    5   . Dumps ")
+        print("    6   . OS Shells ")
+        print("    99  . Manual Scan")
+        print("    0   . Back ")
         choice = input(cmd)
         if choice == '1': 
             os.system("python %s/sqlmap.py -u %s" % (self.Install_directory,host))
@@ -943,12 +951,12 @@ class wpscan():
 
     def menu(self, host):
         Sclear()
-        print(" WPScan : %s\n" % host)
-        print(" 1   . Enumerate Users ")
-        print(" 2   . Database")
-        print(" 3   . Help ")
-        print(" 99  . Manual Scan")
-        print(" 0   . Back ")
+        print("    WPScan : %s\n" % host)
+        print("    1   .   Enumerate Users ")
+        print("    2   .   Database")
+        print("    3   .   Help ")
+        print("    99  .   Manual Scan")
+        print("    0   .   Back ")
         choice = input(cmd)
         if choice == '1': 
             os.system("wpscan --url %s --enumerate" % host)
@@ -1083,11 +1091,11 @@ class inject():
 
     def menu(self, host):
         Sclear() 
-        print(" SQLiv : %s\n" % host)
-        print('  1   -  Multiple Domain Scanning with SQLi Dork')
-        print('  2   -  Target Scanning')
-        print('  3   -  Reverse Domain and Scanning')
-        print('  0   -  Back to Main Menu')
+        print("    SQLiv : %s\n" % host)
+        print('    1   -   Multiple Domain Scanning with SQLi Dork')
+        print('    2   -   Target Scanning')
+        print('    3   -   Reverse Domain and Scanning')
+        print('    0   -   Back to Main Menu')
         choice = input(cmd)
         if choice == '1': 
             dork = input(''' Enter the Dork (Eg. "inurl:index.php?id="): ''')
@@ -1111,9 +1119,9 @@ class inject():
 class broauth():
     def __init__(self):
         Sclear()
-        print(" HACKBAR : It's a sidebar that assists you with Web Application Security Testing.\n")
-        print('  1   -  Firefox Add-On')
-        print('  0   -  Back')
+        print("    HACKBAR : It's a sidebar that assists you with Web Application Security Testing.\n")
+        print('    1   -   Firefox Add-On')
+        print('    0   -   Back')
         choice = input(cmd)
         if choice == '1': 
             os.system("firefox https://addons.mozilla.org/fr/firefox/addon/hackbar-free/")
@@ -1153,6 +1161,7 @@ class xxe():
         self.gitRepo = "https://github.com/ptonewreckin/BlindRef.git"
         if not self.installed():
             self.install()
+        Sclear()
         print('''
         XXE Injection can occur when XML parsers are overly permissive in their configurations and allow for the processing 
         of external XML entities. These external entities can reference files on the local file system or even share drives. 
@@ -1172,11 +1181,11 @@ class xxe():
         os.system("sudo cd %s && chmod +x setup.sh && ./setup.sh" % self.Install_directory)
 
     def menu(self, host):
-        print(" BlindRef: ")
-        print(" 1 . BlindRef Server - serves entities to the vulnerable web application. ")
-        print(''' 2 . BlindRef Attacker - Instantiates requests to the vulnerable web server 
+        print("    BlindRef: ")
+        print("    1   .   BlindRef Server - serves entities to the vulnerable web application. ")
+        print('''    2   .   BlindRef Attacker - Instantiates requests to the vulnerable web server 
         to kick off requests for entities hosted on the BlindRefServer.''')
-        print(" 0 . Back to Menu")
+        print("    0   .   Back to Menu")
         choice = input(cmd)
         if choice == '1':
             host = input("Enter host: ")
@@ -1202,6 +1211,7 @@ class sensdata():
         self.gitRepo = "https://github.com/iamadummyuser/huby.git"
         if not self.installed():
             self.install()
+        Sclear()
         print('''
         This tool is developed for to show the sensitive data exposure on any Github organization or user.
         ''')
@@ -1230,6 +1240,7 @@ class lognmoni():
         self.gitRepo = "https://github.com/nikharris0/probemon.git"
         if not self.installed():
             self.install()
+        Sclear()
         print('''
         A simple command line tool for monitoring and logging 802.11 probe frames.
         ''')
@@ -1258,6 +1269,7 @@ class insecdes():
         self.gitRepo = "https://github.com/georlav/objectmap.git"
         if not self.installed():
             self.install()
+        Sclear()
         print('''
         A Simple command line tool that helps you check PHP and Java applications for insecure deserialization vulnerabilities.
         
@@ -1275,10 +1287,10 @@ class insecdes():
         os.system("sudo cd %s && make build && make test" % self.Install_directory)
 
     def menu(self, host):
-        print(" ObjectMap : ")
-        print(" 1 . Load a Request from a file ")
-        print(" 2 . Analyse Target using Command Line Parameters")
-        print(" 0 . Back to Menu")
+        print("    ObjectMap : ")
+        print("    1   .   Load a Request from a file ")
+        print("    2   .   Analyse Target using Command Line Parameters")
+        print("    0   .   Back to Menu")
         choice = input(cmd)
         if choice == '1':
             requestf = input("Enter Request File Location: ")
@@ -1303,6 +1315,7 @@ class xxs():
         self.gitRepo = "https://github.com/Dylan-halls/xxsmap.git"
         if not self.installed():
             self.install()
+        Sclear()
         print('''
         This is a tool for finding xxs vulnerability's in websites.
         
@@ -1320,11 +1333,11 @@ class xxs():
         os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
 
     def menu(self, host):
-        print(" XXSMAP: ")
-        print(" 1 . Main Page XXS ")
-        print(" 2 . Targer Specific XSS")
-        print(" 3 . Specific Parameter XSS")
-        print(" 0 . Back to Menu")
+        print("    XXSMAP :  ")
+        print("    1   .   Main Page XXS ")
+        print("    2   .   Targer Specific XSS")
+        print("    3   .   Specific Parameter XSS")
+        print("    0   .   Back to Menu")
         choice = input(cmd)
         if choice == '1':
             host = input("Enter host: ")
@@ -1351,15 +1364,15 @@ class xxs():
 
 class kwnvuln():
     def __init__(self):
+        Sclear()
         host = input(" Enter the library/framework/software module (Use '+' instead of Spaceing) : ")
-        input("\nPress Enter key to continue")
         self.menu(host)
 
     def menu(self, host):
         Sclear() 
-        print("  Using Components with Known Vulnerabilities : %s\n" % host)
-        print('  1   -  Seach from Known Vulnerabilities - CVE,NVD,Exploit-DB ')
-        print('  0   -  Back to Main Menu')
+        print("    Using Components with Known Vulnerabilities : %s\n" % host)
+        print('    1   -   Seach from Known Vulnerabilities - CVE,NVD,Exploit-DB ')
+        print('    0   -   Back to Main Menu')
         choice = input(cmd)
         if choice == '1':
             webbrowser.open('https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=%s' % host, new = 2)
@@ -1378,6 +1391,7 @@ class fatrat():
         self.gitRepo = "https://github.com/Screetsec/TheFatRat.git"
         if not self.installed():
             self.install()
+        Sclear()
         print('''
         TheFatRat is an exploiting tool which compiles a malware with famous payload, and then the compiled 
         maware can be executed on Linux , Windows , Mac and Android. TheFatRat Provides An Easy way to create 
@@ -1405,6 +1419,7 @@ class bashark():
         self.gitRepo = "https://github.com/redcode-labs/Bashark.git"
         if not self.installed():
             self.install()
+        Sclear()
         print('''
         Bashark aids pentesters and security researchers during the post-exploitation phase of security audit.
         ''')
@@ -1427,6 +1442,7 @@ class weevely():
     def __init__(self):
         if not self.installed():
             self.install()
+        Sclear()
         print('''
         Weevely is a stealth PHP web shell that simulate telnet-like connection. It is an essential tool for 
         web application post exploitation, and can be used as stealth backdoor or as a web shell to manage 
@@ -1449,7 +1465,6 @@ class weevely():
         os.system("weevely generate %s %s" % (password,backdoor))
         input("\nPress Enter key to continue")
         postexploit()
-
             
 class brutex():
     def __init__(self):
@@ -1577,6 +1592,7 @@ class ncrack():
     def __init__(self):
         if not self.installed():
             self.install()
+        Sclear()
         print('''
         Ncrack is a high-speed network authentication cracking tool. It was built to help companies secure their networks 
         by proactively testing all their hosts and networking devices for poor passwords. Security professionals also 
@@ -1606,6 +1622,7 @@ class setoolkit:
         self.gitRepo = "https://github.com/trustedsec/social-engineer-toolkit.git"
         if not self.installed():
             self.install()
+        Sclear()
         print('''
         The Social-Engineer Toolkit is an open-source penetration testing framework designed for social engineering. 
         SET has a number of custom attack vectors that allow you to make a believable attack quickly.
@@ -1631,10 +1648,11 @@ class macchanger:
     def __init__(self):
         self.run()
     def run(self):
-        print("  Macchanger: It changes MAC Address of the network interface.\n")
-        print('  1   -  Create your own mac ')
-        print('  2   -  Random')
-        print('  0   -  Back to Main Menu')
+        Sclear()
+        print("    Macchanger: It changes MAC Address of the network interface.\n")
+        print('    1   -   Create your own mac ')
+        print('    2   -   Random')
+        print('    0   -   Back to Main Menu')
         choice = input(cmd)
         if choice == '1':
             device = input(' Enter network device: ')
