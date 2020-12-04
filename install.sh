@@ -25,10 +25,10 @@ if [ -d "$Install_directory" ]; then
     if [ "$check" = "y" ]; then
         if [ "$TERMUX" = true ]; then
             sudo rm -rf "$Install_directory"
-            sudo rm "$Bin_directory/petoolkit*"
+            sudo rm "$Bin_directorypetoolkit*"
         else
             sudo rm -rf "$Install_directory"
-            sudo rm "$Bin_directory/petoolkit*"
+            sudo rm "$Bin_directorypetoolkit*"
         fi
     else
         echo "If you want to install you must remove previous version.";
