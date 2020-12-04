@@ -1387,7 +1387,7 @@ class kwnvuln():
 
 class fatrat():
     def __init__(self):
-        self.Install_directory = Tool_directory + "fatrat"
+        self.Install_directory = Tool_directory + "TheFatRat"
         self.gitRepo = "https://github.com/Screetsec/TheFatRat.git"
         if not self.installed():
             self.install()
@@ -1406,7 +1406,7 @@ class fatrat():
     def install(self):
         os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
         os.system("sudo cd %s && chmod +x setup.sh && ./setup.sh" % self.Install_directory)
-
+    
     def run(self):
         Sclear()
         os.system("sudo fatrat")
@@ -1415,7 +1415,7 @@ class fatrat():
 
 class bashark():
     def __init__(self):
-        self.Install_directory = Tool_directory + "bashark"
+        self.Install_directory = Tool_directory + "Bashark"
         self.gitRepo = "https://github.com/redcode-labs/Bashark.git"
         if not self.installed():
             self.install()
@@ -1434,7 +1434,7 @@ class bashark():
 
     def run(self):
         Sclear()
-        os.system("source %s/bashark.s" % self.Install_directory)
+        os.system("source %s/bashark.sh" % self.Install_directory)
         input("\nPress Enter key to continue")
         postexploit()
 
