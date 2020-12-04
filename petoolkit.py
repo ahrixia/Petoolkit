@@ -1462,7 +1462,6 @@ class brutex():
         * Usernames
         * Passwords
         ''')
-        host = input("HOST: ")
         self.run()
 
     def installed(self):
@@ -1475,6 +1474,7 @@ class brutex():
         os.system("cd %s && chmod +x install.sh && ./install.sh" % self.Install_directory)
 
     def run(self):
+        host = input("HOST: ")      
         port = input("If any specific port (Default)")
         os.system("brutex %s %s" % (host,port))
         input("\nPress Enter key to continue")
