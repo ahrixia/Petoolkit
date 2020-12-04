@@ -1154,7 +1154,7 @@ class secmisconf():
         input("\nPress Enter key to continue")
         exploit()
 
-        class xxe():
+class xxe():
     def __init__(self):
         self.Install_directory = Tool_directory + "BlindRed"
         self.gitRepo = "https://github.com/ptonewreckin/BlindRef.git"
