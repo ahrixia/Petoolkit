@@ -381,8 +381,8 @@ class exploit():
             self.__init__()
 class postexploit():
     def __init__(self):
-        print(banner4)
         Sclear()
+        print(banner4)      
         print('    1  -  TheFatrat ')
         print('    2  -  Bashark ')
         print('    3  -  Weevely')
