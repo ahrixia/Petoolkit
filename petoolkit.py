@@ -343,7 +343,22 @@ class exploit():
         elif choice == '4':
             xxe()
         elif choice == '5':
-            broacc()
+            Sclear()
+            print(''' 
+            Broken Access Control - It occur when users can act outside of their intended permissions. This typically leads to unauthorized access, 
+            information disclosure, and modification or destruction of data. These vulnerabilities arise from insecure coding or insecure 
+            implementation of authentication and authorization mechanisms
+            It could be performed by changing HTTP Parameter. For Eg.
+            
+            On website - https://mybankingapp.test/login?accountId=4462, If we change the accoundId to different value and can get access to different
+            user this could lead to Broken Access Control. By changing value 4462 to 4463 or 4461.
+
+            Another Example is An attacker simply force browses to target URLs. Admin rights are required for access to the admin page.
+            Change http://example.com/app/getappInfo to http://example.com/app/admin_getappInfo
+            If an unauthenticated user can access either page, it’s a flaw. If a non-admin can access the admin page, this is a flaw.
+            ''')
+            input("\nPress Enter key to continue")
+            exploit()
         elif choice == '6':
             secmisconf()
         elif choice == '7':
@@ -362,13 +377,39 @@ class exploit():
             exploit()
         elif choice == '0':
             pet()
-        else :
-            self.__init__()        
-
+        else:
+            self.__init__()
 class postexploit():
     def __init__(self):
-        Sclear()
         print(banner4)
+        Sclear()
+        print('    1  -  TheFatrat ')
+        print('    2  -  Bashark ')
+        print('    3  -  Weevely')
+        print('    4  -  Linux Post Expoitation Command List')
+        print('    5  -  Windows Post Expoiltation Command List')
+        print('    0  -  Back to Main Menu')
+        choice = input(cmd)
+        if choice == '1':
+            fatrat()
+        elif choice == '2':
+            bashark()
+        elif choice == '3':
+            weevely()
+        elif choice =='4':
+            Sclear()
+            webbrowser.open('https://github.com/mubix/post-exploitation/wiki/Linux-Post-Exploitation-Command-List', new=2)
+            input("Press any key to continue")
+            postexploit()
+        elif choice == '5':
+            Sclear()
+            webbrowser.open('http://www.handgrep.se/repository/cheatsheets/postexploitation/WindowsPost-Exploitation.pdf', new=2)
+            input("Press any key to continue")
+            postexploit()
+        elif choice == '0':
+            pet()
+        else:
+            self.__init__()
 
 class pwdcrack():
     def __init__(self):
@@ -1090,9 +1131,6 @@ class broauth():
         else:
             self.__init__()
 
-# # class sensdata(): 
-# # class xxe():
-# # class broacc():
 class secmisconf():
     def __init__(self):
         if not self.installed():
@@ -1115,28 +1153,209 @@ class secmisconf():
         os.system("watobo")
         input("\nPress Enter key to continue")
         exploit()
-    
-# class xxs():
-#     def __init__(self):
-#         if not self.installed():
-#             self.install()
-#         Sclear()
-#         self.run()
-# #INTROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-#     def installed(self):
-#         return (os.path.isfile("/usr/bin/haproxy") or os.path.isfile("/usr/local/bin/haproxy"))
 
-#     def install(self):
-#         os.system("apt-cache policy haproxy")
-#         os.system("apt install haproxy")
+        class xxe():
+    def __init__(self):
+        self.Install_directory = Tool_directory + "BlindRed"
+        self.gitRepo = "https://github.com/ptonewreckin/BlindRef.git"
+        if not self.installed():
+            self.install()
+        print('''
+        XXE Injection can occur when XML parsers are overly permissive in their configurations and allow for the processing 
+        of external XML entities. These external entities can reference files on the local file system or even share drives. 
+        The successful exploitation of XXE can result in the ability to compromise sensitive configuration files, the 
+        mapping of internal networks, and even the sending of email.
+        
+        BlindRef serves as the basis for an automated Blind-Based XXE Exploitation Framework.
+        ''')
+        input("Press Enter key to continue...")
+        self.menu()
 
-#     def run(self):
-#         os.system("systemctl restart haproxy")
-#         os.system("haproxy")
-#         input("\nPress Enter key to continue")
-#         exploit()
-    
-# class insecdes():
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
+        os.system("sudo cd %s && chmod +x setup.sh && ./setup.sh" % self.Install_directory)
+
+    def menu(self, host):
+        print(" BlindRef: ")
+        print(" 1 . BlindRef Server - serves entities to the vulnerable web application. ")
+        print(''' 2 . BlindRef Attacker - Instantiates requests to the vulnerable web server 
+        to kick off requests for entities hosted on the BlindRefServer.''')
+        print(" 0 . Back to Menu")
+        choice = input(cmd)
+        if choice == '1':
+            host = input("Enter host: ")
+            port = input("Enter Port Number: ")
+            os.system("python %s/BlindRef_Server.py -s %s -p %s" % (self.Install_directory,host,port))
+            input("\nPress Enter key to continue")
+            exploit()
+        elif choice == '2':
+            host = input("Enter host: ")
+            port = input("Enter Port Number: ")
+            srequest = input("Enter the BlinderRefServer Request with location: ")
+            os.system("python %s/BlindRef_Server.py -s %s -p %s -r %s" % (self.Install_directory,host,port,srequest))
+            input("\nPress Enter key to continue")
+            exploit()
+        elif choice == '0':
+            exploit()
+        else:
+            self.menu(host)
+
+class sensdata():
+    def __init__(self):
+        self.Install_directory = Tool_directory + "huby"
+        self.gitRepo = "https://github.com/iamadummyuser/huby.git"
+        if not self.installed():
+            self.install()
+        print('''
+        This tool is developed for to show the sensitive data exposure on any Github organization or user.
+        ''')
+        input("Press Enter key to continue...")
+        self.run()
+
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
+
+    def run(self):
+        Sclear()
+        print('Enter target Username or Organization in next step, where asked for in the file...')
+        input('Press Enter to open the file')
+        os.system("sudo nano %s/hubyGithub.py" % (self.Install_directory))
+        input('Press Enter to run the file')
+        os.system("python %s/hubyPerimeter.py" % (self.Install_directory))
+        input("\nPress Enter key to continue")
+        exploit()
+
+class lognmoni():
+    def __init__(self):
+        self.Install_directory = Tool_directory + "probemon"
+        self.gitRepo = "https://github.com/nikharris0/probemon.git"
+        if not self.installed():
+            self.install()
+        print('''
+        A simple command line tool for monitoring and logging 802.11 probe frames.
+        ''')
+        input("Press Enter key to continue...")
+        self.run()
+
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
+
+    def run(self):
+        Sclear()
+        interface = input("Enter Interface: ") 
+        output = input("Enter the Output location")
+        byte = input("Enter maximum log size (in bytes): ")
+        delimiter = input("Enter Output Field Delimiter: ")
+        os.system("python %s/probemon.py -l -i %s -o %s -b %s -d %s" % (self.Install_directory,interface,output,byte,delimiter))
+        input("\nPress Enter key to continue")
+        exploit()
+
+class insecdes():
+    def __init__(self):
+        self.Install_directory = Tool_directory + "objecmap"
+        self.gitRepo = "https://github.com/georlav/objectmap.git"
+        if not self.installed():
+            self.install()
+        print('''
+        A Simple command line tool that helps you check PHP and Java applications for insecure deserialization vulnerabilities.
+        
+        Supported checks:
+        - PHP Object Injection
+        - Java Deserialization''')
+        input("Press Enter key to continue...")
+        self.menu()
+
+    def installed(self):
+        return (os.path.isfile("/usr/bin/objectmap")or os.path.isfile("/usr/local/bin/objectmap"))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
+        os.system("sudo cd %s && make build && make test" % self.Install_directory)
+
+    def menu(self, host):
+        print(" ObjectMap : ")
+        print(" 1 . Load a Request from a file ")
+        print(" 2 . Analyse Target using Command Line Parameters")
+        print(" 0 . Back to Menu")
+        choice = input(cmd)
+        if choice == '1':
+            requestf = input("Enter Request File Location: ")
+            os.system("objectmap -r %s" % requestf)
+            input("\nPress Enter key to continue")
+            exploit()
+        elif choice == '2':
+            host = input("Enter taregt host : ")
+            body = input("Set the request body in Between Quotation Marks: ")
+            method = input("Enter the HTTP Request Method : ")
+            os.system("objectmap -u %s --body=%s --method=%s" % (host,body,method))
+            input("\nPress Enter key to continue")
+            exploit()
+        elif choice == '0':
+            exploit()
+        else:
+            self.menu(host)
+
+class xxs():
+    def __init__(self):
+        self.Install_directory = Tool_directory + "xxsmap"
+        self.gitRepo = "https://github.com/Dylan-halls/xxsmap.git"
+        if not self.installed():
+            self.install()
+        print('''
+        This is a tool for finding xxs vulnerability's in websites.
+        
+        All it has are few important neededs:
+        - Cookies must be separated with a single space
+        - All site names must end with a '/'
+        ''')
+        input("Press Enter key to continue...")
+        self.menu()
+
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
+
+    def menu(self, host):
+        print(" XXSMAP: ")
+        print(" 1 . Main Page XXS ")
+        print(" 2 . Targer Specific XSS")
+        print(" 3 . Specific Parameter XSS")
+        print(" 0 . Back to Menu")
+        choice = input(cmd)
+        if choice == '1':
+            host = input("Enter host: ")
+            os.system("python3 %s/xxsmap.py --site %s" % (self.Install_directory,host))
+            input("\nPress Enter key to continue")
+            exploit()
+        elif choice == '2':
+            host = input("Enter host: ")
+            os.system("python3 %s/xxsmap.py --address %s" % (self.Install_directory,host))
+            input("\nPress Enter key to continue")
+            exploit()
+        elif choice == '3':
+            host = input("Enter host: ")
+            cookie = input("Enter Value of Cookie: ")
+            thread = input("Enter Threads value: ")
+            os.system("python3 %s/xxsmap.py --address %s --cookie %s --threads %s" % (self.Install_directory,host,cookie,thread))
+            input("\nPress Enter key to continue")
+            exploit()
+        elif choice == '0':
+            exploit()
+        else:
+            self.menu(host)
+
+
 class kwnvuln():
     def __init__(self):
         host = input(" Enter the library/framework/software module (Use '+' instead of Spaceing) : ")
@@ -1159,11 +1378,86 @@ class kwnvuln():
             exploit()
         else:
             self.menu(host)
-    
-# class lognmoni():
 
-#Report - inject -Dumping Scanned Result - python sqliv.py -d <SQLI DORK> -e <SEARCH ENGINE> -o result.json
+class fatrat():
+    def __init__(self):
+        self.Install_directory = Tool_directory + "fatrat"
+        self.gitRepo = "https://github.com/Screetsec/TheFatRat.git"
+        if not self.installed():
+            self.install()
+        print('''
+        TheFatRat is an exploiting tool which compiles a malware with famous payload, and then the compiled 
+        maware can be executed on Linux , Windows , Mac and Android. TheFatRat Provides An Easy way to create 
+        Backdoors and Payload which can bypass most anti-virus.
+        ''')
+        input("Press Enter key to continue...")
+        self.run()
 
+    def installed(self):
+        return (os.path.isfile("/usr/bin/fatrat")or os.path.isfile("/usr/local/bin/fatrat"))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
+        os.system("sudo cd %s && chmod +x setup.sh && ./setup.sh" % self.Install_directory)
+
+    def run(self):
+        Sclear()
+        os.system("sudo fatrat")
+        input("\nPress Enter key to continue")
+        postexploit()
+
+class bashark():
+    def __init__(self):
+        self.Install_directory = Tool_directory + "bashark"
+        self.gitRepo = "https://github.com/redcode-labs/Bashark.git"
+        if not self.installed():
+            self.install()
+        print('''
+        Bashark aids pentesters and security researchers during the post-exploitation phase of security audit.
+        ''')
+        input("Press Enter key to continue...")
+        self.run()
+
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
+
+    def run(self):
+        Sclear()
+        os.system("source %s/bashark.s" % self.Install_directory)
+        input("\nPress Enter key to continue")
+        postexploit()
+
+class weevely():
+    def __init__(self):
+        if not self.installed():
+            self.install()
+        print('''
+        Weevely is a stealth PHP web shell that simulate telnet-like connection. It is an essential tool for 
+        web application post exploitation, and can be used as stealth backdoor or as a web shell to manage 
+        legit web accounts, even free hosted ones.
+        ''')
+        input("Press Enter key to continue...")
+        self.run()
+
+    def installed(self):
+        return (os.path.isfile("/usr/bin/weevely") or os.path.isfile("/usr/local/bin/weevely"))
+
+    def install(self):
+        os.system("sudo apt-get install weevely")
+
+    def run(self):
+        Sclear()
+        print(" WEEVELY : Creating a PHP BACKDOOR")
+        backdoor = input("Enter PHP Backdoor Location with name (Eg - /root/Desktop/backdoor.php): ")
+        password = input("Enter the password: ")
+        os.system("weevely generate %s %s" % (password,backdoor))
+        input("\nPress Enter key to continue")
+        postexploit()
+
+            
 class brutex():
     def __init__(self):
         self.Install_directory = Tool_directory + "brutex"
