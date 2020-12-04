@@ -815,10 +815,12 @@ class nikto():
             input("\nPress Enter key to continue")
             webscan()
         elif choice == '3':
+            port = input('''Enter Ports(No space just ',' in between): ''')
             os.system("nikto -h %s -ssl %s" % (host,port))
             input("\nPress Enter key to continue")
             webscan()
         elif choice == '4':
+            port = input('''Enter Ports(No space just ',' in between): ''')
             os.system("nikto -h %s -nossl %s" % (host,port))
             input("\nPress Enter key to continue")
             webscan()
