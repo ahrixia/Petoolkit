@@ -1471,7 +1471,8 @@ class brutex():
 
     def install(self):
         os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
-        os.system("sudo cd %s && ./install.sh" % self.Install_directory)    
+        input("\nPress Enter key to continue")
+        os.system("cd %s && sudo ./install.sh" % self.Install_directory)    
 
     def run(self):
         Sclear()
