@@ -707,7 +707,7 @@ class hping3():
         
 class masscan():
     def __init__(self):
-        self.Install_directory = toolDir + "masscan"
+        self.Install_directory = Tool_directory + "masscan"
         self.gitRepo = "https://github.com/robertdavidgraham/masscan.git"
         if not self.installed():
             self.install()
@@ -1474,6 +1474,7 @@ class brutex():
         os.system("cd %s && chmod +x install.sh && ./install.sh" % self.Install_directory)
 
     def run(self):
+        Sclear()
         host = input("HOST: ")      
         port = input("If any specific port (Default)")
         os.system("brutex %s %s" % (host,port))
