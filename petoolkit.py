@@ -1453,7 +1453,7 @@ class weevely():
             
 class brutex():
     def __init__(self):
-        self.Install_directory = Tool_directory + "brutex"
+        self.Install_directory = Tool_directory + "Brutex"
         self.gitRepo = "https://github.com/1N3/BruteX.git"
         if not self.installed():
             self.install()
