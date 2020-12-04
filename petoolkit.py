@@ -316,26 +316,6 @@ class webscan():
         else:
             self.__init__()
 
-class fulrecon():
-    def __init__(self):
-        host = input(" Enter the target IP or URL : ")
-        self.menu(host)
-
-    def menu(self, host):
-        Sclear()
-        print('    3klCon Project v1.0 by eslam3kl')
-        print('    1   -  Full Recon and Scanning')
-        print('    0   -  Back to Main Menu')
-        choice = input(cmd)
-        if choice == '1': 
-            os.system("python 3klcon.py -t %s" % host)
-            input("\nPress Enter key to continue")
-            fulrecon()
-        elif choice == '0':
-            scann()
-        else:
-            self.menu(host)
-
 class exploit():
     def __init__(self):
         Sclear()
@@ -1015,6 +995,33 @@ class skipfish():
         input("\nPress Enter key to continue")
         webscan()
 
+class fulrecon():
+    def __init__(self):        
+        self.Install_directory = Tool_directory + "3klCon"
+        self.gitRepo = "https://github.com/eslam3kl/3klCon.git"
+        if not self.installed():
+            self.install()
+        Sclear()
+        print('''
+        3klCon by Eslam Akl
+        Automation Recon tool which works with Large & Medium scopes. It performs more than 20 tasks and gets back all the results in separated files.
+        ''')
+        host = input(" Enter the target IP or URL : ")
+        self.menu(host)
+
+    def installed(self):
+        return (os.path.isdir(self.Install_directory))
+
+    def install(self):
+        os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
+        os.system("cd %s && chmod +x install_tools.sh && ./install_tools.sh" % self.Install_directory)
+
+    def run(self,host):
+        Sclear()
+        os.system("python %s/3klcon.py -t %s" % (self.Install_directory,host))
+        input("\nPress Enter key to continue")
+        scann()
+
 class inject():
     def __init__(self):
         self.Install_directory = Tool_directory + "sqliv"
@@ -1022,7 +1029,14 @@ class inject():
         if not self.installed():
             self.install()
         Sclear()
-        #INTROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+        print('''
+        SQLiv is a Massive SQL injection scanner
+        
+        Features
+        -multiple domain scanning with SQL injection dork by Bing, Google, or Yahoo
+        -targetted scanning by providing specific domain (with crawling)
+        -reverse domain scanning
+        ''')
         host = input(" Enter the target IP or URL : ")
         self.menu(host)
 
@@ -1081,40 +1095,46 @@ class broauth():
 # # class broacc():
 class secmisconf():
     def __init__(self):
-        self.Install_directory = Tool_directory + "watobo"
         if not self.installed():
             self.install()
         Sclear()
+        print('''
+        WATABO is a security tool for testing web applications. It is intended to enable security professionals to perform 
+        efficient (semi-automated) web application security audits.
+        ''')
+        input("\nPress Enter key to continue")
         self.run()
-#INTROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+
     def installed(self):
-        return (os.path.isdir(self.Install_directory))
+        return (os.path.isfile("/usr/bin/watobo") or os.path.isfile("/usr/local/bin/watobo"))
 
     def install(self):
-        os.system("%s/./watabo.sh" % Tool_directory)
+        os.system("apt-get install watobo")
     
     def run(self):
         os.system("watobo")
         input("\nPress Enter key to continue")
         exploit()
     
-class xxs():
-    def __init__(self):
-        if not self.installed():
-            self.install()
-        Sclear()
-        self.run()
-#INTROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-    def installed(self):
-        return (os.path.isfile("/usr/bin/haproxy") or os.path.isfile("/usr/local/bin/haproxy"))
+# class xxs():
+#     def __init__(self):
+#         if not self.installed():
+#             self.install()
+#         Sclear()
+#         self.run()
+# #INTROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+#     def installed(self):
+#         return (os.path.isfile("/usr/bin/haproxy") or os.path.isfile("/usr/local/bin/haproxy"))
 
-    def install(self):
-        os.system("apt install haproxy")
+#     def install(self):
+#         os.system("apt-cache policy haproxy")
+#         os.system("apt install haproxy")
 
-    def run(self):
-        os.system("haproxy")
-        input("\nPress Enter key to continue")
-        exploit()
+#     def run(self):
+#         os.system("systemctl restart haproxy")
+#         os.system("haproxy")
+#         input("\nPress Enter key to continue")
+#         exploit()
     
 # class insecdes():
 class kwnvuln():
@@ -1143,7 +1163,6 @@ class kwnvuln():
 # class lognmoni():
 
 #Report - inject -Dumping Scanned Result - python sqliv.py -d <SQLI DORK> -e <SEARCH ENGINE> -o result.json
-
 
 class brutex():
     def __init__(self):
