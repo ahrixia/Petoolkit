@@ -50,7 +50,7 @@ echo "Installing ...";
 echo "";
 git clone --depth=1 https://github.com/ahrixia/Petoolkit "$Install_directory";
 echo "#!$Bash_directory python3 $Install_directory/petoolkit.py" "${1+"$@"}" > "$Install_directory/petoolkit";
-chmod +x "$Install_directory/petoolkit";
+sudo chmod +x "$Install_directory/petoolkit";
 if [ "$TERMUX" = true ]; then
     cp "$Install_directory/petoolkit" "$Bin_directory"
 else
