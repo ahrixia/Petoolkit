@@ -1406,7 +1406,7 @@ class fatrat():
     def install(self):
         os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
         input("Press Enter key to continue...")
-        os.system("sudo cd %s && chmod +x setup.sh && ./setup.sh" % self.Install_directory)
+        os.system("cd %s && chmod +x setup.sh && sudo ./setup.sh" % self.Install_directory)
         input("Press Enter key to continue...")
 
     def run(self):
