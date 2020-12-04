@@ -466,7 +466,6 @@ class report():
         print( "    5   . Burp Suite")
         print( "    6   . Maltego")
         print( "    7   . Metagoofil")
-        print( "    99  . Read Report" )
         print( "    0   . Back" )
         choice = input(cmd) 
         if choice == '1':
@@ -483,14 +482,6 @@ class report():
             maltego()
         elif choice == '7':
             metagoofil()
-        elif choice == '99':
-            Sclear()
-            filename = input('Enter the report Name with location: ')
-            # a = open(filename, "r")
-            temp = open(filename,'r').read().split('\n')
-            print (temp)
-            input(" \n\n Press Enter to continue...")
-            report()
         elif choice == '0':
             petoolkit()
         else :
