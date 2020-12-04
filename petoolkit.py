@@ -1471,8 +1471,6 @@ class brutex():
 
     def install(self):
         os.system("git clone --depth=1 %s %s" %(self.gitRepo, self.Install_directory))
-        if not os.path.isdir("/usr/share/brutex"):
-            os.makedirs("/usr/share/brutex")
         os.system("sudo cd %s && ./install.sh" % self.Install_directory)    
 
     def run(self):
