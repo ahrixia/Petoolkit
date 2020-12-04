@@ -1180,7 +1180,7 @@ class xxe():
         os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
         os.system("sudo cd %s && chmod +x setup.sh && ./setup.sh" % self.Install_directory)
 
-    def menu(self, host):
+    def menu(self):
         print("    BlindRef: ")
         print("    1   .   BlindRef Server - serves entities to the vulnerable web application. ")
         print('''    2   .   BlindRef Attacker - Instantiates requests to the vulnerable web server 
