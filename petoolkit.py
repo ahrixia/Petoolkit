@@ -1148,7 +1148,7 @@ class secmisconf():
         return (os.path.isfile("/usr/bin/watobo") or os.path.isfile("/usr/local/bin/watobo"))
 
     def install(self):
-        os.system("apt-get install watobo")
+        os.system("sudo apt-get install watobo")
     
     def run(self):
         os.system("watobo")
@@ -1286,7 +1286,7 @@ class insecdes():
         os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
         os.system("sudo cd %s && make build && make test" % self.Install_directory)
 
-    def menu(self, host):
+    def menu(self):
         print("    ObjectMap : ")
         print("    1   .   Load a Request from a file ")
         print("    2   .   Analyse Target using Command Line Parameters")
@@ -1332,7 +1332,7 @@ class xxs():
     def install(self):
         os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
 
-    def menu(self, host):
+    def menu(self):
         print("    XXSMAP :  ")
         print("    1   .   Main Page XXS ")
         print("    2   .   Targer Specific XSS")
@@ -1636,7 +1636,7 @@ class setoolkit:
         return (os.path.isfile("/usr/bin/setoolkit"))
 
     def install(self):
-        os.system("apt-get --force-yes -y install git apache2 python-requests libapache2-mod-php python-pymssql build-essential python-pexpect python-pefile python-crypto python-openssl")
+        os.system("sudo apt-get --force-yes -y install git apache2 python-requests libapache2-mod-php python-pymssql build-essential python-pexpect python-pefile python-crypto python-openssl")
         os.system("git clone --depth=1 %s %s" % (self.gitRepo, self.Install_directory))
         os.system("cd %s && python setup.py install" % self.Install_directory)
 
