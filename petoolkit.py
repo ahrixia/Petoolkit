@@ -164,13 +164,13 @@ dP   dP   dP          dP          .d88888b                                      
         ''')
         ans = input("Do you agree to use it for Right purpose? (y/n): ")
         if (ans.lower() == 'y'):
-            pet()
+            petoolkit()
         elif (ans.lower() == 'n'):
             print(quitbanner)
             print('\nThanks. We appreciate your kindness...')
             sys.exit(0) 
 
-class pet:
+class petoolkit:
     def __init__(self):
         Sclear()
         now = datetime.datetime.now()
@@ -245,7 +245,7 @@ class infogath():
             input("Press any key to continue")
             infogath()
         elif choice == '0':
-            pet()
+            petoolkit()
         else:
             self.__init__()
 
@@ -266,7 +266,7 @@ class scann():
         elif choice == '3':
             fulrecon()
         elif choice == '0':
-            pet()
+            petoolkit()
         else:
             self.__init__()
 
@@ -376,7 +376,7 @@ class exploit():
             input("\nPress Enter key to continue")
             exploit()
         elif choice == '0':
-            pet()
+            petoolkit()
         else:
             self.__init__()
 class postexploit():
@@ -407,7 +407,7 @@ class postexploit():
             input("Press any key to continue")
             postexploit()
         elif choice == '0':
-            pet()
+            petoolkit()
         else:
             self.__init__()
 
@@ -433,7 +433,7 @@ class pwdcrack():
         elif choice == '5':
             ncrack()
         elif choice == '0':
-            pet()
+            petoolkit()
         else :
             self.__init__()
 
@@ -450,7 +450,7 @@ class sniffsnoof():
         elif choice == '2':
             macchanger()
         elif choice == '0':
-            pet()
+            petoolkit()
         else :
             self.__init__()
 
@@ -492,7 +492,7 @@ class report():
             input(" \n\n Press Enter to continue...")
             report()
         elif choice == '0':
-            pet()
+            petoolkit()
         else :
             self.__init__()
 
