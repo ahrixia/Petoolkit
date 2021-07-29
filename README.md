@@ -1,12 +1,11 @@
 # Petoolkit
 
 ## Intallation Steps
-
-* `git clone https://github.com/ahrixia/Petoolkit`  
-* `cd Petoolkit`
-* `chmod +x install.sh && ./insall.sh`
-
-----
+```bash
+git clone https://github.com/ahrixia/Petoolkit 
+cd Petoolkit
+chmod +x install.sh && ./insall.sh
+```
 
 ## How to use it
 
