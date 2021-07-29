@@ -1,10 +1,15 @@
 # Petoolkit
 
-# Intallation Steps
-1- git clone https://github.com/ahrixia/Petoolkit
+## Intallation Steps
 
-2- cd Petoolkit
+* `git clone https://github.com/ahrixia/Petoolkit`  
+* `cd Petoolkit`
+* `chmod +x install.sh && ./insall.sh`
 
-3- chmod +x install.sh && ./insall.sh
+----
 
-4- petoolkit
+## How to use it
+
+After the installation is done, you can run the toolkit by typing
+`petoolkit`
+  
