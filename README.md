@@ -4,7 +4,8 @@
 ```bash
 git clone https://github.com/ahrixia/Petoolkit 
 cd Petoolkit
-chmod +x install.sh && ./insall.sh
+chmod +x install.sh 
+./install.sh
 ```
 
 ## How to use it
